@@ -123,7 +123,7 @@
         "../node_modules/@nuxtjs/sitemap/dist/runtime/types"
       ],
       "#mail": [
-        "./file:/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt/nuxt-mail"
+        "./file:/Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail"
       ],
       "#vue-router": [
         "./vue-router"

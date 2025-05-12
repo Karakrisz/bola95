@@ -1,39 +1,39 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, getResponseStatus, setResponseHeaders, setHeaders, sendRedirect, proxyRequest, createError, getRequestHost, getRequestProtocol, setHeader, getHeader, getQuery as getQuery$1, readBody, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/h3/dist/index.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { getRequestHeader, splitCookiesString, setResponseStatus, setResponseHeader, send, getRequestHeaders, defineEventHandler, handleCacheHeaders, createEvent, fetchWithEvent, isEvent, eventHandler, getResponseStatus, setResponseHeaders, setHeaders, sendRedirect, proxyRequest, createError, getRequestHost, getRequestProtocol, setHeader, getHeader, getQuery as getQuery$1, readBody, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { parentPort, threadId } from 'node:worker_threads';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/devalue/index.js';
-import destr from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/destr/dist/index.mjs';
-import { withQuery, joinURL, withTrailingSlash, parseURL, withoutBase, getQuery, joinRelativeURL, hasProtocol, withHttps, withoutProtocol, withLeadingSlash, withoutTrailingSlash, withBase } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/vue/server-renderer/index.mjs';
-import { propsToString, renderSSRHead } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/@unhead/ssr/dist/index.mjs';
-import { createHooks } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/hookable/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/ofetch/dist/node.mjs';
-import { createCall, createFetch } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/unenv/runtime/fetch/index.mjs';
-import { klona } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/klona/dist/index.mjs';
-import defu, { defuFn, defu as defu$1, createDefu } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/scule/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/radix3/dist/index.mjs';
-import { getContext } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/unctx/dist/index.mjs';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/devalue/index.js';
+import destr from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/destr/dist/index.mjs';
+import { withQuery, joinURL, withTrailingSlash, parseURL, withoutBase, getQuery, joinRelativeURL, hasProtocol, withHttps, withoutProtocol, withLeadingSlash, withoutTrailingSlash, withBase } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/vue/server-renderer/index.mjs';
+import { propsToString, renderSSRHead } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/@unhead/ssr/dist/index.mjs';
+import { createHooks } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/hookable/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/ofetch/dist/node.mjs';
+import { createCall, createFetch } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unenv/runtime/fetch/index.mjs';
+import { klona } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/klona/dist/index.mjs';
+import defu, { defuFn, defu as defu$1, createDefu } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/scule/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/radix3/dist/index.mjs';
+import { getContext } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unctx/dist/index.mjs';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { consola } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/consola/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/errx/dist/index.js';
-import { isVNode, toValue, version, unref } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/vue/index.mjs';
-import devalue from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/@nuxt/devalue/dist/devalue.mjs';
-import nodemailer from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nodemailer/lib/nodemailer.js';
-import options from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt/nuxt-mail/options.mjs';
-import send$1 from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt/nuxt-mail/send.mjs';
+import { consola } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/consola/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/errx/dist/index.js';
+import { isVNode, toValue, version, unref } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/vue/index.mjs';
+import devalue from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/@nuxt/devalue/dist/devalue.mjs';
+import nodemailer from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nodemailer/lib/nodemailer.js';
+import options from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail/options.mjs';
+import send$1 from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail/send.mjs';
 import { fileURLToPath } from 'node:url';
-import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/ipx/dist/index.mjs';
-import { isAbsolute } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/pathe/dist/index.mjs';
-import { hash } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/ohash/dist/index.mjs';
-import { createServerHead as createServerHead$1, CapoPlugin } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/@unhead/shared/dist/index.mjs';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/ipx/dist/index.mjs';
+import { isAbsolute } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/pathe/dist/index.mjs';
+import { hash } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/ohash/dist/index.mjs';
+import { createServerHead as createServerHead$1, CapoPlugin } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/@unhead/shared/dist/index.mjs';
 
 function hasReqHeader(event, name, includes) {
   const value = getRequestHeader(event, name);
@@ -179,13 +179,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _0VSUkmJi7z = (function(nitro) {
+const _RwlDw5IBWH = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed";
+const rootDir = "/Applications/XAMPP/xamppfiles/htdocs/bola95";
 
 const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"SEO-optimalizált weboldal készítés vállalkozásoknakLegyen weboldalad gyors, modern és keresőoptimalizált!"},{"name":"format-detection","content":"telephone=no"},{"hid":"robots","name":"robots","content":"index, follow"},{"http-equiv":"Content-Security-Policy","content":"\n            default-src 'self' https: data:;\n            img-src 'self' https: http: data:;\n            font-src 'self' https: data:;\n            style-src 'self' https: 'unsafe-inline';\n            script-src 'self' https: 'unsafe-inline' 'unsafe-eval';\n          "}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"canonical","href":"https://www.alkuszom.info"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Digital Seed Studio","htmlAttrs":{"lang":"hu"}};
 
@@ -204,7 +204,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : undefined
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _D8A1dsGNJY = (nitroApp) => {
+const _LTWCdXfyXi = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -403,7 +403,7 @@ const _inlineRuntimeConfig = {
       {
         "_context": "system",
         "_priority": -15,
-        "name": "DigitalSeed",
+        "name": "bola95",
         "env": "development"
       },
       {
@@ -426,7 +426,7 @@ const _inlineRuntimeConfig = {
     "alias": {},
     "fs": {
       "dir": [
-        "/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/public"
+        "/Applications/XAMPP/xamppfiles/htdocs/bola95/public"
       ]
     },
     "http": {
@@ -493,7 +493,7 @@ function defineNitroPlugin(def) {
   return def;
 }
 
-const serverAssets = [{"baseName":"server","dir":"/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Applications/XAMPP/xamppfiles/htdocs/bola95/server/assets"}];
 
 const assets = createStorage();
 
@@ -505,11 +505,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Applications/XAMPP/xamppfiles/htdocs/bola95","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Applications/XAMPP/xamppfiles/htdocs/bola95/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Applications/XAMPP/xamppfiles/htdocs/bola95/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -1144,7 +1144,7 @@ function createSitePathResolver(e, options = {}) {
   };
 }
 
-const _oohVuaBXjJ = defineNitroPlugin(async (nitroApp) => {
+const _vlSsVHFq7p = defineNitroPlugin(async (nitroApp) => {
   nitroApp.hooks.hook("render:html", async (ctx, { event }) => {
     const routeOptions = getRouteRules(event);
     const isIsland = process.env.NUXT_COMPONENT_ISLANDS && event.path.startsWith("/__nuxt_island");
@@ -1160,12 +1160,12 @@ const _oohVuaBXjJ = defineNitroPlugin(async (nitroApp) => {
 });
 
 const plugins = [
-  _0VSUkmJi7z,
-_D8A1dsGNJY,
-_oohVuaBXjJ
+  _RwlDw5IBWH,
+_LTWCdXfyXi,
+_vlSsVHFq7p
 ];
 
-const _AwZV9G = defineEventHandler(async (e) => {
+const _Gb3UPE = defineEventHandler(async (e) => {
   if (e.context.siteConfig)
     return;
   const runtimeConfig = useRuntimeConfig(e);
@@ -1213,7 +1213,7 @@ const _AwZV9G = defineEventHandler(async (e) => {
   e.context.siteConfig = ctx.siteConfig;
 });
 
-const _wqzac6 = defineEventHandler(async (e) => {
+const _eCdSeu = defineEventHandler(async (e) => {
   const siteConfig = useSiteConfig(e);
   const nitroOrigin = useNitroOrigin(e);
   const runtimeConfig = useRuntimeConfig(e);
@@ -1391,7 +1391,7 @@ async function resolveSitemapSources(sources, event) {
   )).flat();
 }
 
-const _Tcg85D = defineEventHandler(async (e) => {
+const _8tTyPY = defineEventHandler(async (e) => {
   const _runtimeConfig = useSimpleSitemapRuntimeConfig();
   const { sitemaps: _sitemaps } = _runtimeConfig;
   const runtimeConfig = { ..._runtimeConfig };
@@ -1413,7 +1413,7 @@ const _Tcg85D = defineEventHandler(async (e) => {
   };
 });
 
-const _oxfuag = defineEventHandler(async (e) => {
+const _BpmqBq = defineEventHandler(async (e) => {
   const fixPath = createSitePathResolver(e, { absolute: false, withBase: true });
   const { sitemapName: fallbackSitemapName, cacheMaxAgeSeconds, version, xslColumns, xslTips } = useSimpleSitemapRuntimeConfig();
   setHeader(e, "Content-Type", "application/xslt+xml");
@@ -2219,7 +2219,7 @@ async function createSitemap(e, definition, runtimeConfig) {
   return sitemap;
 }
 
-const _C1OKYs = defineEventHandler(async (e) => {
+const _Ec00AQ = defineEventHandler(async (e) => {
   const runtimeConfig = useSimpleSitemapRuntimeConfig();
   const { sitemaps } = runtimeConfig;
   if ("index" in sitemaps) {
@@ -2229,7 +2229,7 @@ const _C1OKYs = defineEventHandler(async (e) => {
 });
 
 const transport = nodemailer.createTransport(options.smtp);
-const _Xqnm4U = defineEventHandler(async event => {
+const _R9QjlY = defineEventHandler(async event => {
   try {
     await send$1(await readBody(event), options, transport);
   } catch (error) {
@@ -2241,7 +2241,7 @@ const _Xqnm4U = defineEventHandler(async event => {
   return '';
 });
 
-const _ExH5tO = lazyEventHandler(() => {
+const _VzSnDJ = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : undefined;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : undefined;
@@ -2259,18 +2259,18 @@ const _ExH5tO = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_kTBo3J = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_8xS4At = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_kTBo3J, lazy: true, middleware: false, method: undefined },
-  { route: '', handler: _AwZV9G, lazy: false, middleware: true, method: undefined },
-  { route: '/__site-config__/debug.json', handler: _wqzac6, lazy: false, middleware: false, method: undefined },
-  { route: '/__sitemap__/debug.json', handler: _Tcg85D, lazy: false, middleware: false, method: undefined },
-  { route: '/__sitemap__/style.xsl', handler: _oxfuag, lazy: false, middleware: false, method: undefined },
-  { route: '/sitemap.xml', handler: _C1OKYs, lazy: false, middleware: false, method: undefined },
-  { route: '/mail/send', handler: _Xqnm4U, lazy: false, middleware: false, method: "post" },
-  { route: '/_ipx/**', handler: _ExH5tO, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_kTBo3J, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_8xS4At, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _Gb3UPE, lazy: false, middleware: true, method: undefined },
+  { route: '/__site-config__/debug.json', handler: _eCdSeu, lazy: false, middleware: false, method: undefined },
+  { route: '/__sitemap__/debug.json', handler: _8tTyPY, lazy: false, middleware: false, method: undefined },
+  { route: '/__sitemap__/style.xsl', handler: _BpmqBq, lazy: false, middleware: false, method: undefined },
+  { route: '/sitemap.xml', handler: _Ec00AQ, lazy: false, middleware: false, method: undefined },
+  { route: '/mail/send', handler: _R9QjlY, lazy: false, middleware: false, method: "post" },
+  { route: '/_ipx/**', handler: _VzSnDJ, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_8xS4At, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -2609,8 +2609,8 @@ const renderSSRHeadOptions = {"omitLineBreaks":false};
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();

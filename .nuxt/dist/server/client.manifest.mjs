@@ -1,1 +1,1 @@
-export { default } from "file:///Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"

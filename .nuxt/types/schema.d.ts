@@ -6,9 +6,9 @@ declare module '@nuxt/schema' {
      */
     ["image"]: typeof import("@nuxt/image").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
-     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module`
+     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module`
      */
-    ["site"]: typeof import("/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? O : Record<string, any>
+    ["site"]: typeof import("/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
      * Configuration for `@nuxtjs/sitemap`
      */
@@ -28,9 +28,9 @@ declare module '@nuxt/schema' {
      */
     ["image"]?: typeof import("@nuxt/image").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
-     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module`
+     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module`
      */
-    ["site"]?: typeof import("/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    ["site"]?: typeof import("/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
      * Configuration for `@nuxtjs/sitemap`
      */
@@ -43,7 +43,7 @@ declare module '@nuxt/schema' {
      * Configuration for `@nuxt/telemetry`
      */
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module", Exclude<NuxtConfig["site"], boolean>] | ["@nuxtjs/sitemap", Exclude<NuxtConfig["sitemap"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module", Exclude<NuxtConfig["site"], boolean>] | ["@nuxtjs/sitemap", Exclude<NuxtConfig["sitemap"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
   }
 }
 declare module 'nuxt/schema' {
@@ -54,10 +54,10 @@ declare module 'nuxt/schema' {
      */
     ["image"]: typeof import("@nuxt/image").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
-     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module`
-     * @see https://www.npmjs.com/package//Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module
+     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module`
+     * @see https://www.npmjs.com/package//Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module
      */
-    ["site"]: typeof import("/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? O : Record<string, any>
+    ["site"]: typeof import("/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? O : Record<string, any>
     /**
      * Configuration for `@nuxtjs/sitemap`
      * @see https://www.npmjs.com/package/@nuxtjs/sitemap
@@ -81,10 +81,10 @@ declare module 'nuxt/schema' {
      */
     ["image"]?: typeof import("@nuxt/image").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
-     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module`
-     * @see https://www.npmjs.com/package//Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module
+     * Configuration for `/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module`
+     * @see https://www.npmjs.com/package//Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module
      */
-    ["site"]?: typeof import("/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
+    ["site"]?: typeof import("/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
     /**
      * Configuration for `@nuxtjs/sitemap`
      * @see https://www.npmjs.com/package/@nuxtjs/sitemap
@@ -100,7 +100,7 @@ declare module 'nuxt/schema' {
      * @see https://www.npmjs.com/package/@nuxt/telemetry
      */
     ["telemetry"]?: typeof import("@nuxt/telemetry").default extends NuxtModule<infer O> ? Partial<O> : Record<string, any>
-    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["/Applications/XAMPP/xamppfiles/htdocs/DigitalSeed/node_modules/nuxt-site-config/dist/module", Exclude<NuxtConfig["site"], boolean>] | ["@nuxtjs/sitemap", Exclude<NuxtConfig["sitemap"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
+    modules?: (undefined | null | false | NuxtModule<any> | string | [NuxtModule | string, Record<string, any>] | ["@nuxt/image", Exclude<NuxtConfig["image"], boolean>] | ["/Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nuxt-site-config/dist/module", Exclude<NuxtConfig["site"], boolean>] | ["@nuxtjs/sitemap", Exclude<NuxtConfig["sitemap"], boolean>] | ["@nuxt/devtools", Exclude<NuxtConfig["devtools"], boolean>] | ["@nuxt/telemetry", Exclude<NuxtConfig["telemetry"], boolean>])[],
   }
   interface RuntimeConfig {
    app: {
