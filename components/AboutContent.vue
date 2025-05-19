@@ -1,149 +1,131 @@
 <template>
-    <section class="about">
-      <div class="about__container">
-        <div class="about__content">
-          <div class="about__content-inner">
-            <h2 class="about__title">Rólunk</h2>
-            
-            <p class="about__paragraph">
-              Több mint 30 éve dolgozunk azon, hogy Magyarország útjai, bejárói és 
-              udvarai stabil, időtálló és esztétikus burkolatot kapjanak. Cégünk az 
-              évtizedek alatt nemcsak a szakmai tapasztalatát, hanem saját gépparkját 
-              és megbízható csapatát is folyamatosan fejlesztette, így ma már teljes körű 
-              szolgáltatást tudunk nyújtani az útépítés és burkolás minden területén.
+    <section class="about-us" id="about-us">
+      <div class="about-us__container">
+        <div class="about-us__content">
+          <h2 class="about-us__title">Rólunk</h2>
+  
+          <div class="about-us__text-block">
+            <p class="about-us__paragraph">
+              Több mint 30 éve dolgozunk azon, hogy Magyarország útjai, bejárói és udvarai stabil, időtálló és esztétikus burkolatot kapjanak. Cégünk az évtizedek alatt nemcsak a szakmai tapasztalatát, hanem saját gépparkját és megbízható csapatát is folyamatosan fejlesztette, így ma már teljes körű szolgáltatást tudunk nyújtani az útépítés és burkolás minden területén.
             </p>
-            
-            <p class="about__paragraph">
-              Legyen szó ipari léptékű útépítésről, kátyúzásról vagy akár egy családi ház 
-              kapubejárójának térkövezéséről, számunkra minden munka ugyanolyan 
-              fontos. Magánszemélyek és vállalkozások egyaránt számíthatnak ránk, ha 
-              minőségi, tartós és precíz kivitelezésre van szükség.
+            <p class="about-us__paragraph">
+              Legyen szó ipari léptékű útépítésről, kátyúzásról vagy akár egy családi ház kapubejárójának térkövezéséről, számunkra minden munka ugyanolyan fontos. Magánszemélyek és vállalkozások egyaránt számíthatnak ránk, ha minőségi, tartós és precíz kivitelezésre van szükség.
             </p>
-            
-            <p class="about__paragraph">
-              Szolgáltatásaink között szerepel az aszfaltozás több típusa (pl. hengerelt 
-              vagy mart aszfalt), térkövezés, alapozás, szegélyezés, vízelvezetés, valamint 
-              különféle betonozási munkálatok. Minden projektünknél nagy hangsúlyt 
-              fektetünk az előkészítésre, az anyagminőségre és a határidők pontos 
-              betartására.
+            <p class="about-us__paragraph">
+              Szolgáltatásaink között szerepel az aszfaltozás több típusa (pl. hengerelt vagy mart aszfalt), térkövezés, alapozás, szegélyezés, vízelvezetés, valamint különféle betonozási munkálatok. Minden projektünknél nagy hangsúlyt fektetünk az előkészítésre, az anyagminőségre és a határidők pontos betartására.
             </p>
-            
-            <p class="about__paragraph">
-              A célunk egyszerű: hosszú távon megbízható, esztétikus és funkcionális 
-              burkolatokat létrehozni, amelyek valóban kiszolgálják megrendelőink 
-              igényeit – akár egy belvárosi járdáról, akár egy családi ház előtti beállóról 
-              van szó.
+            <p class="about-us__paragraph">
+              A célunk egyszerű: hosszú távon megbízható, esztétikus és funkcionális burkolatokat létrehozni, amelyek valóban kiszolgálják megrendelőink igényeit – akár egy belvárosi járdáról, akár egy családi ház előtti beállóról van szó.
             </p>
-            
-            <div class="about__action">
-              <a href="#kapcsolat" class="about__button">KAPCSOLAT</a>
-            </div>
           </div>
+  
+          <a href="/contact" class="about-us__button">Kapcsolat</a>
         </div>
-        
-        <div class="about__image-container">
-          <img src="" alt="Útépítő szakemberek munka közben" class="about__image">
+  
+        <div class="about-us__image">
+          <img
+   
+            alt="Construction workers working on a site"
+            class="about-us__img"
+          />
         </div>
       </div>
     </section>
   </template>
   
-  <script setup>
-  // A komponens logikája jöhet ide, ha szükséges
-  </script>
+
   
-  <style lang="scss">
-  .about {
-    padding: 4rem 0;
-    background-color: #3d4250;
-    color: #fff;
-    
+  <style lang="scss" scoped>
+  @use "sass:color";
+  
+  // variables
+  $color-bg-dark:     #49505c;
+  $color-text:        #ffffff;
+  $color-button:      #ff6300;
+  $color-button-text: #ffffff;
+  $transition-speed:  0.3s;
+  
+  .about-us {
     &__container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      
-      @media (max-width: 992px) {
-        grid-template-columns: 1fr;
-      }
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
     }
-    
+  
     &__content {
-      position: relative;
-      clip-path: polygon(0 0%, 80% 0%, 73% 100%, 0% 100%); // A szöveges rész ferde vágása
-      background-color: #3d4250;
-      padding-right: 2rem;
-      
-      @media (max-width: 992px) {
-        clip-path: none; // Mobilnézetben ne legyen ferde vágás
-        padding-right: 0;
-      }
+      flex: 0 0 60%;
+      background-color: $color-bg-dark;
+      color: $color-text;
+      padding: 4rem 3rem;
+      clip-path: polygon(0 0, 70% 0, 60% 100%, 0 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    
-    &__content-inner {
-      padding-right: 2rem;
-      
-      @media (max-width: 992px) {
-        padding-right: 0;
-      }
-    }
-    
+  
     &__title {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: #fff;
+      line-height: 1.2;
     }
-    
+  
+    &__text-block {
+      margin-bottom: 2.5rem;
+    }
+  
     &__paragraph {
-      margin-bottom: 1rem;
-      line-height: 1.6;
       font-size: 1rem;
-      
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+  
       &:last-of-type {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
       }
     }
-    
-    &__action {
-      margin-top: auto;
-      padding-top: 1rem;
-    }
-    
+  
     &__button {
       display: inline-block;
-      padding: 0.8rem 2rem;
-      background-color: #ff5722;
-      color: #fff;
+      background-color: $color-button;
+      color: $color-button-text;
       text-decoration: none;
-      font-weight: 600;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      
-      &:hover {
-        background-color: #e64a19; // Előre definiált sötétebb narancs 
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.25rem;
+      transition: background-color $transition-speed;
+  
+      &:hover,
+      &:focus {
+        // 10%-kal sötétítjük a gombot
+        background-color: color.scale($color-button, $lightness: -10%);
       }
     }
-    
-    &__image-container {
+  
+    &__image {
+      flex: 0 0 40%;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      
-      @media (max-width: 992px) {
-        margin-top: 2rem;
-      }
     }
-    
-    &__image {
+  
+    // Az img-t ne nested namespace-ként, hanem simán referáljuk
+    .about-us__img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
     }
   }
+  
+  // Responsive: kisebb képernyőn oszlopba rendezzük
+  @media (max-width: 768px) {
+    .about-us__container {
+      flex-direction: column;
+    }
+    .about-us__content,
+    .about-us__image {
+      clip-path: none;
+      flex: 1 1 auto;
+    }
+  }
   </style>
+  
