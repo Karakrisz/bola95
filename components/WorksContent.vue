@@ -1,3 +1,41 @@
+<script setup>
+import { ref } from 'vue'
+
+const projects = [
+  {
+    image: '/img/work.webp',
+    alt: 'Budapest, Március 15. tér felújított tér képe',
+    location: 'Budapest, Március 15. tér',
+    label: 'TELJES TÉRKÖVEZÉS',
+    description1:
+      'A Március 15. tér térkövezésének felújítása során korszerű és esztétikus burkolatot alakítottunk ki, amely harmonikusan illeszkedik a belvárosi környezethez. A munkálatok során a korábban egyenetlen és elhasználódott felületeket teljesen eltávolítottuk, majd gondosan előkészített alaprétegre új térköveket fektettünk le.',
+    description2:
+      'Kiemelt figyelmet fordítottunk a vízelvezetésre és a gyalogosforgalom zavartalanságára, így a megújult tér nemcsak szebb, hanem funkcionálisan is sokkal biztonságosabb és időtállóbb lett.',
+  },
+  {
+    image: '/img/work.webp',
+    alt: 'Egy másik projekt látványterve',
+    location: 'Szeged, Dóm tér',
+    label: 'TÉRKŐ CSERE',
+    description1:
+      'A Dóm tér burkolatának korszerűsítésével egy letisztultabb és időjárásállóbb felületet alakítottunk ki, amely illeszkedik a történelmi környezethez.',
+    description2:
+      'A kivitelezés során figyeltünk arra, hogy a tér a felújítás alatt is látogatható maradjon.',
+  },
+]
+
+const currentIndex = ref(0)
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % projects.length
+}
+
+const prevSlide = () => {
+  currentIndex.value =
+    (currentIndex.value - 1 + projects.length) % projects.length
+}
+</script>
+
 <template>
   <section class="work-showcase" aria-labelledby="work-showcase__title">
     <div class="work-showcase__container">
@@ -49,45 +87,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const projects = [
-  {
-    image:
-      '/img/work.webp',
-    alt: 'Budapest, Március 15. tér felújított tér képe',
-    location: 'Budapest, Március 15. tér',
-    label: 'TELJES TÉRKÖVEZÉS',
-    description1:
-      'A Március 15. tér térkövezésének felújítása során korszerű és esztétikus burkolatot alakítottunk ki, amely harmonikusan illeszkedik a belvárosi környezethez. A munkálatok során a korábban egyenetlen és elhasználódott felületeket teljesen eltávolítottuk, majd gondosan előkészített alaprétegre új térköveket fektettünk le.',
-    description2:
-      'Kiemelt figyelmet fordítottunk a vízelvezetésre és a gyalogosforgalom zavartalanságára, így a megújult tér nemcsak szebb, hanem funkcionálisan is sokkal biztonságosabb és időtállóbb lett.',
-  },
-  {
-    image: '/img/work.webp',
-    alt: 'Egy másik projekt látványterve',
-    location: 'Szeged, Dóm tér',
-    label: 'TÉRKŐ CSERE',
-    description1:
-      'A Dóm tér burkolatának korszerűsítésével egy letisztultabb és időjárásállóbb felületet alakítottunk ki, amely illeszkedik a történelmi környezethez.',
-    description2:
-      'A kivitelezés során figyeltünk arra, hogy a tér a felújítás alatt is látogatható maradjon.',
-  },
-]
-
-const currentIndex = ref(0)
-
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % projects.length
-}
-
-const prevSlide = () => {
-  currentIndex.value =
-    (currentIndex.value - 1 + projects.length) % projects.length
-}
-</script>
 
 <style lang="scss" scoped>
 .work-showcase {

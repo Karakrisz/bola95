@@ -4,4 +4,6 @@
   <WorksContent />
   <LayerContent />
   <NextLayerContent />
+  <PartnersContent />
+  <ContactContent />
 </template>

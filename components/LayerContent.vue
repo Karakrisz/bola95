@@ -1,3 +1,28 @@
+<script setup>
+const blocks = [
+  {
+    title: 'Az alaprétég szerepe',
+    text: 'Az alaprétég teherelosztó funkciót lát el, ez viseli a forgalom és az időjárás jelentős részét. Típusát a talaj minősége, a burkolat várható terhelése és a vízelvezetési környezet határozza meg. Hibás vagy gyenge alap gyors burkolatkárosodáshoz vezethet.',
+  },
+  {
+    title: 'Fagyvédelem alulról',
+    text: 'A fagyvédő réteg megakadályozza, hogy a téli fagyás károkat okozzon az útpályában. Ez különösen fontos olyan helyeken, ahol a víz panghat, vagy ahol a burkolat alatt nem megfelelő a természetes vízelvezetés.',
+  },
+  {
+    title: 'Tömörített tükör – a biztos kiindulás',
+    text: 'Ez a legalsó, mechanikusan tömörített réteg biztosítja a stabil alépítményt. Enélkül a felette lévő rétegek elmozdulhatnak, repedések és süllyedések alakulhatnak ki.',
+  },
+  {
+    title: 'A kopóréteg és az aszfalt alaprétég',
+    text: 'A kopóréteg biztosítja a sima, kényelmes és biztonságos közlekedést, míg az alatta lévő aszfalt alapréteg a szerkezeti szilárdságot. Egyik sem működik megfelelően a másik nélkül.',
+  },
+  {
+    title: 'Szegély – nem csak dísz',
+    text: 'A szegélykő és a szegélybeton statikai szerepet is betölt. Megtámasztja a burkolatot, megakadályozza az oldalsó szétcsúszást, és hozzájárul az élettartam jelentős meghosszabbításához.',
+  },
+]
+</script>
+
 <template>
   <section class="nextlayer" id="pavement-structure-reverse">
     <div class="nextlayer__container">
@@ -32,30 +57,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
-const blocks = [
-  {
-    title: 'Az alaprétég szerepe',
-    text: 'Az alaprétég teherelosztó funkciót lát el, ez viseli a forgalom és az időjárás jelentős részét. Típusát a talaj minősége, a burkolat várható terhelése és a vízelvezetési környezet határozza meg. Hibás vagy gyenge alap gyors burkolatkárosodáshoz vezethet.',
-  },
-  {
-    title: 'Fagyvédelem alulról',
-    text: 'A fagyvédő réteg megakadályozza, hogy a téli fagyás károkat okozzon az útpályában. Ez különösen fontos olyan helyeken, ahol a víz panghat, vagy ahol a burkolat alatt nem megfelelő a természetes vízelvezetés.',
-  },
-  {
-    title: 'Tömörített tükör – a biztos kiindulás',
-    text: 'Ez a legalsó, mechanikusan tömörített réteg biztosítja a stabil alépítményt. Enélkül a felette lévő rétegek elmozdulhatnak, repedések és süllyedések alakulhatnak ki.',
-  },
-  {
-    title: 'A kopóréteg és az aszfalt alaprétég',
-    text: 'A kopóréteg biztosítja a sima, kényelmes és biztonságos közlekedést, míg az alatta lévő aszfalt alapréteg a szerkezeti szilárdságot. Egyik sem működik megfelelően a másik nélkül.',
-  },
-  {
-    title: 'Szegély – nem csak dísz',
-    text: 'A szegélykő és a szegélybeton statikai szerepet is betölt. Megtámasztja a burkolatot, megakadályozza az oldalsó szétcsúszást, és hozzájárul az élettartam jelentős meghosszabbításához.',
-  },
-]
-</script>
+
 
 <style lang="scss" scoped>
 @use 'sass:color';

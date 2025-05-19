@@ -1,131 +1,161 @@
+<script setup>
+const blocks = [
+  {
+    title: 'Az alaprétég szerepe',
+    text: 'Az alaprétég teherelosztó funkciót lát el, ez viseli a forgalom és az időjárás jelentős részét. Típusát a talaj minősége, a burkolat várható terhelése és a vízelvezetési környezet határozza meg. Hibás vagy gyenge alap gyors burkolatkárosodáshoz vezethet.',
+  },
+  {
+    title: 'Fagyvédelem alulról',
+    text: 'A fagyvédő réteg megakadályozza, hogy a téli fagyás károkat okozzon az útpályában. Ez különösen fontos olyan helyeken, ahol a víz panghat, vagy ahol a burkolat alatt nem megfelelő a természetes vízelvezetés.',
+  },
+  {
+    title: 'Tömörített tükör – a biztos kiindulás',
+    text: 'Ez a legalsó, mechanikusan tömörített réteg biztosítja a stabil alépítményt. Enélkül a felette lévő rétegek elmozdulhatnak, repedések és süllyedések alakulhatnak ki.',
+  },
+  {
+    title: 'A kopóréteg és az aszfalt alaprétég',
+    text: 'A kopóréteg biztosítja a sima, kényelmes és biztonságos közlekedést, míg az alatta lévő aszfalt alapréteg a szerkezeti szilárdságot. Egyik sem működik megfelelően a másik nélkül.',
+  },
+  {
+    title: 'Szegély – nem csak dísz',
+    text: 'A szegélykő és a szegélybeton statikai szerepet is betölt. Megtámasztja a burkolatot, megakadályozza az oldalsó szétcsúszást, és hozzájárul az élettartam jelentős meghosszabbításához.',
+  },
+]
+</script>
+
 <template>
-    <section class="about-us" id="about-us">
-      <div class="about-us__container">
-        <div class="about-us__content">
-          <h2 class="about-us__title">Rólunk</h2>
-  
-          <div class="about-us__text-block">
-            <p class="about-us__paragraph">
-              Több mint 30 éve dolgozunk azon, hogy Magyarország útjai, bejárói és udvarai stabil, időtálló és esztétikus burkolatot kapjanak. Cégünk az évtizedek alatt nemcsak a szakmai tapasztalatát, hanem saját gépparkját és megbízható csapatát is folyamatosan fejlesztette, így ma már teljes körű szolgáltatást tudunk nyújtani az útépítés és burkolás minden területén.
-            </p>
-            <p class="about-us__paragraph">
-              Legyen szó ipari léptékű útépítésről, kátyúzásról vagy akár egy családi ház kapubejárójának térkövezéséről, számunkra minden munka ugyanolyan fontos. Magánszemélyek és vállalkozások egyaránt számíthatnak ránk, ha minőségi, tartós és precíz kivitelezésre van szükség.
-            </p>
-            <p class="about-us__paragraph">
-              Szolgáltatásaink között szerepel az aszfaltozás több típusa (pl. hengerelt vagy mart aszfalt), térkövezés, alapozás, szegélyezés, vízelvezetés, valamint különféle betonozási munkálatok. Minden projektünknél nagy hangsúlyt fektetünk az előkészítésre, az anyagminőségre és a határidők pontos betartására.
-            </p>
-            <p class="about-us__paragraph">
-              A célunk egyszerű: hosszú távon megbízható, esztétikus és funkcionális burkolatokat létrehozni, amelyek valóban kiszolgálják megrendelőink igényeit – akár egy belvárosi járdáról, akár egy családi ház előtti beállóról van szó.
-            </p>
+  <section class="nextlayer" id="pavement-structure-reverse">
+    <div class="nextlayer__container">
+      <!-- 1. SZÖVEG (most balra) -->
+      <div class="nextlayer__content nextlayer__content--dark">
+        <div class="nextlayer__text-block">
+          <h2 class="nextlayer__title">Miért fontos az útpályaszerkezet?</h2>
+          <p class="nextlayer__paragraph">
+            A tartós és jól terhelhető burkolat alapja a gondosan megtervezett
+            és kivitelezett rétegrend. Nem mindegy, mi kerül a burkolat alá – a
+            szerkezeti stabilitás itt dől el.
+          </p>
+
+          <div class="nextlayer__blocks">
+            <div class="nextlayer__block" v-for="(item, i) in blocks" :key="i">
+              <h3 class="nextlayer__block-title">{{ item.title }}</h3>
+              <p class="nextlayer__block-text">{{ item.text }}</p>
+            </div>
           </div>
-  
-          <a href="/contact" class="about-us__button">Kapcsolat</a>
         </div>
-  
-        <div class="about-us__image">
+      </div>
+
+      <!-- 2. DIAGRAM (most jobbra) -->
+      <div class="nextlayer__image nextlayer__image--white">
+        <div class="nextlayer__diagram-wrapper">
           <img
-   
-            alt="Construction workers working on a site"
-            class="about-us__img"
+            alt="Útpályaszerkezet rétegei diagrammon, magyar feliratokkal"
+            class="nextlayer__img"
           />
         </div>
       </div>
-    </section>
-  </template>
-  
+    </div>
+  </section>
+</template>
 
-  
-  <style lang="scss" scoped>
-  @use "sass:color";
-  
-  // variables
-  $color-bg-dark:     #49505c;
-  $color-text:        #ffffff;
-  $color-button:      #ff6300;
-  $color-button-text: #ffffff;
-  $transition-speed:  0.3s;
-  
-  .about-us {
-    &__container {
-      display: flex;
-      align-items: stretch;
-      overflow: hidden;
-    }
-  
-    &__content {
-      flex: 0 0 60%;
-      background-color: $color-bg-dark;
-      color: $color-text;
-      padding: 4rem 3rem;
-      clip-path: polygon(0 0, 70% 0, 60% 100%, 0 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-  
-    &__title {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-  
-    &__text-block {
-      margin-bottom: 2.5rem;
-    }
-  
-    &__paragraph {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-  
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-  
-    &__button {
-      display: inline-block;
-      background-color: $color-button;
-      color: $color-button-text;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.25rem;
-      transition: background-color $transition-speed;
-  
-      &:hover,
-      &:focus {
-        // 10%-kal sötétítjük a gombot
-        background-color: color.scale($color-button, $lightness: -10%);
-      }
-    }
-  
-    &__image {
-      flex: 0 0 40%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    // Az img-t ne nested namespace-ként, hanem simán referáljuk
-    .about-us__img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+<style lang="scss" scoped>
+@use 'sass:color';
+@use 'sass:math';
+
+// változók
+$color-bg-dark: #49505c;
+$color-text: #ffffff;
+$spacing: 2rem;
+$shadow: rgba(0, 0, 0, 0.1);
+
+.nextlayer {
+  &__container {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  /* Szöveges blokk – sötét hátterű */
+  &__content {
+    flex: 0 0 60%;
+    background: $color-bg-dark;
+    color: $color-text;
+    padding: 4rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--dark {
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
     }
   }
-  
-  // Responsive: kisebb képernyőn oszlopba rendezzük
-  @media (max-width: 768px) {
-    .about-us__container {
-      flex-direction: column;
-    }
-    .about-us__content,
-    .about-us__image {
-      clip-path: none;
-      flex: 1 1 auto;
+
+  /* Diagram – fehér kártya */
+  &__image {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; // a diagram-wrapper kezeli a paddinget
+
+    &--white {
+      .nextlayer__diagram-wrapper {
+        background: #fff;
+        padding: $spacing;
+        box-shadow: 0 1rem 2rem $shadow;
+        margin: -4rem 0;
+      }
     }
   }
-  </style>
-  
+
+  /* kép */
+  &__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__text-block {
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: math.div($spacing, 2);
+  }
+
+  &__paragraph {
+    line-height: 1.6;
+    margin-bottom: math.div($spacing, 2);
+  }
+
+  &__blocks {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing;
+    margin-top: $spacing;
+  }
+
+  &__block-title {
+    font-weight: bold;
+    margin-bottom: math.div($spacing, 2);
+  }
+
+  &__block-text {
+    line-height: 1.6;
+  }
+}
+
+/* Responsive: mobilon column-reverse */
+@media (max-width: 768px) {
+  .nextlayer__container {
+    flex-direction: column-reverse;
+  }
+  .nextlayer__content--dark,
+  .nextlayer__image--white .nextlayer__diagram-wrapper {
+    clip-path: none;
+    margin: 0;
+  }
+}
+</style>
