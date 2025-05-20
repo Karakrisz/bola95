@@ -119,6 +119,7 @@ $shadow: rgba(0, 0, 0, 0.1);
   &__title {
     font-size: 2rem;
     margin-bottom: math.div($spacing, 2);
+    font-family: "Barlow Condensed", sans-serif;
   }
 
   &__paragraph {

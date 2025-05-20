@@ -90,14 +90,16 @@ const prevSlide = () => {
 
 <style lang="scss" scoped>
 .work-showcase {
-  padding: 4rem 1rem;
   background-color: #fff;
+  padding: 4em 0 15em 0;
 
   &__heading {
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5em;
+    color: #181818;
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   &__container {
@@ -127,24 +129,25 @@ const prevSlide = () => {
 
   &__description {
     position: absolute;
-    bottom: 2rem;
+    bottom: -12em;
     left: 2rem;
     background-color: #fff;
     padding: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    border-radius: 0.5rem;
+    background: var(--Lighter-Gray, #fafafa);
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+    max-width: 730px;
   }
 
   &__location {
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: .7em;
+    color: #181818;
   }
 
   &__label {
     color: #f25c05;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 1rem;

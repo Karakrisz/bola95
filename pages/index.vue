@@ -1,4 +1,5 @@
 <template>
+  <HeroContent />
   <ServicesContent />
   <AboutContent />
   <WorksContent />

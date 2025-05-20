@@ -1,12 +1,12 @@
 <script setup>
 const links = [
   { name: 'Főoldal', path: '/' },
-  { name: 'Partnerek', path: '/partnerek' },
-  { name: 'Szolgáltatások', path: '/szolgaltatasok' },
-  { name: 'Dokumentumok', path: '/dokumentumok' },
-  { name: 'Ajánlatkérés', path: '/ajanlatkeres' },
+  { name: 'Galéria', path: '/' },
+  { name: 'Rólunk', path: '/' },
+  { name: 'Referenciák', path: '/' },
+  { name: 'Partnereink', path: '/ajanlatkeres' },
   { name: 'Kapcsolat', path: '/kapcsolat' },
-  { name: 'Facebook', path: '/', imagePath: '/img/header/facebook.svg' },
+  // { name: 'Facebook', path: '/', imagePath: '/img/header/facebook.svg' },
 ]
 
 const isMenuOpen = ref(false)

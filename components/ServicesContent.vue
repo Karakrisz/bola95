@@ -114,7 +114,8 @@
     text-align: center;
     margin-bottom: 3rem;
     font-weight: 600;
-    color: #333;
+    color: #181818;
+    font-family: "Barlow Condensed", sans-serif;
   }
 
   &__grid {

@@ -4,8 +4,7 @@
       <!-- Brand -->
       <div class="site-footer__column site-footer__column--brand">
         <div class="footer-brand">
-          <img src="/" alt="BOLA 95 KFT logo" class="footer-brand__logo" />
-          <span class="footer-brand__text">BOLA 95 KFT</span>
+          <NuxtImg src="/img/footer-logo.png" alt="BOLA 95 KFT logo" class="footer-brand__logo" />
         </div>
       </div>
 
@@ -17,29 +16,29 @@
             <a class="site-footer__link" href="/">Főoldal</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/gallery">Galéria</a>
+            <a class="site-footer__link" href="/">Galéria</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/about">Rólunk</a>
+            <a class="site-footer__link" href="/">Rólunk</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/references">Referenciák</a>
+            <a class="site-footer__link" href="/">Referenciák</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/privacy-policy"
+            <a class="site-footer__link" href="/"
               >Adatvédelmi Nyilatkozat</a
             >
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/faq"
+            <a class="site-footer__link" href="/"
               >Gyakran Ismételt Kérdések</a
             >
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/partners">Partnereink</a>
+            <a class="site-footer__link" href="/">Partnereink</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/contact">Kapcsolat</a>
+            <a class="site-footer__link" href="/">Kapcsolat</a>
           </li>
         </ul>
       </div>
@@ -61,21 +60,21 @@
         <h3 class="site-footer__heading">Elérhetőségeink</h3>
         <ul class="site-footer__contact-list">
           <li class="site-footer__contact-item">
-            <img
-              src="/"
+            <NuxtImg
+              src="/img/map.svg"
               alt="Cím ikon"
               class="site-footer__icon"
             />
             <span>2000 Szentendre, Rózsa utca 14.</span>
           </li>
           <li class="site-footer__contact-item">
-            <img src="/" alt="Email ikon" class="site-footer__icon" />
+            <NuxtImg src="/img/mail.svg" alt="Email ikon" class="site-footer__icon" />
             <a href="mailto:bola95kft@t-online.hu" class="site-footer__link"
               >bola95kft@t-online.hu</a
             >
           </li>
           <li class="site-footer__contact-item">
-            <img src="/" alt="Telefon ikon" class="site-footer__icon" />
+            <NuxtImg src="/img/phone.svg" alt="Telefon ikon" class="site-footer__icon" />
             <ul class="site-footer__phone-list">
               <li>+36-26-302-586</li>
               <li>+36-20-960-6878</li>
@@ -89,8 +88,8 @@
 
       <!-- Partner credit -->
       <div class="site-footer__column site-footer__column--credit">
-        <img
-          src="/"
+        <NuxtImg
+          src="/img/digital-seed.svg"
           alt="Digital Seed Studio logo"
           class="site-footer__credit-logo"
         />
@@ -101,9 +100,9 @@
 
 <style lang="scss" scoped>
 // Variables
-$dark: #1e2430;
+$dark: #202632;
 $light: #ffffff;
-$spacing: 1rem;
+$spacing: 1em;
 $font-size: 1rem;
 
 .site-footer {
@@ -146,8 +145,10 @@ $font-size: 1rem;
   }
 
   &__heading {
-    font-size: 1.25rem;
+    font-size: 1.7rem;
     margin-bottom: $spacing;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 600;
   }
 
   &__list,
@@ -159,7 +160,8 @@ $font-size: 1rem;
   }
 
   &__item {
-    margin-bottom: $spacing * 0.5;
+    margin-bottom: $spacing * 1;
+    font-weight: 400;
   }
 
   &__link {

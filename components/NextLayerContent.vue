@@ -83,7 +83,7 @@ $shadow: rgba(0, 0, 0, 0.1);
     color: $color-text;
     padding: 4rem 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 
     &--dark {
@@ -112,18 +112,16 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
 
   &__text-block {
-    max-width: 32rem;
-    margin: 0 auto;
+    width: 60%;
   }
 
   &__title {
-    font-size: 2rem;
-    margin-bottom: math.div($spacing, 2);
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   &__paragraph {
     line-height: 1.6;
-    margin-bottom: math.div($spacing, 2);
   }
 
   &__blocks {
@@ -134,8 +132,8 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
 
   &__block-title {
-    font-weight: bold;
-    margin-bottom: math.div($spacing, 2);
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   &__block-text {

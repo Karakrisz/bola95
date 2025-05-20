@@ -146,6 +146,7 @@
     &__heading {
       font-size: 2rem;
       margin-bottom: 1rem;
+      font-family: "Barlow Condensed", sans-serif;
     }
   
     &__description {

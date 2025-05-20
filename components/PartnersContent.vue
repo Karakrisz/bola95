@@ -377,6 +377,8 @@
       text-align: center;
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      color: #181818;
+      font-family: "Barlow Condensed", sans-serif;
     }
   
     &__slider {
