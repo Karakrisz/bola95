@@ -4,7 +4,11 @@
       <!-- Brand -->
       <div class="site-footer__column site-footer__column--brand">
         <div class="footer-brand">
-          <NuxtImg src="/img/footer-logo.png" alt="BOLA 95 KFT logo" class="footer-brand__logo" />
+          <NuxtImg
+            src="/img/footer-logo.png"
+            alt="BOLA 95 KFT logo"
+            class="footer-brand__logo"
+          />
         </div>
       </div>
 
@@ -25,14 +29,10 @@
             <a class="site-footer__link" href="/">Referenciák</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/"
-              >Adatvédelmi Nyilatkozat</a
-            >
+            <a class="site-footer__link" href="/">Adatvédelmi Nyilatkozat</a>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/"
-              >Gyakran Ismételt Kérdések</a
-            >
+            <a class="site-footer__link" href="/">Gyakran Ismételt Kérdések</a>
           </li>
           <li class="site-footer__item">
             <a class="site-footer__link" href="/">Partnereink</a>
@@ -68,13 +68,21 @@
             <span>2000 Szentendre, Rózsa utca 14.</span>
           </li>
           <li class="site-footer__contact-item">
-            <NuxtImg src="/img/mail.svg" alt="Email ikon" class="site-footer__icon" />
+            <NuxtImg
+              src="/img/mail.svg"
+              alt="Email ikon"
+              class="site-footer__icon"
+            />
             <a href="mailto:bola95kft@t-online.hu" class="site-footer__link"
               >bola95kft@t-online.hu</a
             >
           </li>
           <li class="site-footer__contact-item">
-            <NuxtImg src="/img/phone.svg" alt="Telefon ikon" class="site-footer__icon" />
+            <NuxtImg
+              src="/img/phone.svg"
+              alt="Telefon ikon"
+              class="site-footer__icon"
+            />
             <ul class="site-footer__phone-list">
               <li>+36-26-302-586</li>
               <li>+36-20-960-6878</li>
@@ -84,15 +92,6 @@
             </ul>
           </li>
         </ul>
-      </div>
-
-      <!-- Partner credit -->
-      <div class="site-footer__column site-footer__column--credit">
-        <NuxtImg
-          src="/img/digital-seed.svg"
-          alt="Digital Seed Studio logo"
-          class="site-footer__credit-logo"
-        />
       </div>
     </div>
   </footer>
@@ -108,13 +107,14 @@ $font-size: 1rem;
 .site-footer {
   background: $dark;
   color: $light;
-  padding: 4rem $spacing;
-
+  padding-bottom: 5em;
   &__container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 5em;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
   }
 
   &__column {
@@ -133,22 +133,16 @@ $font-size: 1rem;
 
   .footer-brand {
     &__logo {
-      display: block;
-      width: 4rem;
-      height: auto;
-      margin-bottom: $spacing;
-    }
-    &__text {
-      font-weight: bold;
-      font-size: 1.25rem;
+      width: 6em;
     }
   }
 
   &__heading {
     font-size: 1.7rem;
     margin-bottom: $spacing;
-    font-family: "Barlow Condensed", sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-weight: 600;
+    padding-top: 2em;
   }
 
   &__list,
@@ -178,9 +172,12 @@ $font-size: 1rem;
     display: flex;
     align-items: flex-start;
     margin-bottom: $spacing;
+    border-bottom: 1px solid #FAFAFA;
+    padding-bottom: 1em;
 
     &:last-child {
       margin-bottom: 0;
+      border-bottom: 0;
     }
   }
 
