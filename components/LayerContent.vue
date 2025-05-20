@@ -25,16 +25,16 @@ const blocks = [
 
 <template>
   <section class="nextlayer" id="pavement-structure-reverse">
+    <NuxtImg
+      src="/img/layer.webp"
+      alt="Útpályaszerkezet rétegei diagrammon, magyar feliratokkal"
+      class="nextlayer__img"
+    />
     <div class="nextlayer__container">
-            <!-- 2. DIAGRAM (most jobbra) -->
-            <div class="nextlayer__image nextlayer__image--white">
-          <div class="nextlayer__diagram-wrapper">
-            <img
-              alt="Útpályaszerkezet rétegei diagrammon, magyar feliratokkal"
-              class="nextlayer__img"
-            />
-          </div>
-        </div>
+      <!-- 2. DIAGRAM (most jobbra) -->
+      <div class="nextlayer__image nextlayer__image--white">
+        <div class="nextlayer__diagram-wrapper"></div>
+      </div>
       <!-- 1. SZÖVEG (most balra) -->
       <div class="nextlayer__content nextlayer__content--dark">
         <div class="nextlayer__text-block">
@@ -57,8 +57,6 @@ const blocks = [
   </section>
 </template>
 
-
-
 <style lang="scss" scoped>
 @use 'sass:color';
 @use 'sass:math';
@@ -70,6 +68,7 @@ $spacing: 2rem;
 $shadow: rgba(0, 0, 0, 0.1);
 
 .nextlayer {
+  position: relative;
   &__container {
     display: flex;
     align-items: stretch;
@@ -78,57 +77,50 @@ $shadow: rgba(0, 0, 0, 0.1);
 
   /* Szöveges blokk – sötét hátterű */
   &__content {
-    flex: 0 0 60%;
+    flex: 0 0 80%;
     background: $color-bg-dark;
     color: $color-text;
     padding: 4rem 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 
     &--dark {
-        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
     }
   }
 
   /* Diagram – fehér kártya */
   &__image {
-    flex: 0 0 40%;
+    flex: 0 0 20%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0; // a diagram-wrapper kezeli a paddinget
-
-    &--white {
-      .nextlayer__diagram-wrapper {
-        background: #fff;
-        padding: $spacing;
-        box-shadow: 0 1rem 2rem $shadow;
-        margin: -4rem 0;
-      }
-    }
   }
 
   /* kép */
   &__img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 43.5%;
+    position: absolute;
+    z-index: 10;
+    top: 10%;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+    left: 5em;
+    height: 80%;
   }
 
   &__text-block {
-    max-width: 32rem;
-    margin: 0 auto;
+    width: 60%;
   }
 
   &__title {
-    font-size: 2rem;
-    margin-bottom: math.div($spacing, 2);
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   &__paragraph {
     line-height: 1.6;
-    margin-bottom: math.div($spacing, 2);
   }
 
   &__blocks {
@@ -139,8 +131,8 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
 
   &__block-title {
-    font-weight: bold;
-    margin-bottom: math.div($spacing, 2);
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   &__block-text {

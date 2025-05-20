@@ -25,6 +25,11 @@ const blocks = [
 
 <template>
   <section class="nextlayer" id="pavement-structure-reverse">
+    <img
+      src="/img/layer2.webp"
+      alt="Útpályaszerkezet rétegei diagrammon, magyar feliratokkal"
+      class="nextlayer__img"
+    />
     <div class="nextlayer__container">
       <!-- 1. SZÖVEG (most balra) -->
       <div class="nextlayer__content nextlayer__content--dark">
@@ -47,12 +52,7 @@ const blocks = [
 
       <!-- 2. DIAGRAM (most jobbra) -->
       <div class="nextlayer__image nextlayer__image--white">
-        <div class="nextlayer__diagram-wrapper">
-          <img
-            alt="Útpályaszerkezet rétegei diagrammon, magyar feliratokkal"
-            class="nextlayer__img"
-          />
-        </div>
+        <div class="nextlayer__diagram-wrapper"></div>
       </div>
     </div>
   </section>
@@ -69,6 +69,7 @@ $spacing: 2rem;
 $shadow: rgba(0, 0, 0, 0.1);
 
 .nextlayer {
+  position: relative;
   &__container {
     display: flex;
     align-items: stretch;
@@ -77,7 +78,7 @@ $shadow: rgba(0, 0, 0, 0.1);
 
   /* Szöveges blokk – sötét hátterű */
   &__content {
-    flex: 0 0 60%;
+    flex: 0 0 80%;
     background: $color-bg-dark;
     color: $color-text;
     padding: 4rem 3rem;
@@ -96,23 +97,18 @@ $shadow: rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0; // a diagram-wrapper kezeli a paddinget
-
-    &--white {
-      .nextlayer__diagram-wrapper {
-        background: #fff;
-        padding: $spacing;
-        box-shadow: 0 1rem 2rem $shadow;
-        margin: -4rem 0;
-      }
-    }
+    padding: 0;
   }
 
   /* kép */
   &__img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    width: 43.5%;
+    position: absolute;
+    z-index: 10;
+    top: 10%;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+    height: 80%;
+    right: 5em;
   }
 
   &__text-block {
