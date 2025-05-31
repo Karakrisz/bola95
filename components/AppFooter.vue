@@ -115,7 +115,6 @@ $font-size: 1rem;
     justify-content: space-between;
     max-width: 1200px;
     margin: auto;
-    padding: 2em 1em;
   }
 
   &__column {
