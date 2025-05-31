@@ -373,7 +373,7 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   &__slide-content {
     position: absolute;
     top: 50%;
-    left: 3em;
+    left: 5%;
     transform: translateY(-50%);
     max-width: 60%;
     color: $primary-color;

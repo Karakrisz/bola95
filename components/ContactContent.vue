@@ -156,12 +156,30 @@
           <div class="contact-section__info__last-box">
             <ul class="contact-section__phone-list">
               <li>
-                <a href="tel:+3626302586"> +36-26-302-586 </a>
+                <a class="contact-section__info-text" href="tel:+3626302586">
+                  +36-26-302-586
+                </a>
               </li>
-              <li><a href="tel:+36209606878">+36-20-960-6878</a></li>
-              <li><a href="tel:+36202222867">+36-20-222-2867</a></li>
-              <li><a href="tel:+36204114011">+36-20-411-4011</a></li>
-              <li><a href="tel:+36302229645">+36-30-222-9645</a></li>
+              <li>
+                <a class="contact-section__info-text" href="tel:+36209606878"
+                  >+36-20-960-6878</a
+                >
+              </li>
+              <li>
+                <a class="contact-section__info-text" href="tel:+36202222867"
+                  >+36-20-222-2867</a
+                >
+              </li>
+              <li>
+                <a class="contact-section__info-text" href="tel:+36204114011"
+                  >+36-20-411-4011</a
+                >
+              </li>
+              <li>
+                <a class="contact-section__info-text" href="tel:+36302229645"
+                  >+36-30-222-9645</a
+                >
+              </li>
             </ul>
           </div>
         </address>
@@ -175,6 +193,11 @@
 </script>
 
 <style lang="scss" scoped>
+.contact-section__input::-webkit-input-placeholder,
+.contact-section__textarea::-webkit-input-placeholder {
+  color: #b4b4b5;
+  font-weight: 400;
+}
 .contact-section {
   background: var(--Lighter-Gray, #fafafa);
   padding: 5em 5em 2em 5em;
@@ -197,7 +220,7 @@
 
   &__info-area {
     background: #fff;
-    padding: 7% 2em 2em 7em;
+    padding: 4% 2em 2em 7em;
     flex: 1 1 40%;
     clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -261,7 +284,8 @@
     border: none;
     font-size: 1rem;
     cursor: pointer;
-    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 1.5em;
   }
 
   &__note {
@@ -269,6 +293,7 @@
     text-align: end;
     width: 50%;
     font-weight: 300;
+    margin-top: 1.5em;
   }
 
   &__policy-link {
@@ -279,7 +304,7 @@
   &__info-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.7em;
     font-style: normal;
     color: #333;
   }
@@ -287,6 +312,7 @@
   &__info-item {
     display: flex;
     align-items: flex-start;
+    margin-top: 1em;
   }
 
   &__info-icon {
@@ -300,7 +326,9 @@
   }
 
   &__info-text {
-    flex: 1;
+    font-weight: 400;
+    color: #181818;
+    line-height: 2em;
   }
 
   &__phone-list {
