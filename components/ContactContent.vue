@@ -200,7 +200,7 @@
 }
 .contact-section {
   background: var(--Lighter-Gray, #fafafa);
-  padding: 5em 5em 2em 5em;
+  padding: 0;
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -336,14 +336,113 @@
     margin: 0;
   }
 
-  /* Mobilon stackelés */
-  @media (max-width: 768px) {
+  /*-----------------------*/
+  /* Mobil nézet (max-width: 767px) */
+  /*-----------------------*/
+  @media (max-width: 767px) {
+    /* A wrapperben egymás alá rendezzük a részeket */
     &__wrapper {
       flex-direction: column;
+      padding: 1.5rem; // kisebb belső margó mobilon
+      margin: 0; 
     }
+
+    /* A form és info területek teljes szélességűre nyúlnak */
+    &__form-area,
     &__info-area {
-      clip-path: none;
-      margin-top: 2rem;
+      flex: 1 1 100%;
+      clip-path: none; // ne legyen vágás mobilon
+      padding: 2rem 1.5rem; // kisebb padding mobilon
+    }
+
+    /* A form mezők legyenek egymás alattiak mobilon */
+    &__fields {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* A submit gomb igazítása középre */
+    &__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    &__submit {
+      width: max-content;
+      margin-top: 1rem;
+    }
+
+    /* A note teljes szélességű, alá igazítva */
+    &__note {
+      width: 100%;
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    /* Info területen belüli padding csökkentése */
+    &__info-area {
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  /*-----------------------*/
+  /* Tablet nézet (992px–1199px) */
+  /*-----------------------*/
+  @media (min-width: 992px) and (max-width: 1199px) {
+    /* A wrapper maradjon flex sorban, de egy kicsit keskenyebbre szabjuk */
+    &__wrapper {
+      flex-direction: row;
+      max-width: 100%;
+      margin: 1.5rem auto;
+      padding: 2rem;
+    }
+
+    /* Form-area és info-area arány módosítása tablet nézetre */
+    &__form-area {
+      flex: 1 1 65%; // kicsit nagyobb arány a formnak
+      padding: 2.5rem 3rem 2.5rem 2rem;
+      clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);
+    }
+
+    &__info-area {
+      flex: 1 1 35%; // kicsit kisebb arány az infónak
+      padding: 3% 1.5rem 1.5rem 5rem;
+      clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Kitöltőbetű és méretek kicsit kisebbek tabletre */
+    &__heading {
+      font-size: 1.75rem;
+    }
+    &__description {
+      font-size: 0.95rem;
+    }
+    &__input,
+    &__textarea {
+      font-size: 0.95rem;
+      padding: 0.65rem;
+    }
+    &__submit {
+      font-size: 0.95rem;
+      padding: 0.65rem 1.25rem;
+    }
+
+    /* Mezők 2 oszlopos grid marad, de kicsit szűkebb margókkal */
+    &__fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
+
+    /* Info-list elemeken belüli térköz kicsit csökkentve */
+    &__info-list {
+      gap: 0.6em;
+    }
+    &__info-item {
+      margin-top: 0.85em;
+    }
+    &__info-text {
+      line-height: 1.8em;
     }
   }
 }

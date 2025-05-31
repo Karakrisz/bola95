@@ -297,9 +297,19 @@ $hamburger-bar-color: #1c362b;
 
 @include responsive(mobile) {
   .header-content {
-    padding: 2em;
+    padding: 1em;
     flex-direction: row-reverse;
     align-items: center;
+    width: 90%;
+    top: 2em;
+  }
+
+  .header-content__logo-box {
+    width: 30%;
+  }
+
+  .header-content__logo-box__link__img {
+    width: 80%;
   }
 
   .header-logo-user-box {

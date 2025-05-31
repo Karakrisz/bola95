@@ -96,7 +96,6 @@
     </div>
   </footer>
 </template>
-
 <style lang="scss" scoped>
 // Variables
 $dark: #202632;
@@ -108,6 +107,7 @@ $font-size: 1rem;
   background: $dark;
   color: $light;
   padding-bottom: 5em;
+
   &__container {
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +115,7 @@ $font-size: 1rem;
     justify-content: space-between;
     max-width: 1200px;
     margin: auto;
+    padding: 2em 1em;
   }
 
   &__column {
@@ -154,7 +155,7 @@ $font-size: 1rem;
   }
 
   &__item {
-    margin-bottom: $spacing * 1;
+    margin-bottom: $spacing;
     font-weight: 400;
   }
 
@@ -172,7 +173,7 @@ $font-size: 1rem;
     display: flex;
     align-items: flex-start;
     margin-bottom: $spacing;
-    border-bottom: 1px solid #FAFAFA;
+    border-bottom: 1px solid #fafafa;
     padding-bottom: 1em;
 
     &:last-child {
@@ -204,14 +205,148 @@ $font-size: 1rem;
     opacity: 0.5;
   }
 
-  // Responsive
-  @media (max-width: 768px) {
+  /*--------------------------------*/
+  /* Mobil nézet (max-width: 767px) */
+  /*--------------------------------*/
+  @media (max-width: 767px) {
     &__container {
       flex-direction: column;
-      align-items: center;
+      /* eltávolítva: align-items: center; */
+      gap: 2em;
+      padding: 2em;
     }
-    &__column--credit {
-      margin-top: 2rem;
+
+    &__column {
+      flex: 1 1 100%;
+      /* eltávolítva: text-align: center; */
+
+      &--brand {
+        margin-bottom: 1.5em;
+      }
+    }
+
+    .footer-brand {
+      &__logo {
+        width: 5em;
+        /* eltávolítva: margin: 0 auto; */
+      }
+    }
+
+    &__heading {
+      font-size: 1.5rem;
+      padding-top: 1em;
+    }
+
+    &__item {
+      margin-bottom: $spacing * 0.75;
+    }
+
+    &__link {
+      font-size: 0.95rem;
+    }
+
+    &__contact-item {
+      flex-direction: column;
+      /* eltávolítva: align-items: center; */
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: $spacing * 0.75;
+
+      span,
+      a {
+        display: block;
+        margin-top: 0.5em;
+        /* így balra igazítva maradnak */
+      }
+    }
+
+    &__icon {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+
+    &__phone-list {
+      display: flex;
+      flex-direction: column;
+      /* eltávolítva: align-items: center; */
+
+      li {
+        margin-bottom: $spacing * 0.5;
+      }
+    }
+
+    &__credit {
+      margin-top: 2em;
+      /* eltávolítva: justify-content: center; */
+    }
+  }
+
+  /*---------------------------------------------*/
+  /* Tablet nézet (min-width: 992px and max-width: 1199px) */
+  /*---------------------------------------------*/
+  @media (min-width: 992px) and (max-width: 1199px) {
+    &__container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 3em;
+      padding: 1.5em 2em;
+      max-width: 100%;
+    }
+
+    &__column {
+      flex: 1 1 calc(33.333% - 3em);
+      min-width: 180px;
+
+      &--brand {
+        flex: 1 1 200px;
+      }
+    }
+
+    .footer-brand {
+      &__logo {
+        width: 5.5em;
+      }
+    }
+
+    &__heading {
+      font-size: 1.6rem;
+      margin-bottom: $spacing * 0.75;
+      padding-top: 1.5em;
+    }
+
+    &__item {
+      margin-bottom: $spacing * 0.75;
+      font-size: 0.95rem;
+    }
+
+    &__link {
+      font-size: 0.95rem;
+    }
+
+    &__contact-item {
+      padding-bottom: 0.75em;
+      margin-bottom: $spacing * 0.75;
+      border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border-bottom: none;
+      }
+      span,
+      a {
+        font-size: 0.95rem;
+      }
+    }
+
+    &__icon {
+      width: 1.4rem;
+      margin-right: $spacing * 0.75;
+    }
+
+    &__phone-list {
+      li {
+        margin-bottom: $spacing * 0.25;
+        font-size: 0.95rem;
+      }
     }
   }
 }

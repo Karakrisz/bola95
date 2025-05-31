@@ -306,7 +306,7 @@ watch(isMenuOpen, (newVal) => {
   padding: 10px;
   z-index: 1001;
   position: relative;
-  bottom: 2.7em;
+  bottom: 0;
 }
 
 .bar {
@@ -485,6 +485,12 @@ watch(isMenuOpen, (newVal) => {
 
 /* 1200px alatti nézet */
 @media (max-width: 1199px) {
+  .header-content__nav-box {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
   .hamburger {
     display: block;
   }
