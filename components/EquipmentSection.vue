@@ -169,7 +169,7 @@ const machines: Machine[] = [
 
   .equipment-section__item {
     aspect-ratio: unset; /* ha nem szeretnéd a négyzetarányt mobilon, töröld vagy kommenteld ki */
-    height: 200px; /* fix magasság mobilon, igény szerint módosítható */
+    height: 30vh;
   }
 }
 </style>

@@ -171,6 +171,7 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
   .nextlayer__container {
     flex-direction: column-reverse;
+    margin-top: -1em;
   }
   .nextlayer__content--dark,
   .nextlayer__image--white .nextlayer__diagram-wrapper {

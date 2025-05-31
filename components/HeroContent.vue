@@ -1,50 +1,3 @@
-<template>
-  <section class="hero">
-    <div class="hero__slider">
-      <div class="hero__slider-track" ref="sliderTrack" :style="sliderStyle">
-        <div
-          v-for="(slide, index) in slides"
-          :key="index"
-          class="hero__slide"
-        >
-          <div class="hero__slide-content">
-            <h1 class="hero__title">{{ slide.title }}</h1>
-            <p class="hero__subtitle">{{ slide.subtitle }}</p>
-            <div class="hero__description">
-              <p>{{ slide.description }}</p>
-            </div>
-            <div class="hero__cta">
-              <p class="hero__cta-text">{{ slide.ctaText }}</p>
-              <a :href="slide.ctaLink" class="hero__button">
-                {{ slide.ctaButtonText }}
-              </a>
-            </div>
-          </div>
-          <div class="hero__image-container">
-            <NuxtImg
-              :src="slide.imageUrl"
-              :alt="slide.imageAlt"
-              class="hero__image"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__navigation">
-        <button
-          v-for="(_, index) in slides"
-          :key="index"
-          :aria-label="`Slide ${index + 1}`"
-          class="hero__nav-dot"
-          :class="{ 'hero__nav-dot--active': currentSlide === index }"
-          @click="onNavDotClick(index, $event)"
-          type="button"
-        ></button>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
@@ -327,6 +280,49 @@ onUnmounted(() => {
   }
 })
 </script>
+
+<template>
+  <section class="hero">
+    <div class="hero__slider">
+      <div class="hero__slider-track" ref="sliderTrack" :style="sliderStyle">
+        <div v-for="(slide, index) in slides" :key="index" class="hero__slide">
+          <div class="hero__slide-content">
+            <h1 class="hero__title">{{ slide.title }}</h1>
+            <p class="hero__subtitle">{{ slide.subtitle }}</p>
+            <div class="hero__description">
+              <p>{{ slide.description }}</p>
+            </div>
+            <div class="hero__cta">
+              <p class="hero__cta-text">{{ slide.ctaText }}</p>
+              <a :href="slide.ctaLink" class="hero__button">
+                {{ slide.ctaButtonText }}
+              </a>
+            </div>
+          </div>
+          <div class="hero__image-container">
+            <NuxtImg
+              :src="slide.imageUrl"
+              :alt="slide.imageAlt"
+              class="hero__image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__navigation">
+        <button
+          v-for="(_, index) in slides"
+          :key="index"
+          :aria-label="`Slide ${index + 1}`"
+          class="hero__nav-dot"
+          :class="{ 'hero__nav-dot--active': currentSlide === index }"
+          @click="onNavDotClick(index, $event)"
+          type="button"
+        ></button>
+      </div>
+    </div>
+  </section>
+</template>
 
 <style lang="scss" scoped>
 @use 'sass:color';

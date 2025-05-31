@@ -121,7 +121,6 @@ const prevSlide = () => {
 
   &__image {
     width: 100%;
-    border-radius: 0.5rem;
     display: block;
     max-height: 600px;
     object-fit: cover;
@@ -194,5 +193,47 @@ const prevSlide = () => {
 .fade-slide-leave-to {
   opacity: 0;
   transform: translateX(-30px);
+}
+
+/* Responsive: mobilon column-reverse */
+@media (max-width: 992px) {
+  .work-showcase {
+    padding: 2em 2em 3em 2em;
+  }
+  .work-showcase__description {
+    bottom: -15em;
+    left: 2em;
+    padding: 1em;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .work-showcase__image {
+    height: 50vh;
+  }
+  .work-showcase__nav {
+    margin-top: 0em;
+  }
+}
+
+/* Responsive: mobilon column-reverse */
+@media (max-width: 768px) {
+  .work-showcase {
+    padding: 2em 2em 3em 2em;
+  }
+  .work-showcase__description {
+    bottom: -20em;
+    left: 1em;
+    padding: 1em;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .work-showcase__image {
+    height: 50vh;
+  }
+  .work-showcase__nav {
+    margin-top: 65%;
+  }
 }
 </style>
