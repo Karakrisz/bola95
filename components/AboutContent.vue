@@ -161,6 +161,25 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
 }
 
+@media (max-width: 992px) {
+  .nextlayer {
+    &__img {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+  .nextlayer__container {
+    flex-direction: column-reverse;
+    margin-top: -1em;
+  }
+  .nextlayer__content--dark,
+  .nextlayer__image--white .nextlayer__diagram-wrapper {
+    clip-path: none;
+    margin: 0;
+  }
+}
+
 /* Responsive: mobilon column-reverse */
 @media (max-width: 768px) {
   .nextlayer {

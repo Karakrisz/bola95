@@ -281,6 +281,79 @@ $font-size: 1rem;
     }
   }
 
+  @media (max-width: 992px) {
+    &__container {
+      flex-direction: column;
+      /* eltávolítva: align-items: center; */
+      gap: 2em;
+      padding: 2em 3em;
+    }
+
+    &__column {
+      flex: 1 1 100%;
+      /* eltávolítva: text-align: center; */
+
+      &--brand {
+        margin-bottom: 1.5em;
+      }
+    }
+
+    .footer-brand {
+      &__logo {
+        width: 5em;
+        /* eltávolítva: margin: 0 auto; */
+      }
+    }
+
+    &__heading {
+      font-size: 1.5rem;
+      padding-top: 1em;
+    }
+
+    &__item {
+      margin-bottom: $spacing * 0.75;
+    }
+
+    &__link {
+      font-size: 0.95rem;
+    }
+
+    &__contact-item {
+      flex-direction: column;
+      /* eltávolítva: align-items: center; */
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: $spacing * 0.75;
+
+      span,
+      a {
+        display: block;
+        margin-top: 0.5em;
+        /* így balra igazítva maradnak */
+      }
+    }
+
+    &__icon {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+
+    &__phone-list {
+      display: flex;
+      flex-direction: column;
+      /* eltávolítva: align-items: center; */
+
+      li {
+        margin-bottom: $spacing * 0.5;
+      }
+    }
+
+    &__credit {
+      margin-top: 2em;
+      /* eltávolítva: justify-content: center; */
+    }
+  }
+
   /*---------------------------------------------*/
   /* Tablet nézet (min-width: 992px and max-width: 1199px) */
   /*---------------------------------------------*/

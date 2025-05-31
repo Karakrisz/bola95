@@ -160,7 +160,7 @@ $shadow: rgba(0, 0, 0, 0.1);
 
   .nextlayer__img {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
     left: 0;
   }

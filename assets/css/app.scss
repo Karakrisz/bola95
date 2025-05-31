@@ -286,7 +286,12 @@ header {
 }
 
 @include responsive(tablet) {
-  // Tablet styles here
+  .header-content {
+    flex-direction: row-reverse;
+    padding: 0.5em 3em;
+    width: 90%;
+    top: 2em;
+  }
 }
 
 // Menu Colors
@@ -309,7 +314,7 @@ $hamburger-bar-color: #1c362b;
   }
 
   .header-content__logo-box__link__img {
-    width: 80%;
+    width: 5em;
   }
 
   .header-logo-user-box {

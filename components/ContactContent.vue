@@ -344,7 +344,7 @@
     &__wrapper {
       flex-direction: column;
       padding: 1.5rem; // kisebb belső margó mobilon
-      margin: 0; 
+      margin: 0;
     }
 
     /* A form és info területek teljes szélességűre nyúlnak */
@@ -382,6 +382,19 @@
     /* Info területen belüli padding csökkentése */
     &__info-area {
       padding: 1.5rem 1rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    .nextlayer__text-block{
+      max-width: 100%;
+    }
+    .contact-section__info-area {
+      padding: 4% 2em 2em 3em;
+      clip-path: polygon(0% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .contact-section__wrapper {
+      margin: 0;
     }
   }
 

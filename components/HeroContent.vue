@@ -503,7 +503,7 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
    ------------------------------ */
 @media (max-width: 767px) {
   .hero {
-    height: 100vh;
+    height: 130vh;
     min-height: auto;
     margin-top: -3.5em;
 
@@ -551,6 +551,12 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       width: 0.8rem;
       height: 0.8rem;
     }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero {
+    height: 140vh;
   }
 }
 
