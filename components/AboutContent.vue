@@ -161,6 +161,12 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nextlayer__text-block {
+    max-width: 25rem;
+  }
+}
+
 @media (max-width: 992px) {
   .nextlayer {
     &__img {

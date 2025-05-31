@@ -140,6 +140,12 @@ $shadow: rgba(0, 0, 0, 0.1);
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nextlayer__img {
+    height: 50%;
+  }
+}
+
 @media (max-width: 992px) {
   .nextlayer__container {
     flex-direction: column-reverse;

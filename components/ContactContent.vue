@@ -406,8 +406,7 @@
     &__wrapper {
       flex-direction: row;
       max-width: 100%;
-      margin: 1.5rem auto;
-      padding: 2rem;
+      margin: 0 auto;
     }
 
     /* Form-area és info-area arány módosítása tablet nézetre */

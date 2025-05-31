@@ -13,7 +13,7 @@ const isMobile = ref(false)
 
 // Mobilnézet ellenőrzése
 const checkScreenSize = () => {
-  isMobile.value = window.innerWidth < 1200
+  isMobile.value = window.innerWidth < 1370
 }
 
 onMounted(() => {
@@ -483,8 +483,8 @@ watch(isMenuOpen, (newVal) => {
   transition: transform 0.3s ease;
 }
 
-/* 1200px alatti nézet */
-@media (max-width: 1199px) {
+/* 1370 alatti nézet */
+@media (max-width: 1370px) {
   .header-content__nav-box {
     width: 80%;
     display: flex;
