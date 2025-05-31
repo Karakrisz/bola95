@@ -80,7 +80,7 @@ $shadow: rgba(0, 0, 0, 0.1);
     flex: 0 0 80%;
     background: $color-bg-dark;
     color: $color-text;
-    padding: 4rem 3rem;
+    padding: 4em 5% 4em 4em;
     display: flex;
     justify-content: end;
     align-items: center;

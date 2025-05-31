@@ -14,13 +14,13 @@ const projects = [
   },
   {
     image: '/img/work.webp',
-    alt: 'Egy másik projekt látványterve',
-    location: 'Szeged, Dóm tér',
-    label: 'TÉRKŐ CSERE',
+    alt: 'Budapest, Március 15. tér felújított tér képe',
+    location: 'Budapest, Március 15. tér',
+    label: 'TELJES TÉRKÖVEZÉS',
     description1:
-      'A Dóm tér burkolatának korszerűsítésével egy letisztultabb és időjárásállóbb felületet alakítottunk ki, amely illeszkedik a történelmi környezethez.',
+      'A Március 15. tér térkövezésének felújítása során korszerű és esztétikus burkolatot alakítottunk ki, amely harmonikusan illeszkedik a belvárosi környezethez. A munkálatok során a korábban egyenetlen és elhasználódott felületeket teljesen eltávolítottuk, majd gondosan előkészített alaprétegre új térköveket fektettünk le.',
     description2:
-      'A kivitelezés során figyeltünk arra, hogy a tér a felújítás alatt is látogatható maradjon.',
+      'Kiemelt figyelmet fordítottunk a vízelvezetésre és a gyalogosforgalom zavartalanságára, így a megújult tér nemcsak szebb, hanem funkcionálisan is sokkal biztonságosabb és időtállóbb lett.',
   },
 ]
 
@@ -141,7 +141,7 @@ const prevSlide = () => {
   &__location {
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: .7em;
+    margin-bottom: 0.7em;
     color: #181818;
   }
 

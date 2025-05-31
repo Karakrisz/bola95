@@ -67,8 +67,15 @@ const sliderStyle = computed(() => {
 })
 
 function goToSlide(index) {
-  currentSlide.value = index
-  resetAutoplay()
+  // Közvetlenül állítjuk be az értéket, hogy biztosítsuk a frissítést
+  currentSlide.value = index;
+  
+  // Manuálisan frissítjük a slider pozícióját, ha a ref már létezik
+  if (sliderTrack.value) {
+    sliderTrack.value.style.transform = `translateX(-${index * 20}%)`;
+  }
+  
+  resetAutoplay();
 }
 
 function nextSlide() {
@@ -281,7 +288,7 @@ onUnmounted(() => {
             </div>
           </div>
           <div class="hero__image-container">
-            <img
+            <NuxtImg
               :src="slide.imageUrl"
               :alt="slide.imageAlt"
               class="hero__image"
@@ -297,7 +304,8 @@ onUnmounted(() => {
           :aria-label="`Slide ${index + 1}`"
           class="hero__nav-dot"
           :class="{ 'hero__nav-dot--active': currentSlide === index }"
-          @click="goToSlide(index)"
+          @click="goToSlide(index); $event.preventDefault(); $event.stopPropagation();"
+          type="button"
         ></button>
       </div>
     </div>
@@ -417,7 +425,6 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 5px;
     transition: background-color $transition-speed, transform $transition-speed;
     text-transform: uppercase;
 
@@ -453,22 +460,28 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     z-index: 3;
   }
 
-  &__nav-dot {
+      &__nav-dot {
     width: 1rem;
     height: 1rem;
-    border-radius: 50%;
+    border-radius: 20%;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
     cursor: pointer;
     transition: background-color $transition-speed;
+    padding: 0;
+    margin: 0;
+    appearance: none;
 
     &--active {
-      background-color: $primary-color;
+      background-color: #fd5d14 !important;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }

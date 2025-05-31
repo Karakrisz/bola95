@@ -1253,12 +1253,67 @@
     background-color: #fafafa;
     border-radius: 8px;
     padding: 3em 1em;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
 
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      background-color: #fd5d14;
+      mix-blend-mode: hard-light;
+
+      // Hengerelt aszfaltozás ikon - kiemelt részek
+      svg g[clip-path='url(#clip0_2012_779)'] {
+        path[fill='#E58D21'],
+        path[fill='#EBB12A'],
+        path[fill='#F3D35A'] {
+          fill: #ff0000; // Élénk piros
+        }
+      }
+
+      // Öntött aszfaltozás ikon - kiemelt részek
+      svg g[clip-path='url(#clip0_2012_736)'] {
+        path[fill='#E2A121'],
+        path[fill='#EBC44D'],
+        path[fill='#E5AB2D'] {
+          fill: #ff0000; // Élénk piros
+        }
+      }
+
+      // Transzport beton ikon - kiemelt részek
+      svg g[clip-path='url(#clip0_2012_590)'] {
+        path[fill='#E19B2E'],
+        path[fill='#EFD15C'],
+        path[fill='#E5AC25'],
+        path[fill='#E9B633'],
+        path[fill='#EECC66'] {
+          fill: #ff0000; // Élénk piros
+        }
+      }
+
+      // Mart aszfaltos útépítés ikon - kiemelt részek
+      svg g[clip-path='url(#clip0_2012_648)'] {
+        path[fill='#D19B3E'],
+        path[fill='#E2A945'],
+        path[fill='#E39520'],
+        path[fill='#E9B12B'],
+        path[fill='#F1D25B'] {
+          fill: #ff0000; // Élénk piros
+        }
+      }
+
+      // Térkövezés ikon - kiemelt részek
+      svg g[clip-path='url(#clip0_2012_761)'] {
+        path[fill='#E9B633'],
+        path[fill='#E19B2E'],
+        path[fill='#F3D35A'] {
+          fill: #ff0000; // Élénk piros
+        }
+      }
+
+      .services__item-title {
+        color: #ff0000;
+      }
     }
 
     &--active {
@@ -1288,6 +1343,7 @@
     color: #181818;
     font-family: 'Barlow Condensed', sans-serif;
     width: 70%;
+    transition: color 0.3s ease;
 
     &--active {
       color: #e53935;

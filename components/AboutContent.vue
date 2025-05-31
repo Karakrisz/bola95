@@ -1,24 +1,15 @@
 <script setup>
+import { NuxtLink } from '#components'
+
 const blocks = [
   {
-    title: 'Az alaprétég szerepe',
-    text: 'Az alaprétég teherelosztó funkciót lát el, ez viseli a forgalom és az időjárás jelentős részét. Típusát a talaj minősége, a burkolat várható terhelése és a vízelvezetési környezet határozza meg. Hibás vagy gyenge alap gyors burkolatkárosodáshoz vezethet.',
+    text: 'Legyen szó ipari léptékű útépítésről, kátyúzásról vagy akár egy családi ház kapubejárójának térkövezéséről, számunkra minden munka ugyanolyan fontos. Magánszemélyek és vállalkozások egyaránt számíthatnak ránk, ha minőségi, tartós és precíz kivitelezésre van szükség.',
   },
   {
-    title: 'Fagyvédelem alulról',
-    text: 'A fagyvédő réteg megakadályozza, hogy a téli fagyás károkat okozzon az útpályában. Ez különösen fontos olyan helyeken, ahol a víz panghat, vagy ahol a burkolat alatt nem megfelelő a természetes vízelvezetés.',
+    text: 'Szolgáltatásaink között szerepel az aszfaltozás több típusa (pl. hengerelt vagy mart aszfalt), térkövezés, alapozás, szegélyezés, vízelvezetés, valamint különféle betonozási munkálatok. Minden projektünknél nagy hangsúlyt fektetünk az előkészítésre, az anyagminőségre és a határidők pontos betartására.',
   },
   {
-    title: 'Tömörített tükör – a biztos kiindulás',
-    text: 'Ez a legalsó, mechanikusan tömörített réteg biztosítja a stabil alépítményt. Enélkül a felette lévő rétegek elmozdulhatnak, repedések és süllyedések alakulhatnak ki.',
-  },
-  {
-    title: 'A kopóréteg és az aszfalt alaprétég',
-    text: 'A kopóréteg biztosítja a sima, kényelmes és biztonságos közlekedést, míg az alatta lévő aszfalt alapréteg a szerkezeti szilárdságot. Egyik sem működik megfelelően a másik nélkül.',
-  },
-  {
-    title: 'Szegély – nem csak dísz',
-    text: 'A szegélykő és a szegélybeton statikai szerepet is betölt. Megtámasztja a burkolatot, megakadályozza az oldalsó szétcsúszást, és hozzájárul az élettartam jelentős meghosszabbításához.',
+    text: 'A célunk egyszerű: hosszú távon megbízható, esztétikus és funkcionális burkolatokat létrehozni, amelyek valóban kiszolgálják megrendelőink igényeit – akár egy belvárosi járdáról, akár egy családi ház előtti beállóról van szó.',
   },
 ]
 </script>
@@ -34,17 +25,24 @@ const blocks = [
       <!-- 1. SZÖVEG (most balra) -->
       <div class="nextlayer__content nextlayer__content--dark">
         <div class="nextlayer__text-block">
-          <h2 class="nextlayer__title">Miért fontos az útpályaszerkezet?</h2>
+          <h2 class="nextlayer__title">Rólunk</h2>
           <p class="nextlayer__paragraph">
-            A tartós és jól terhelhető burkolat alapja a gondosan megtervezett
-            és kivitelezett rétegrend. Nem mindegy, mi kerül a burkolat alá – a
-            szerkezeti stabilitás itt dől el.
+            Több mint 30 éve dolgozunk azon, hogy Magyarország útjai, bejárói és
+            udvarai stabil, időtálló és esztétikus burkolatot kapjanak. Cégünk
+            az évtizedek alatt nemcsak a szakmai tapasztalatát, hanem saját
+            gépparkját és megbízható csapatát is folyamatosan fejlesztette, így
+            ma már teljes körű szolgáltatást tudunk nyújtani az útépítés és
+            burkolás minden területén.
           </p>
 
           <div class="nextlayer__blocks">
             <div class="nextlayer__block" v-for="(item, i) in blocks" :key="i">
-              <h3 class="nextlayer__block-title">{{ item.title }}</h3>
               <p class="nextlayer__block-text">{{ item.text }}</p>
+            </div>
+            <div>
+              <NuxtLink to="/" class="nextlayer__blocks__link"
+                >KAPCSOLAT</NuxtLink
+              >
             </div>
           </div>
         </div>
@@ -65,7 +63,7 @@ const blocks = [
 // változók
 $color-bg-dark: #49505c;
 $color-text: #ffffff;
-$spacing: 2rem;
+$spacing: 1.7em;
 $shadow: rgba(0, 0, 0, 0.1);
 
 .nextlayer {
@@ -88,6 +86,26 @@ $shadow: rgba(0, 0, 0, 0.1);
 
     &--dark {
       clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    }
+  }
+
+  &__blocks {
+    &__link {
+      display: flex;
+      height: 40px;
+      padding: 11px 20px;
+      align-items: center;
+      background: var(--Primary, #fd5d14);
+      width: max-content;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.5s;
+
+      &:hover {
+        background: transparent;
+        border: 2px solid #fd5d14;
+      }
     }
   }
 
@@ -118,20 +136,19 @@ $shadow: rgba(0, 0, 0, 0.1);
 
   &__title {
     font-size: 2rem;
-    margin-bottom: math.div($spacing, 2);
-    font-family: "Barlow Condensed", sans-serif;
+    margin-bottom: math.div($spacing, 1.9);
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   &__paragraph {
     line-height: 1.6;
-    margin-bottom: math.div($spacing, 2);
+    margin-bottom: math.div($spacing, 1.3);
   }
 
   &__blocks {
     display: flex;
     flex-direction: column;
     gap: $spacing;
-    margin-top: $spacing;
   }
 
   &__block-title {
