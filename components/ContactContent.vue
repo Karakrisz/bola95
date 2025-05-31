@@ -17,7 +17,6 @@
         >
           <div class="contact-section__fields">
             <div class="contact-section__field-group">
-              <label class="contact-section__label" for="name">Név*</label>
               <input
                 class="contact-section__input"
                 type="text"
@@ -28,9 +27,6 @@
               />
             </div>
             <div class="contact-section__field-group">
-              <label class="contact-section__label" for="phone"
-                >Telefonszám*</label
-              >
               <input
                 class="contact-section__input"
                 type="tel"
@@ -41,9 +37,6 @@
               />
             </div>
             <div class="contact-section__field-group">
-              <label class="contact-section__label" for="email"
-                >E-mail cím*</label
-              >
               <input
                 class="contact-section__input"
                 type="email"
@@ -54,7 +47,6 @@
               />
             </div>
             <div class="contact-section__field-group">
-              <label class="contact-section__label" for="subject">Tárgy</label>
               <input
                 class="contact-section__input"
                 type="text"
@@ -65,7 +57,6 @@
             </div>
           </div>
           <div class="contact-section__field-group">
-            <label class="contact-section__label" for="message">Üzenet</label>
             <textarea
               class="contact-section__textarea"
               id="message"
@@ -96,18 +87,48 @@
         <address class="contact-section__info-list">
           <div class="contact-section__info-item">
             <span class="contact-section__info-icon" aria-hidden="true"
-              >📍</span
-            >
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 1.5C9.81273 1.50248 7.71575 2.37247 6.16911 3.91911C4.62247 5.46575 3.75248 7.56273 3.75 9.75C3.75 16.8094 11.25 22.1409 11.5697 22.3641C11.6958 22.4524 11.846 22.4998 12 22.4998C12.154 22.4998 12.3042 22.4524 12.4303 22.3641C12.75 22.1409 20.25 16.8094 20.25 9.75C20.2475 7.56273 19.3775 5.46575 17.8309 3.91911C16.2843 2.37247 14.1873 1.50248 12 1.5ZM12 6.75C12.5933 6.75 13.1734 6.92595 13.6667 7.25559C14.1601 7.58524 14.5446 8.05377 14.7716 8.60195C14.9987 9.15013 15.0581 9.75333 14.9424 10.3353C14.8266 10.9172 14.5409 11.4518 14.1213 11.8713C13.7018 12.2909 13.1672 12.5766 12.5853 12.6924C12.0033 12.8081 11.4001 12.7487 10.8519 12.5216C10.3038 12.2946 9.83524 11.9101 9.50559 11.4167C9.17595 10.9234 9 10.3433 9 9.75C9 8.95435 9.31607 8.19129 9.87868 7.62868C10.4413 7.06607 11.2044 6.75 12 6.75Z"
+                  fill="#49505F"
+                />
+              </svg>
+            </span>
             <span class="contact-section__info-label">Cím</span>
-            <span class="contact-section__info-text"
-              >2000 Szentendre, Rózsa utca 14.</span
+          </div>
+          <div class="contact-section__info__last-box">
+            <a
+              href="https://www.google.com/maps/place/Szentendre,+R%C3%B3zsa+u.+14,+2000/@47.657006,19.061276,17z/data=!3m1!4b1!4m6!3m5!1s0x4741d65c2eb5c2f5:0x7b1e19a94a899ce0!8m2!3d47.657006!4d19.0638509!16s%2Fg%2F11c28nk1mx?authuser=0&entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              class="contact-section__info-text"
             >
+              2000 Szentendre, Rózsa utca 14.
+            </a>
           </div>
           <div class="contact-section__info-item">
-            <span class="contact-section__info-icon" aria-hidden="true"
-              >✉️</span
-            >
+            <span class="contact-section__info-icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M21 4.5H3C2.80109 4.5 2.61032 4.57902 2.46967 4.71967C2.32902 4.86032 2.25 5.05109 2.25 5.25V18C2.25 18.3978 2.40804 18.7794 2.68934 19.0607C2.97064 19.342 3.35218 19.5 3.75 19.5H20.25C20.6478 19.5 21.0294 19.342 21.3107 19.0607C21.592 18.7794 21.75 18.3978 21.75 18V5.25C21.75 5.05109 21.671 4.86032 21.5303 4.71967C21.3897 4.57902 21.1989 4.5 21 4.5ZM9.25406 12L3.75 17.0447V6.95531L9.25406 12ZM10.3641 13.0172L11.4891 14.0531C11.6274 14.1801 11.8084 14.2506 11.9963 14.2506C12.1841 14.2506 12.3651 14.1801 12.5034 14.0531L13.6284 13.0172L19.0659 18H4.92844L10.3641 13.0172ZM14.7459 12L20.25 6.95438V17.0456L14.7459 12Z"
+                  fill="#49505F"
+                />
+              </svg>
+            </span>
             <span class="contact-section__info-label">E-mail cím</span>
+          </div>
+          <div class="contact-section__info__last-box">
             <a
               href="mailto:bola95kft@t-online.hu"
               class="contact-section__info-text"
@@ -116,16 +137,31 @@
             </a>
           </div>
           <div class="contact-section__info-item">
-            <span class="contact-section__info-icon" aria-hidden="true"
-              >📞</span
-            >
+            <span class="contact-section__info-icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M21.7388 16.4136C21.5716 17.6839 20.9477 18.85 19.9837 19.6939C19.0196 20.5379 17.7813 21.0021 16.5 20.9998C9.05626 20.9998 3.00001 14.9436 3.00001 7.49981C2.99771 6.21852 3.4619 4.98021 4.30588 4.01615C5.14986 3.05209 6.31592 2.42822 7.58626 2.26106C7.9075 2.22184 8.2328 2.28756 8.51362 2.44841C8.79444 2.60926 9.0157 2.85662 9.14438 3.15356L11.1244 7.57387V7.58512C11.2229 7.81242 11.2636 8.06058 11.2428 8.30744C11.222 8.5543 11.1404 8.79217 11.0053 8.99981C10.9884 9.02512 10.9706 9.04856 10.9519 9.072L9.00001 11.3857C9.7022 12.8126 11.1947 14.292 12.6403 14.9961L14.9222 13.0545C14.9446 13.0357 14.9681 13.0181 14.9925 13.002C15.2 12.8636 15.4387 12.7792 15.687 12.7562C15.9353 12.7333 16.1854 12.7727 16.4147 12.8707L16.4269 12.8764L20.8434 14.8554C21.1409 14.9837 21.3889 15.2047 21.5503 15.4856C21.7116 15.7664 21.7778 16.092 21.7388 16.4136Z"
+                  fill="#49505F"
+                />
+              </svg>
+            </span>
             <span class="contact-section__info-label">Telefonszám</span>
+          </div>
+          <div class="contact-section__info__last-box">
             <ul class="contact-section__phone-list">
-              <li>+36-26-302-586</li>
-              <li>+36-20-960-6878</li>
-              <li>+36-20-222-2867</li>
-              <li>+36-20-411-4011</li>
-              <li>+36-30-222-9645</li>
+              <li>
+                <a href="tel:+3626302586"> +36-26-302-586 </a>
+              </li>
+              <li><a href="tel:+36209606878">+36-20-960-6878</a></li>
+              <li><a href="tel:+36202222867">+36-20-222-2867</a></li>
+              <li><a href="tel:+36204114011">+36-20-411-4011</a></li>
+              <li><a href="tel:+36302229645">+36-30-222-9645</a></li>
             </ul>
           </div>
         </address>
@@ -154,16 +190,16 @@
 
   &__form-area {
     color: #fff;
-    padding: 2rem;
+    padding: 3em 4em 3em 3em;
     flex: 1 1 60%;
     clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
   }
 
   &__info-area {
     background: #fff;
-    padding: 2rem;
+    padding: 7% 2em 2em 7em;
     flex: 1 1 40%;
-    clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
   }
 
   &__heading {
@@ -230,6 +266,9 @@
 
   &__note {
     font-size: 0.875rem;
+    text-align: end;
+    width: 50%;
+    font-weight: 300;
   }
 
   &__policy-link {
