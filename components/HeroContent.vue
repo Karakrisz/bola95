@@ -3,60 +3,54 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const slides = ref([
   {
-    title: 'PARTI BIRTOK RENDEZVÉNYHÁZ',
-    subtitle: 'Egy hely, ahol bármikor és bárhmeddig bulizhatsz',
+    title: 'PROFESSZIONÁLIS ASZFALT',
+    subtitle: 'akár a házad elé is',
     description:
-      'Modern, klimatizált rendezvényházunk Makó és Rákos között, csendes környezetben várja vendégeit. 75 fős befogadóképesség, hangtechnika, catering, szállás és még sok más – minden adott egy emlékezetes eseményhez.',
-    ctaText: 'Foglalj időpontot még ma!',
-    ctaButtonText: 'Időpontfoglalás',
+      'Több mint 30 év szakmai tapasztalattal végzünk útépítést, aszfaltozást, kátyúzást, térkövezést, valamint különféle betonozási és alapozási munkálatokat cégek és magánszemélyek megbízásából egyaránt. Szolgáltatásaink a teljes körű útépítéstől egészen a kisebb kapubeállók, kocsifelhajtók, belső udvarok vagy járdák precíz kivitelezéséig terjednek, legyen szó mart aszfaltról, hengerelt burkolatról vagy térköves megoldásról, szükség esetén szegélyezéssel és vízelvezetéssel kiegészítve.',
+    ctaButtonText: 'ÁRAJÁNLATKÉRÉS',
     ctaLink: '#booking',
     imageUrl: '/img/hero.webp',
-    imageAlt:
-      'Parti Birtok Rendezvényház - Elegáns rendezvényterem terített asztalokkal',
+    imageAlt: 'Bola 95 Kft',
   },
   {
-    title: 'ESKÜVŐK & CSALÁDI RENDEZVÉNYEK',
-    subtitle: 'Tökéletes helyszín az élet fontos pillanataihoz',
+    title: 'PROFESSZIONÁLIS BETONOZÁS',
+    subtitle: 'Tartós alapok és felületek szakszerű kivitelezéssel',
     description:
-      'Különleges környezetben teremtünk feledhetetlen élményt a nagy napra. Egyedi dekorációs lehetőségek, professzionális hangosítás és letisztult elegancia várja az ifjú párt és a vendégeket a Parti Birtok Rendezvényházban.',
-    ctaText: 'Lásd az esküvői csomagajánlatainkat!',
-    ctaButtonText: 'Ajánlatkérés',
-    ctaLink: '#wedding-packages',
+      'A beton összenyomási szilárdsága 25-50 MPa között mozog, ami garantálja építményeink hosszú távú stabilitását. Korszerű adalékanyagok és precíz víz-cement arány alkalmazásával biztosítjuk a C25/30-C35/45 szilárdságú betonok optimális tulajdonságait. Szolgáltatásaink között szerepel ipari alapozás, járdaépítés, támfalak és különféle funkcionális betonfelületek kivitelezése, minden esetben MSZ EN 206 szabvány szerinti minőségbiztosítással.',
+    ctaButtonText: 'Betonozási ajánlat',
+    ctaLink: '#concrete-services',
     imageUrl: '/img/hero.webp',
-    imageAlt: 'Parti Birtok Rendezvényház - Esküvői helyszín',
+    imageAlt: 'Bola 95 Kft - Professzionális betonozás',
   },
   {
-    title: 'CÉGES ESEMÉNYEK & TRÉNINGEK',
-    subtitle: 'Inspiráló környezet a sikeres üzleti találkozókhoz',
+    title: 'TÉRBURKOLAT RENDSZEREK',
+    subtitle: 'Mérnöki precizitás minden négyzetméteren',
     description:
-      'Tárgyalók, nagy előadótér és nyugodt, zöld környezet segít a produktív munkában. A modern technikai felszereltség és rugalmas térrendezés minden üzleti igényt kielégít. Fedezze fel üzleti csomagjainkat!',
-    ctaText: 'Tökéletes helyszín az üzleti sikereinek!',
-    ctaButtonText: 'Céges ajánlatok',
-    ctaLink: '#business-events',
+      'A térkövezés teherbírása megfelelő alapozással 45 tonna/tengelynyomásig terjedhet, így alkalmas nehéz forgalom elviselésére is. Speciális homokágy-rendszerünk és geotextília alkalmazása biztosítja a hosszú távú stabilitást és megakadályozza a burkolat просadását. Vízáteresztő fugázási technikánkkal 40-60%-kal csökkentjük a felszíni lefolyást, támogatva a természetes vízkörforgást és megfelelve a modern környezetvédelmi előírásoknak.',
+    ctaButtonText: 'Térburkolati ajánlat',
+    ctaLink: '#paving-solutions',
     imageUrl: '/img/hero.webp',
-    imageAlt: 'Parti Birtok Rendezvényház - Céges esemény helyszín',
+    imageAlt: 'Bola 95 Kft - Térburkolat rendszerek',
   },
   {
-    title: 'GASZTRONÓMIAI ÉLMÉNYEK',
-    subtitle: 'Ízek és kényeztetés minden alkalomra',
+    title: 'ÚTÉPÍTÉSI TECHNOLÓGIA',
+    subtitle: 'Korszerű eljárások a tartós útfelületekért',
     description:
-      'Egyedi, minőségi alapanyagokból készült catering kínálatunk mindenki számára tartogat különlegességeket. A tradicionális magyar ízektől a nemzetközi fogásokig, minden igényt kielégítünk. Diétás és vegetáriánus opciók is elérhetőek.',
-    ctaText: 'Kóstold meg különleges menüsorainkat!',
-    ctaButtonText: 'Catering ajánlatok',
-    ctaLink: '#catering',
+      'Az aszfaltkeverékek optimalizált bitumen-tartalmával (4,5-6,5%) és 95%-os tömörítési fokkal biztosítjuk a kopóréteg ellenállóképességét. Háromrétegű útpálya-felépítésünk - alapréteg, kötőréteg, kopóréteg - Marshall-stabilitása meghaladja a 9 kN értéket. Termikus ciklus-ellenálló adalékanyagok alkalmazásával -20°C és +60°C közötti hőmérséklet-tartományban garantáljuk a burkolat integritását.',
+    ctaButtonText: 'Útépítési ajánlat',
+    ctaLink: '#road-construction',
     imageUrl: '/img/hero.webp',
-    imageAlt: 'Parti Birtok Rendezvényház - Gasztronómiai kínálat',
+    imageAlt: 'Bola 95 Kft - Útépítési technológia',
   },
   {
-    title: 'SZÁLLÁS & PIHENÉS',
-    subtitle: 'Kényelmes szálláslehetőségek a helyszínen',
+    title: 'VÍZELVEZETŐ RENDSZEREK',
+    subtitle: 'Mérnöki vízelvezetés a tartós eredményért',
     description:
-      'Rendezvénye után nem kell sietnie! Elegáns, légkondicionált szobáink tökéletes pihenést biztosítanak a helyszínen. A rendezvény résztvevői kedvezményes áron vehetik igénybe szálláskínálatunkat.',
-    ctaText: 'Biztosítsa a tökéletes pihenést is!',
-    ctaButtonText: 'Szállásajánlatok',
-    ctaLink: '#accommodation',
+      'Hidrodinamikai számításokkal tervezett lejtésképzés (min. 1,5-2%) és korszerű drénrendszerek alkalmazásával megakadályozzuk a káros vízkár hatásokat. PE és PVC anyagú gyűjtőcsatornáink 50-100 éves élettartamot biztosítanak, míg a perforált dréncsövek 10-15 l/s vízelvezetési kapacitással rendelkeznek. A talajmechanikai vizsgálatok alapján tervezett vízszigetelés megakadályozza a fagykár és az altalaj kilúgzását.',
+    ctaButtonText: 'Vízelvezetési rendszerek',
+    ctaLink: '#drainage-systems',
     imageUrl: '/img/hero.webp',
-    imageAlt: 'Parti Birtok Rendezvényház - Szállás lehetőségek',
+    imageAlt: 'Bola 95 Kft - Vízelvezető rendszerek',
   },
 ])
 
@@ -310,13 +304,12 @@ onUnmounted(() => {
   </section>
 </template>
 
-
 <style lang="scss" scoped>
 @use 'sass:color';
 @use 'sass:math';
 
 $primary-color: #fff;
-$tertiary-color: #cca132;
+$tertiary-color: #fd5d14;
 $dark-color: #181818;
 $text-color: #001647;
 $dark-text: #181818;
@@ -334,7 +327,7 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   min-height: 600px;
   overflow: hidden;
   margin-top: -4.5em;
@@ -365,13 +358,6 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.62;
-      background: linear-gradient(
-        90deg,
-        #000 0.63%,
-        rgba(0, 0, 0, 0.81) 34.1%,
-        rgba(0, 0, 0, 0) 100.56%
-      );
       z-index: 1;
     }
   }
@@ -381,33 +367,33 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     top: 50%;
     left: 3em;
     transform: translateY(-50%);
-    max-width: 600px;
+    max-width: 60%;
     color: $primary-color;
     z-index: 2;
     padding: 2rem;
   }
 
   &__title {
-    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     line-height: 1.2;
     text-shadow: $text-shadow;
     text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 4rem;
   }
 
   &__subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.3em;
     text-shadow: $text-shadow;
-    border-bottom: 1px solid $primary-color;
-    padding-bottom: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
   }
 
   &__description {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
     text-shadow: $text-shadow;
   }
 
@@ -433,6 +419,7 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: 600;
     border-radius: 5px;
     transition: background-color $transition-speed, transform $transition-speed;
+    text-transform: uppercase;
 
     &:hover,
     &:focus {
@@ -486,4 +473,3 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 }
 </style>
-

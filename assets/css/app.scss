@@ -194,25 +194,33 @@ header {
 }
 .header-content {
   position: relative;
-  padding: 1em 5em;
+  padding: 0 3em;
   display: flex;
   align-items: center;
   border-radius: 100px;
   background: #fff;
   box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  @include flex-center;
+  width: 63%;
+  margin: auto;
+  top: 3em;
 
   &__logo-box {
     width: 20%;
     &__link__img {
-      width: 70%;
+      width: 50%;
+      display: block;
     }
   }
 
   &__nav-box {
     width: 80%;
     @include flex-center;
+    justify-content: end;
+  }
+
+  &__logo-box__link {
+    background: #fc5e13;
   }
 }
 
@@ -225,16 +233,7 @@ header {
   }
 
   &__item {
-    padding-left: 2.5em;
-  }
-
-  &__list__li {
-    &:first-child {
-      border-left: 0.12rem solid $black;
-    }
-    &__img {
-      width: 45%;
-    }
+    padding-left: 3em;
   }
 }
 
