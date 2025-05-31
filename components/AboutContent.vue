@@ -163,6 +163,12 @@ $shadow: rgba(0, 0, 0, 0.1);
 
 /* Responsive: mobilon column-reverse */
 @media (max-width: 768px) {
+  .nextlayer {
+    &__img {
+      position: relative;
+      width: 100%;
+    }
+  }
   .nextlayer__container {
     flex-direction: column-reverse;
   }

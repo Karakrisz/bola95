@@ -262,7 +262,6 @@
   &__textarea {
     padding: 0.75rem;
     border: none;
-    border-radius: 4px;
     font-size: 1rem;
   }
 

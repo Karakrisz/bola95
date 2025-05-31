@@ -1,3 +1,50 @@
+<template>
+  <section class="hero">
+    <div class="hero__slider">
+      <div class="hero__slider-track" ref="sliderTrack" :style="sliderStyle">
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="hero__slide"
+        >
+          <div class="hero__slide-content">
+            <h1 class="hero__title">{{ slide.title }}</h1>
+            <p class="hero__subtitle">{{ slide.subtitle }}</p>
+            <div class="hero__description">
+              <p>{{ slide.description }}</p>
+            </div>
+            <div class="hero__cta">
+              <p class="hero__cta-text">{{ slide.ctaText }}</p>
+              <a :href="slide.ctaLink" class="hero__button">
+                {{ slide.ctaButtonText }}
+              </a>
+            </div>
+          </div>
+          <div class="hero__image-container">
+            <NuxtImg
+              :src="slide.imageUrl"
+              :alt="slide.imageAlt"
+              class="hero__image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__navigation">
+        <button
+          v-for="(_, index) in slides"
+          :key="index"
+          :aria-label="`Slide ${index + 1}`"
+          class="hero__nav-dot"
+          :class="{ 'hero__nav-dot--active': currentSlide === index }"
+          @click="onNavDotClick(index, $event)"
+          type="button"
+        ></button>
+      </div>
+    </div>
+  </section>
+</template>
+
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
@@ -11,6 +58,7 @@ const slides = ref([
     ctaLink: '#booking',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft',
+    ctaText: '',
   },
   {
     title: 'PROFESSZIONÁLIS BETONOZÁS',
@@ -21,26 +69,29 @@ const slides = ref([
     ctaLink: '#concrete-services',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Professzionális betonozás',
+    ctaText: '',
   },
   {
     title: 'TÉRBURKOLAT RENDSZEREK',
     subtitle: 'Mérnöki precizitás minden négyzetméteren',
     description:
-      'A térkövezés teherbírása megfelelő alapozással 45 tonna/tengelynyomásig terjedhet, így alkalmas nehéz forgalom elviselésére is. Speciális homokágy-rendszerünk és geotextília alkalmazása biztosítja a hosszú távú stabilitást és megakadályozza a burkolat просadását. Vízáteresztő fugázási technikánkkal 40-60%-kal csökkentjük a felszíni lefolyást, támogatva a természetes vízkörforgást és megfelelve a modern környezetvédelmi előírásoknak.',
+      'A térkövezés teherbírása megfelelő alapozással 45 tonna/tengelynyomásig terjedhet, így alkalmas nehéz forgalom elviselésére is. Speciális homokágy-rendszerünk és geotextília alkalmazása biztosítja a hosszú távú stabilitást és megakadályozza a burkolat prosadását. Vízáteresztő fugázási technikánkkal 40-60%-kal csökkentjük a felszíni lefolyást, támogatva a természetes vízkörforgást és megfelelve a modern környezetvédelmi előírásoknak.',
     ctaButtonText: 'Térburkolati ajánlat',
     ctaLink: '#paving-solutions',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Térburkolat rendszerek',
+    ctaText: '',
   },
   {
     title: 'ÚTÉPÍTÉSI TECHNOLÓGIA',
     subtitle: 'Korszerű eljárások a tartós útfelületekért',
     description:
-      'Az aszfaltkeverékek optimalizált bitumen-tartalmával (4,5-6,5%) és 95%-os tömörítési fokkal biztosítjuk a kopóréteg ellenállóképességét. Háromrétegű útpálya-felépítésünk - alapréteg, kötőréteg, kopóréteg - Marshall-stabilitása meghaladja a 9 kN értéket. Termikus ciklus-ellenálló adalékanyagok alkalmazásával -20°C és +60°C közötti hőmérséklet-tartományban garantáljuk a burkolat integritását.',
+      'Az aszfaltkeverékek optimalizált bitumen-tartalmával (4,5-6,5%) és 95%-os tömörítési fokkal biztosítjuk a kopóréteg ellenállóképességét. Háromrétegű útpálya-felépítésünk - alapréteg, kötőréteg, kopóréteg - Marshall-stabilitása meghaladja a 9 kN értéket. Termikus ciklus-ellenálló adalékanyagok alkalmazásával -20 °C és +60 °C közötti hőmérséklet-tartományban garantáljuk a burkolat integritását.',
     ctaButtonText: 'Útépítési ajánlat',
     ctaLink: '#road-construction',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Útépítési technológia',
+    ctaText: '',
   },
   {
     title: 'VÍZELVEZETŐ RENDSZEREK',
@@ -51,6 +102,7 @@ const slides = ref([
     ctaLink: '#drainage-systems',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Vízelvezető rendszerek',
+    ctaText: '',
   },
 ])
 
@@ -67,15 +119,14 @@ const sliderStyle = computed(() => {
 })
 
 function goToSlide(index) {
-  // Közvetlenül állítjuk be az értéket, hogy biztosítsuk a frissítést
-  currentSlide.value = index;
-  
-  // Manuálisan frissítjük a slider pozícióját, ha a ref már létezik
+  // Átváltunk a kívánt diára, és újraindítjuk az autoplay-t
+  currentSlide.value = index
+
   if (sliderTrack.value) {
-    sliderTrack.value.style.transform = `translateX(-${index * 20}%)`;
+    sliderTrack.value.style.transform = `translateX(-${index * 20}%)`
   }
-  
-  resetAutoplay();
+
+  resetAutoplay()
 }
 
 function nextSlide() {
@@ -86,10 +137,18 @@ function resetAutoplay() {
   if (autoplayInterval.value) {
     clearInterval(autoplayInterval.value)
   }
-
   autoplayInterval.value = setInterval(nextSlide, autoplayDelay)
 }
 
+/* Kiegészítő metódus a navigációs pontokhoz,
+   hogy egy helyen kezeljük a preventDefault() és stopPropagation() hívást. */
+function onNavDotClick(index, event) {
+  goToSlide(index)
+  event.preventDefault()
+  event.stopPropagation()
+}
+
+/* Drag/touch események kezelése */
 let touchStartX = 0
 let touchEndX = 0
 let mouseStartX = 0
@@ -233,10 +292,10 @@ onMounted(() => {
     sliderTrack.value.addEventListener('mouseleave', handleMouseLeave)
 
     sliderTrack.value.style.cursor = 'grab'
-
     sliderTrack.value.style.transition = 'transform 0.4s ease-in-out'
   }
 
+  // Késleltetett preload az összes képre (második diától kezdve)
   for (let i = 1; i < slides.value.length; i++) {
     const link = document.createElement('link')
     link.rel = 'preload'
@@ -268,49 +327,6 @@ onUnmounted(() => {
   }
 })
 </script>
-
-<template>
-  <section class="hero">
-    <div class="hero__slider">
-      <div class="hero__slider-track" ref="sliderTrack" :style="sliderStyle">
-        <div v-for="(slide, index) in slides" :key="index" class="hero__slide">
-          <div class="hero__slide-content">
-            <h1 class="hero__title">{{ slide.title }}</h1>
-            <p class="hero__subtitle">{{ slide.subtitle }}</p>
-            <div class="hero__description">
-              <p>{{ slide.description }}</p>
-            </div>
-            <div class="hero__cta">
-              <p class="hero__cta-text">{{ slide.ctaText }}</p>
-              <a :href="slide.ctaLink" class="hero__button">{{
-                slide.ctaButtonText
-              }}</a>
-            </div>
-          </div>
-          <div class="hero__image-container">
-            <NuxtImg
-              :src="slide.imageUrl"
-              :alt="slide.imageAlt"
-              class="hero__image"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__navigation">
-        <button
-          v-for="(_, index) in slides"
-          :key="index"
-          :aria-label="`Slide ${index + 1}`"
-          class="hero__nav-dot"
-          :class="{ 'hero__nav-dot--active': currentSlide === index }"
-          @click="goToSlide(index); $event.preventDefault(); $event.stopPropagation();"
-          type="button"
-        ></button>
-      </div>
-    </div>
-  </section>
-</template>
 
 <style lang="scss" scoped>
 @use 'sass:color';
@@ -460,7 +476,7 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     z-index: 3;
   }
 
-      &__nav-dot {
+  &__nav-dot {
     width: 1rem;
     height: 1rem;
     border-radius: 20%;
@@ -482,6 +498,113 @@ $text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
     &:focus {
       outline: none;
+    }
+  }
+}
+
+/* ------------------------------
+   Mobil nézet (<768px)
+   ------------------------------ */
+@media (max-width: 767px) {
+  .hero {
+    height: 100vh;
+    min-height: auto;
+    margin-top: -3.5em;
+
+    &__slide-content {
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 80%;
+      padding: 1.5rem;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    &__subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 0.5em;
+    }
+
+    &__description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    &__cta-text {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    &__button {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    &__navigation {
+      bottom: 1rem;
+      gap: 0.75rem;
+    }
+
+    &__nav-dot {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+  }
+}
+
+/* ------------------------------
+   Tablet nézet (992px–1199px)
+   ------------------------------ */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero {
+    height: 90vh;
+    min-height: 550px;
+    margin-top: -4em;
+
+    &__slide-content {
+      left: 7%;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 55%;
+      padding: 1.8rem;
+    }
+
+    &__title {
+      font-size: 3.2rem;
+    }
+
+    &__subtitle {
+      font-size: 1.6rem;
+    }
+
+    &__description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    &__cta-text {
+      font-size: 1.05rem;
+      margin-bottom: 0.9rem;
+    }
+
+    &__button {
+      padding: 0.7rem 1.8rem;
+      font-size: 1rem;
+    }
+
+    &__navigation {
+      bottom: 1.5rem;
+      gap: 0.85rem;
+    }
+
+    &__nav-dot {
+      width: 0.9rem;
+      height: 0.9rem;
     }
   }
 }
