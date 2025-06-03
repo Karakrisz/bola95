@@ -6,7 +6,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Digital Seed Studio',
+      title:
+        'Bola 95 Kft. – Aszfaltozás | Útépítés | Betonozás | 25 éves tapasztalat',
       htmlAttrs: {
         lang: 'hu',
       },
@@ -17,7 +18,7 @@ export default defineNuxtConfig({
           hid: 'description',
           name: 'description',
           content:
-            'SEO-optimalizált weboldal készítés vállalkozásoknakLegyen weboldalad gyors, modern és keresőoptimalizált!',
+            'Korszerű gépparkunknak és tapasztalt szakembereinknek köszönhetően bármilyen méretű aszfaltozási, útépítési vagy betonozási projektet rövid határidőn belül, költséghatékonyan és tartós megoldással kivitelezünk.',
         },
         { name: 'format-detection', content: 'telephone=no' },
         { hid: 'robots', name: 'robots', content: 'index, follow' },

@@ -274,7 +274,7 @@ header {
 
 // Media Queries
 @mixin responsive($breakpoint) {
-  @if $breakpoint == miniPC {
+  @if $breakpoint == nomalPC {
     @media (max-width: 1370px) {
       @content;
     }
