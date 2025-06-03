@@ -463,9 +463,9 @@ watch(isMenuOpen, (newVal) => {
   position: absolute;
   left: 0;
   bottom: -2px;
-  height: 2px;
+  height: 3px;
   width: 100%;
-  background: #000;
+  background: #fd5d14;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease, transform-origin 0s 0.3s;

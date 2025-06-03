@@ -225,15 +225,18 @@ header {
 }
 
 .menu {
+  &__item {
+    font-size: .9rem;
+  }
   &__list {
     padding: 0;
     margin: 0;
     justify-content: end;
     @include flex-center;
-  }
 
-  &__item {
-    padding-left: 3em;
+    &__li {
+      padding: 0 1.5em;
+    }
   }
 }
 
@@ -274,6 +277,21 @@ header {
 
 // Media Queries
 @mixin responsive($breakpoint) {
+  @if $breakpoint == TV {
+    @media (min-width: 2200px) and (max-width: 2570px) {
+      @content;
+    }
+  }
+  @if $breakpoint == BigNextPC {
+    @media (min-width: 2000px) and (max-width: 2200px) {
+      @content;
+    }
+  }
+  @if $breakpoint == BigPC {
+    @media (min-width: 1800px) and (max-width: 2000px) {
+      @content;
+    }
+  }
   @if $breakpoint == nomalPC {
     @media (max-width: 1370px) {
       @content;
@@ -292,6 +310,40 @@ header {
     @media screen and (max-width: 767px) {
       @content;
     }
+  }
+}
+
+@include responsive(TV) {
+  .menu__item {
+    font-size: 1.7rem;
+  }
+  .nextlayer__img[data-v-d692d56f] {
+    width: 33.5% !important;
+    left: 15em !important;
+  }
+  .nextlayer__img[data-v-24c6c99b] {
+    width: 33.5% !important;
+    right: 15em !important;
+  }
+}
+
+@include responsive(BigNextPC) {
+  .menu__item {
+    font-size: 1.5rem;
+  }
+  .nextlayer__img[data-v-d692d56f] {
+    width: 33.5% !important;
+    left: 15em !important;
+  }
+  .nextlayer__img[data-v-24c6c99b] {
+    width: 33.5% !important;
+    right: 15em !important;
+  }
+}
+
+@include responsive(BigPC) {
+  .menu__item {
+    font-size: 1.2rem;
   }
 }
 
