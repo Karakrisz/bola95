@@ -17,28 +17,32 @@
         <h3 class="site-footer__heading">Navigáció</h3>
         <ul class="site-footer__list">
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Főoldal</a>
+            <NuxtLink class="site-footer__link" href="/">Főoldal</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Galéria</a>
+            <NuxtLink class="site-footer__link" href="/">Galéria</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Rólunk</a>
+            <NuxtLink class="site-footer__link" href="/">Rólunk</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Referenciák</a>
+            <NuxtLink class="site-footer__link" href="/">Referenciák</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Adatvédelmi Nyilatkozat</a>
+            <NuxtLink class="site-footer__link" href="/"
+              >Adatvédelmi Nyilatkozat</NuxtLink
+            >
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Gyakran Ismételt Kérdések</a>
+            <NuxtLink class="site-footer__link" href="/"
+              >Gyakran Ismételt Kérdések</NuxtLink
+            >
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Partnereink</a>
+            <NuxtLink class="site-footer__link" href="/">Partnereink</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <a class="site-footer__link" href="/">Kapcsolat</a>
+            <NuxtLink class="site-footer__link" href="/">Kapcsolat</NuxtLink>
           </li>
         </ul>
       </div>
@@ -47,11 +51,21 @@
       <div class="site-footer__column">
         <h3 class="site-footer__heading">Szolgáltatásaink</h3>
         <ul class="site-footer__list">
-          <li class="site-footer__item">Transzpont beton</li>
-          <li class="site-footer__item">Hengerelt aszfaltozás</li>
-          <li class="site-footer__item">Öntött aszfaltozás</li>
-          <li class="site-footer__item">Mart aszfaltos útépítés</li>
-          <li class="site-footer__item">Térkövezés</li>
+          <li class="site-footer__item">
+            <NuxtLink class="site-footer__link" href="/">Transzpont beton</NuxtLink>
+          </li>
+          <li class="site-footer__item">
+            <NuxtLink class="site-footer__link" href="/">Hengerelt aszfaltozás</NuxtLink>
+          </li>
+          <li class="site-footer__item">
+            <NuxtLink class="site-footer__link" href="/">Öntött aszfaltozás</NuxtLink>
+          </li>
+          <li class="site-footer__item">
+            <NuxtLink class="site-footer__link" href="/">Mart aszfaltos útépítés</NuxtLink>
+          </li>
+          <li class="site-footer__item">
+            <NuxtLink class="site-footer__link" href="/">Térkövezés</NuxtLink>
+          </li>
         </ul>
       </div>
 
@@ -78,17 +92,32 @@
             >
           </li>
           <li class="site-footer__contact-item">
-            <NuxtImg
-              src="/img/phone.svg"
-              alt="Telefon ikon"
+            <svg
               class="site-footer__icon"
-            />
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M21.7388 16.4136C21.5716 17.6839 20.9477 18.85 19.9837 19.6939C19.0196 20.5379 17.7813 21.0021 16.5 20.9998C9.05626 20.9998 3.00001 14.9436 3.00001 7.49981C2.99771 6.21852 3.4619 4.98021 4.30588 4.01615C5.14986 3.05209 6.31592 2.42822 7.58626 2.26106C7.9075 2.22184 8.2328 2.28756 8.51362 2.44841C8.79444 2.60926 9.0157 2.85662 9.14438 3.15356L11.1244 7.57387V7.58512C11.2229 7.81242 11.2636 8.06058 11.2428 8.30744C11.222 8.5543 11.1404 8.79217 11.0053 8.99981C10.9884 9.02512 10.9706 9.04856 10.9519 9.072L9.00001 11.3857C9.7022 12.8126 11.1947 14.292 12.6403 14.9961L14.9222 13.0545C14.9446 13.0357 14.9681 13.0181 14.9925 13.002C15.2 12.8636 15.4387 12.7792 15.687 12.7562C15.9353 12.7333 16.1854 12.7727 16.4147 12.8707L16.4269 12.8764L20.8434 14.8554C21.1409 14.9837 21.3889 15.2047 21.5503 15.4856C21.7116 15.7664 21.7778 16.092 21.7388 16.4136Z"
+                fill="#FD5D14"
+              />
+            </svg>
             <ul class="site-footer__phone-list">
-              <li>+36-26-302-586</li>
-              <li>+36-20-960-6878</li>
-              <li>+36-20-222-2867</li>
-              <li>+36-20-411-4011</li>
-              <li>+36-30-222-9645</li>
+              <li>
+                <a class="site-footer__link" href="tel:+3626302586">+36-26-302-586</a>
+              </li>
+              <li>
+                <a class="site-footer__link" href="tel:+36209606878">+36-20-960-6878</a>
+              </li>
+              <li>
+                <a class="site-footer__link" href="tel:+36202222867">+36-20-222-2867</a>
+              </li>
+              <li>
+                <a class="site-footer__link" href="tel:+36204114011">+36-20-411-4011</a>
+              </li>
             </ul>
           </li>
         </ul>
