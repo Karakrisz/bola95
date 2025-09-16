@@ -74,14 +74,14 @@ watch(isMenuOpen, (newVal) => {
   <header class="header">
     <div class="header-content d-flex">
       <div class="logo-box header-content__logo-box">
-        <a href="/" class="header-content__logo-box__link">
+        <NuxtLink href="/" class="header-content__logo-box__link">
           <NuxtImg
             src="/img/logo.webp"
             alt="NapiTop Kft"
             class="header-content__logo-box__link__img"
             height="100%"
           />
-        </a>
+        </NuxtLink>
       </div>
       <div class="nav-box header-content__nav-box d-flex">
         <!-- Hamburger gomb - csak mobilon jelenik meg -->
