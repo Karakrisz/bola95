@@ -106,9 +106,6 @@
       "#sitemap": [
         "../node_modules/@nuxtjs/sitemap/dist/runtime/types"
       ],
-      "#mail": [
-        "./file:/Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail"
-      ],
       "#unhead/composables": [
         "../node_modules/nuxt/dist/head/runtime/composables/v3"
       ],
@@ -133,7 +130,6 @@
     "../node_modules/@nuxt/image/runtime/server",
     "../node_modules/nuxt-site-config/dist/module.mjs/runtime/server",
     "../node_modules/@nuxtjs/sitemap/runtime/server",
-    "../node_modules/nuxt-mail/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./module/nuxt-site-config.d.ts",
@@ -148,7 +144,6 @@
     "../node_modules/@nuxt/image/node_modules",
     "../node_modules/nuxt-site-config/node_modules",
     "../node_modules/@nuxtjs/sitemap/node_modules",
-    "../node_modules/nuxt-mail/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../dist"

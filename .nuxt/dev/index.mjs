@@ -1,5 +1,5 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getRequestHost, getRequestProtocol, setHeader, getHeader, getQuery as getQuery$1, readBody, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, getRequestHost, getRequestProtocol, setHeader, getQuery as getQuery$1, getHeader, readBody, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve as resolve$1, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
@@ -30,9 +30,6 @@ import { stringify, uneval } from 'file:///Applications/XAMPP/xamppfiles/htdocs/
 import { captureRawStackTrace, parseRawStackTrace } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/errx/dist/index.js';
 import { isVNode, toValue, isRef } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/vue/index.mjs';
 import devalue from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/@nuxt/devalue/dist/devalue.mjs';
-import nodemailer from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/nodemailer/lib/nodemailer.js';
-import options from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail/options.mjs';
-import send$1 from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail/send.mjs';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unhead/dist/server.mjs';
 import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unhead/dist/plugins.mjs';
 import { walkResolver } from 'file:///Applications/XAMPP/xamppfiles/htdocs/bola95/node_modules/unhead/dist/utils.mjs';
@@ -644,7 +641,33 @@ const _inlineRuntimeConfig = {
           "Content-Type": "application/xslt+xml"
         }
       },
-      "/sitemap.xml": {},
+      "/sitemap.xml": {
+        "redirect": {
+          "to": "/sitemap_index.xml",
+          "statusCode": 307
+        }
+      },
+      "/sitemap_index.xml": {
+        "headers": {
+          "Content-Type": "text/xml; charset=UTF-8",
+          "Cache-Control": "public, max-age=600, must-revalidate",
+          "X-Sitemap-Prerendered": "2025-11-03T12:47:38.054Z"
+        }
+      },
+      "/pages-sitemap.xml": {
+        "headers": {
+          "Content-Type": "text/xml; charset=UTF-8",
+          "Cache-Control": "public, max-age=600, must-revalidate",
+          "X-Sitemap-Prerendered": "2025-11-03T12:47:38.054Z"
+        }
+      },
+      "/betonozas-sitemap.xml": {
+        "headers": {
+          "Content-Type": "text/xml; charset=UTF-8",
+          "Cache-Control": "public, max-age=600, must-revalidate",
+          "X-Sitemap-Prerendered": "2025-11-03T12:47:38.054Z"
+        }
+      },
       "/_nuxt/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
@@ -661,7 +684,7 @@ const _inlineRuntimeConfig = {
   "sitemap": {
     "isI18nMapped": false,
     "sitemapName": "sitemap.xml",
-    "isMultiSitemap": false,
+    "isMultiSitemap": true,
     "excludeAppSources": [],
     "cacheMaxAgeSeconds": 0,
     "autoLastmod": false,
@@ -692,16 +715,41 @@ const _inlineRuntimeConfig = {
     "credits": true,
     "version": "5.3.5",
     "sitemaps": {
-      "sitemap.xml": {
-        "sitemapName": "sitemap.xml",
-        "route": "sitemap.xml",
-        "defaults": {},
+      "index": {
+        "sitemapName": "index",
+        "_route": "sitemap_index.xml",
+        "sitemaps": [],
+        "include": [],
+        "exclude": []
+      },
+      "pages": {
         "include": [],
         "exclude": [
           "/_nuxt/**",
           "/_**"
         ],
-        "includeAppSources": true
+        "includeAppSources": true,
+        "defaults": {
+          "priority": 0.7,
+          "changefreq": "monthly"
+        },
+        "sitemapName": "pages",
+        "_route": "pages-sitemap.xml",
+        "_hasSourceChunk": false
+      },
+      "betonozas": {
+        "include": [],
+        "exclude": [
+          "/_nuxt/**",
+          "/_**"
+        ],
+        "defaults": {
+          "priority": 0.9,
+          "changefreq": "daily"
+        },
+        "sitemapName": "betonozas",
+        "_route": "betonozas-sitemap.xml",
+        "_hasSourceChunk": 1
       }
     }
   },
@@ -721,7 +769,7 @@ const _inlineRuntimeConfig = {
       {
         "_priority": -3,
         "_context": "nuxt-site-config:config",
-        "url": "https://www.alkuszom.info",
+        "url": "https://aszfaltozas24.hu",
         "trailingSlash": true
       }
     ],
@@ -1124,7 +1172,7 @@ const _eohxHHAmhTxKfn_eH_hHnXvFSP8Ry5Bq9oxcgmhpkk = (function(nitro) {
 
 const rootDir = "/Applications/XAMPP/xamppfiles/htdocs/bola95";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Korszerű gépparkunknak és tapasztalt szakembereinknek köszönhetően bármilyen méretű aszfaltozási, útépítési vagy betonozási projektet rövid határidőn belül, költséghatékonyan és tartós megoldással kivitelezünk."},{"name":"format-detection","content":"telephone=no"},{"hid":"robots","name":"robots","content":"index, follow"},{"http-equiv":"Content-Security-Policy","content":"\n            default-src 'self' https: data:;\n            img-src 'self' https: http: data:;\n            font-src 'self' https: data:;\n            style-src 'self' https: 'unsafe-inline';\n            script-src 'self' https: 'unsafe-inline' 'unsafe-eval';\n          "}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"canonical","href":"https://www.alkuszom.info"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Bola 95 Kft. – Aszfaltozás | Útépítés | Betonozás | 25 éves tapasztalat","htmlAttrs":{"lang":"hu"}};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"Korszerű gépparkunknak és tapasztalt szakembereinknek köszönhetően bármilyen méretű aszfaltozási, útépítési vagy betonozási projektet rövid határidőn belül, költséghatékonyan és tartós megoldással kivitelezünk."},{"name":"format-detection","content":"telephone=no"},{"name":"robots","content":"index, follow"},{"http-equiv":"Content-Security-Policy","content":"\n            default-src 'self' https: data:;\n            img-src 'self' https: http: data:;\n            font-src 'self' https: data:;\n            style-src 'self' https: 'unsafe-inline';\n            script-src 'self' https: 'unsafe-inline' 'unsafe-eval';\n          "}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"canonical","href":"https://aszfaltozas24.hu"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Bola 95 Kft. – Aszfaltozás | Útépítés | Betonozás | 25 éves tapasztalat","htmlAttrs":{"lang":"hu"}};
 
 const appRootTag = "div";
 
@@ -1301,6 +1349,8 @@ function publicAssetsURL(...path) {
   const publicBase = app.cdnURL || app.baseURL;
   return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
 }
+
+const defineSitemapEventHandler = defineEventHandler;
 
 function normalizeSiteConfig(config) {
   if (typeof config.indexable !== "undefined")
@@ -1607,6 +1657,99 @@ function useSimpleSitemapRuntimeConfig(e) {
   return Object.freeze(clone);
 }
 
+function resolve(s, resolvers) {
+  if (typeof s === "undefined")
+    return s;
+  s = typeof s === "string" ? s : s.toString();
+  if (hasProtocol(s, { acceptRelative: true, strict: false }))
+    return resolvers.fixSlashes(s);
+  return resolvers.canonicalUrlResolver(s);
+}
+function normaliseSitemapUrls(data, resolvers) {
+  const entries = data.map((e) => typeof e === "string" ? { loc: e } : e).map((e) => {
+    e = { ...e };
+    if (e.url) {
+      e.loc = e.url;
+      delete e.url;
+    }
+    e.loc = fixSlashes(false, e.loc);
+    return e;
+  }).filter(Boolean);
+  function normaliseEntry(e) {
+    if (e.lastmod) {
+      const date = normaliseDate(e.lastmod);
+      if (date)
+        e.lastmod = date;
+      else
+        delete e.lastmod;
+    }
+    if (!e.lastmod)
+      delete e.lastmod;
+    e.loc = resolve(e.loc, resolvers);
+    if (e.alternatives) {
+      e.alternatives = mergeOnKey(e.alternatives.map((e2) => {
+        const a = { ...e2 };
+        if (typeof a.href === "string")
+          a.href = resolve(a.href, resolvers);
+        else if (typeof a.href === "object" && a.href)
+          a.href = resolve(a.href.href, resolvers);
+        return a;
+      }), "hreflang");
+    }
+    if (e.images) {
+      e.images = mergeOnKey(e.images.map((i) => {
+        i = { ...i };
+        i.loc = resolve(i.loc, resolvers);
+        return i;
+      }), "loc");
+    }
+    if (e.videos) {
+      e.videos = e.videos.map((v) => {
+        v = { ...v };
+        if (v.content_loc)
+          v.content_loc = resolve(v.content_loc, resolvers);
+        return v;
+      });
+    }
+    return e;
+  }
+  return mergeOnKey(
+    entries.map(normaliseEntry).map((e) => ({ ...e, _key: `${e._sitemap || ""}${e.loc}` })),
+    "_key"
+  );
+}
+const IS_VALID_W3C_DATE = [
+  /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/,
+  /^\d{4}-[01]\d-[0-3]\d$/,
+  /^\d{4}-[01]\d$/,
+  /^\d{4}$/
+];
+function isValidW3CDate(d) {
+  return IS_VALID_W3C_DATE.some((r) => r.test(d));
+}
+function normaliseDate(d) {
+  if (typeof d === "string") {
+    if (d.includes("T")) {
+      const t = d.split("T")[1];
+      if (!t.includes("+") && !t.includes("-") && !t.includes("Z")) {
+        d += "Z";
+      }
+    }
+    if (!isValidW3CDate(d))
+      return false;
+    d = new Date(d);
+    d.setMilliseconds(0);
+    if (Number.isNaN(d.getTime()))
+      return false;
+  }
+  const z = (n) => `0${n}`.slice(-2);
+  const date = `${d.getUTCFullYear()}-${z(d.getUTCMonth() + 1)}-${z(d.getUTCDate())}`;
+  if (d.getUTCHours() > 0 || d.getUTCMinutes() > 0 || d.getUTCSeconds() > 0) {
+    return `${date}T${z(d.getUTCHours())}:${z(d.getUTCMinutes())}:${z(d.getUTCSeconds())}Z`;
+  }
+  return date;
+}
+
 async function fetchDataSource(input, event) {
   const context = typeof input.context === "string" ? { name: input.context } : input.context || { name: "fetch" };
   context.tips = context.tips || [];
@@ -1690,6 +1833,536 @@ async function resolveSitemapSources(sources, event) {
     })
   )).flat();
 }
+
+function normaliseI18nSources(sources, { autoI18n, isI18nMapped, include, exclude }) {
+  const filterPath = createPathFilter({
+    include,
+    exclude
+  });
+  if (autoI18n && isI18nMapped) {
+    return sources.map((s) => {
+      const urls = (s.urls || []).map((_url) => {
+        const url = typeof _url === "string" ? { loc: _url } : _url;
+        url.loc = url.loc || url.url;
+        if (!hasProtocol(url.loc, { acceptRelative: true }))
+          url.loc = withLeadingSlash(url.loc);
+        return url;
+      });
+      s.urls = urls.map((url) => {
+        if (url._sitemap || url._i18nTransform)
+          return url;
+        if (url.loc && !hasProtocol(url.loc, { acceptRelative: true })) {
+          const match = splitForLocales(url.loc, autoI18n.locales.map((l) => l.code));
+          const localeCode = match[0] || autoI18n.defaultLocale;
+          const pathWithoutPrefix = match[1];
+          const locale = autoI18n.locales.find((e) => e.code === localeCode);
+          if (locale) {
+            if (!url.alternatives) {
+              const alternatives = urls.map((u) => {
+                if (u._sitemap || u._i18nTransform)
+                  return false;
+                if (u?.loc) {
+                  if (!filterPath(u.loc))
+                    return false;
+                  const [_localeCode, _pathWithoutPrefix] = splitForLocales(u.loc, autoI18n.locales.map((l) => l.code));
+                  if (pathWithoutPrefix === _pathWithoutPrefix) {
+                    const entries = [];
+                    if (_localeCode === autoI18n.defaultLocale) {
+                      entries.push({
+                        href: u.loc,
+                        hreflang: "x-default"
+                      });
+                    }
+                    entries.push({
+                      href: u.loc,
+                      hreflang: _localeCode || autoI18n.defaultLocale
+                    });
+                    return entries;
+                  }
+                }
+                return false;
+              }).flat().filter(Boolean);
+              if (alternatives.length)
+                url.alternatives = alternatives;
+            }
+            return {
+              _sitemap: locale.iso || locale.code,
+              ...url
+            };
+          }
+        }
+        return url;
+      });
+      return s;
+    });
+  }
+  return sources;
+}
+function applyI18nEnhancements(_urls, options) {
+  const { autoI18n, include, exclude } = options;
+  const filterPath = createPathFilter({
+    include,
+    exclude
+  });
+  return _urls.map((e) => {
+    if (!e._i18nTransform)
+      return e;
+    delete e._i18nTransform;
+    const parsedURL = parseURL(e.loc);
+    const path = withLeadingSlash(parsedURL.pathname + parsedURL.search + parsedURL.hash);
+    const match = splitForLocales(path, autoI18n.locales.map((l) => l.code));
+    let pathWithoutLocale = path;
+    let locale;
+    if (match[0]) {
+      pathWithoutLocale = match[1] || "/";
+      locale = match[0];
+    }
+    if (locale && true) {
+      console.warn("You're providing a locale in the url, but the url is marked as inheritI18n. This will cause issues with the sitemap. Please remove the locale from the url.");
+      return e;
+    }
+    if (autoI18n.differentDomains) {
+      return {
+        // will force it to pass filter
+        _sitemap: options.sitemapName,
+        ...e,
+        alternatives: [
+          {
+            // apply default locale domain
+            ...autoI18n.locales.find((l) => [l.code, l.iso].includes(autoI18n.defaultLocale)),
+            code: "x-default"
+          },
+          ...autoI18n.locales.filter((l) => !!l.domain)
+        ].map((locale2) => {
+          return {
+            hreflang: locale2.iso || locale2.code,
+            href: joinURL(withHttps(locale2.domain), pathWithoutLocale)
+          };
+        })
+      };
+    }
+    return autoI18n.locales.map((l) => {
+      let loc = joinURL(`/${l.code}`, pathWithoutLocale);
+      if (autoI18n.differentDomains || ["prefix_and_default", "prefix_except_default"].includes(autoI18n.strategy) && l.code === autoI18n.defaultLocale)
+        loc = pathWithoutLocale;
+      return {
+        _sitemap: options.isI18nMapped ? l.iso || l.code : void 0,
+        ...e,
+        loc,
+        alternatives: [{ code: "x-default" }, ...autoI18n.locales].map((locale2) => {
+          const code = locale2.code === "x-default" ? autoI18n.defaultLocale : locale2.code;
+          const isDefault = locale2.code === "x-default" || locale2.code === autoI18n.defaultLocale;
+          let href = "";
+          if (autoI18n.strategy === "prefix") {
+            href = joinURL("/", code, pathWithoutLocale);
+          } else if (["prefix_and_default", "prefix_except_default"].includes(autoI18n.strategy)) {
+            if (isDefault) {
+              href = pathWithoutLocale;
+            } else {
+              href = joinURL("/", code, pathWithoutLocale);
+            }
+          }
+          const hreflang = locale2.iso || locale2.code;
+          if (!filterPath(href))
+            return false;
+          return {
+            hreflang,
+            href
+          };
+        }).filter(Boolean)
+      };
+    });
+  }).flat();
+}
+
+function filterSitemapUrls(_urls, options) {
+  const urlFilter = createFilter({
+    include: options.include,
+    exclude: options.exclude
+  });
+  return _urls.filter((e) => {
+    let path = e.loc;
+    try {
+      path = parseURL(e.loc).pathname;
+    } catch {
+      return false;
+    }
+    if (!urlFilter(path))
+      return false;
+    if (options.isMultiSitemap && e._sitemap && options.sitemapName)
+      return e._sitemap === options.sitemapName;
+    return true;
+  });
+}
+
+function sortSitemapUrls(urls) {
+  return urls.sort(
+    (a, b) => {
+      const aLoc = typeof a === "string" ? a : a.loc;
+      const bLoc = typeof b === "string" ? b : b.loc;
+      return aLoc.localeCompare(bLoc, void 0, { numeric: true });
+    }
+  ).sort((a, b) => {
+    const aLoc = (typeof a === "string" ? a : a.loc) || "";
+    const bLoc = (typeof b === "string" ? b : b.loc) || "";
+    const aSegments = aLoc.split("/").length;
+    const bSegments = bLoc.split("/").length;
+    if (aSegments > bSegments)
+      return 1;
+    if (aSegments < bSegments)
+      return -1;
+    return 0;
+  });
+}
+
+function resolveKey(k) {
+  switch (k) {
+    case "images":
+      return "image";
+    case "videos":
+      return "video";
+    case "news":
+      return "news";
+    default:
+      return k;
+  }
+}
+function handleObject(key, obj) {
+  return [
+    `        <${key}:${key}>`,
+    ...Object.entries(obj).map(([sk, sv]) => {
+      if (key === "video" && Array.isArray(sv)) {
+        return sv.map((v) => {
+          if (typeof v === "string") {
+            return [
+              `            `,
+              `<${key}:${sk}>`,
+              escapeValueForXml(v),
+              `</${key}:${sk}>`
+            ].join("");
+          }
+          const attributes = Object.entries(v).filter(([ssk]) => ssk !== sk).map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`).join(" ");
+          return [
+            `            <${key}:${sk} ${attributes}>`,
+            // value is the same sk
+            v[sk],
+            `</${key}:${sk}>`
+          ].join("");
+        }).join("\n");
+      }
+      if (typeof sv === "object") {
+        if (key === "video") {
+          const attributes = Object.entries(sv).filter(([ssk]) => ssk !== sk).map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`).join(" ");
+          return [
+            `            <${key}:${sk} ${attributes}>`,
+            // value is the same sk
+            sv[sk],
+            `</${key}:${sk}>`
+          ].join("");
+        }
+        return [
+          `            <${key}:${sk}>`,
+          ...Object.entries(sv).map(([ssk, ssv]) => `                <${key}:${ssk}>${escapeValueForXml(ssv)}</${key}:${ssk}>`),
+          `            </${key}:${sk}>`
+        ].join("\n");
+      }
+      return `            <${key}:${sk}>${escapeValueForXml(sv)}</${key}:${sk}>`;
+    }),
+    `        </${key}:${key}>`
+  ].join("\n");
+}
+function handleArray(key, arr) {
+  if (arr.length === 0)
+    return false;
+  key = resolveKey(key);
+  if (key === "alternatives") {
+    return arr.map((obj) => [
+      `        <xhtml:link rel="alternate" ${Object.entries(obj).map(([sk, sv]) => `${sk}="${escapeValueForXml(sv)}"`).join(" ")} />`
+    ].join("\n")).join("\n");
+  }
+  return arr.map((obj) => handleObject(key, obj)).join("\n");
+}
+function handleEntry(k, e) {
+  return Array.isArray(e[k]) ? handleArray(k, e[k]) : typeof e[k] === "object" ? handleObject(k, e[k]) : `        <${k}>${escapeValueForXml(e[k])}</${k}>`;
+}
+function wrapSitemapXml(input, resolvers, options) {
+  const xsl = options.xsl ? resolvers.relativeBaseUrlResolver(options.xsl) : false;
+  const credits = options.credits;
+  input.unshift(`<?xml version="1.0" encoding="UTF-8"?>${xsl ? `<?xml-stylesheet type="text/xsl" href="${xsl}"?>` : ""}`);
+  if (credits)
+    input.push(`<!-- XML Sitemap generated by @nuxtjs/sitemap v${options.version} at ${(/* @__PURE__ */ new Date()).toISOString()} -->`);
+  return input.join("\n");
+}
+function escapeValueForXml(value) {
+  if (value === true || value === false)
+    return value ? "yes" : "no";
+  return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+}
+
+async function buildSitemapIndex(resolvers, runtimeConfig) {
+  const {
+    sitemaps,
+    // enhancing
+    autoLastmod,
+    // chunking
+    defaultSitemapsChunkSize,
+    autoI18n,
+    isI18nMapped,
+    sortEntries,
+    // xls
+    version,
+    xsl,
+    credits
+  } = runtimeConfig;
+  if (!sitemaps)
+    throw new Error("Attempting to build a sitemap index without required `sitemaps` configuration.");
+  function maybeSort(urls) {
+    return sortEntries ? sortSitemapUrls(urls) : urls;
+  }
+  const isChunking = typeof sitemaps.chunks !== "undefined";
+  const chunks = {};
+  if (isChunking) {
+    const sitemap = sitemaps.chunks;
+    const sources = await resolveSitemapSources(await globalSitemapSources());
+    const normalisedUrls = normaliseSitemapUrls(sources.map((e) => e.urls).flat(), resolvers);
+    let enhancedUrls = normalisedUrls.map((e) => defu$1(e, sitemap.defaults));
+    if (autoI18n?.locales)
+      enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, sitemapName: sitemap.sitemapName });
+    const filteredUrls = filterSitemapUrls(enhancedUrls, { ...sitemap, isMultiSitemap: true });
+    const sortedUrls = maybeSort(filteredUrls);
+    sortedUrls.forEach((url, i) => {
+      const chunkIndex = Math.floor(i / defaultSitemapsChunkSize);
+      chunks[chunkIndex] = chunks[chunkIndex] || { urls: [] };
+      chunks[chunkIndex].urls.push(url);
+    });
+  } else {
+    for (const sitemap in sitemaps) {
+      if (sitemap !== "index") {
+        chunks[sitemap] = chunks[sitemap] || { urls: [] };
+      }
+    }
+  }
+  const entries = [];
+  for (const name in chunks) {
+    const sitemap = chunks[name];
+    const entry = {
+      sitemap: resolvers.canonicalUrlResolver(`${name}-sitemap.xml`)
+    };
+    let lastmod = sitemap.urls.filter((a) => !!a?.lastmod).map((a) => typeof a.lastmod === "string" ? new Date(a.lastmod) : a.lastmod).sort((a, b) => (b?.getTime() || 0) - (a?.getTime() || 0))?.[0];
+    if (!lastmod && autoLastmod)
+      lastmod = /* @__PURE__ */ new Date();
+    if (lastmod)
+      entry.lastmod = normaliseDate(lastmod);
+    entries.push(entry);
+  }
+  if (sitemaps.index) {
+    entries.push(...sitemaps.index.sitemaps.map((entry) => {
+      return typeof entry === "string" ? { sitemap: entry } : entry;
+    }));
+  }
+  const ctx = { sitemaps: entries };
+  const nitro = useNitroApp();
+  await nitro.hooks.callHook("sitemap:index-resolved", ctx);
+  const sitemapXml = ctx.sitemaps.map((e) => [
+    "    <sitemap>",
+    `        <loc>${escapeValueForXml(e.sitemap)}</loc>`,
+    // lastmod is optional
+    e.lastmod ? `        <lastmod>${escapeValueForXml(e.lastmod)}</lastmod>` : false,
+    "    </sitemap>"
+  ].filter(Boolean).join("\n")).join("\n");
+  return wrapSitemapXml([
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    sitemapXml,
+    "</sitemapindex>"
+  ], resolvers, { version, xsl, credits });
+}
+
+const _xh3zyM = defineEventHandler(async (e) => {
+  const canonicalQuery = getQuery$1(e).canonical;
+  const isShowingCanonical = typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
+  const runtimeConfig = useSimpleSitemapRuntimeConfig();
+  const siteConfig = useSiteConfig(e);
+  let sitemap = await buildSitemapIndex({
+    event: e,
+    canonicalUrlResolver: createSitePathResolver(e, { canonical: isShowingCanonical || false, absolute: true, withBase: true }),
+    relativeBaseUrlResolver: createSitePathResolver(e, { absolute: false, withBase: true }),
+    fixSlashes: (path) => fixSlashes(siteConfig.trailingSlash, path)
+  }, runtimeConfig);
+  const nitro = useNitroApp();
+  const ctx = { sitemap, sitemapName: "sitemap" };
+  await nitro.hooks.callHook("sitemap:output", ctx);
+  sitemap = ctx.sitemap;
+  setHeader(e, "Content-Type", "text/xml; charset=UTF-8");
+  if (runtimeConfig.cacheMaxAgeSeconds)
+    setHeader(e, "Cache-Control", `public, max-age=${runtimeConfig.cacheMaxAgeSeconds}, must-revalidate`);
+  else
+    setHeader(e, "Cache-Control", `no-cache, no-store`);
+  return sitemap;
+});
+
+function withoutQuery(path) {
+  return path.split("?")[0];
+}
+function createNitroRouteRuleMatcher() {
+  const { nitro, app } = useRuntimeConfig();
+  const _routeRulesMatcher = toRouteMatcher(
+    createRouter({
+      routes: Object.fromEntries(
+        Object.entries(nitro?.routeRules || {}).map(([path, rules]) => [withoutTrailingSlash(path), rules])
+      )
+    })
+  );
+  return (path) => {
+    return defu$1({}, ..._routeRulesMatcher.matchAll(
+      // radix3 does not support trailing slashes
+      withoutBase(withoutTrailingSlash(withoutQuery(path)), app.baseURL)
+    ).reverse());
+  };
+}
+
+async function buildSitemap(sitemap, resolvers, runtimeConfig) {
+  const {
+    sitemaps,
+    // enhancing
+    autoI18n,
+    isI18nMapped,
+    isMultiSitemap,
+    // sorting
+    sortEntries,
+    // chunking
+    defaultSitemapsChunkSize,
+    // xls
+    version,
+    xsl,
+    credits
+  } = runtimeConfig;
+  const isChunking = typeof sitemaps.chunks !== "undefined" && !Number.isNaN(Number(sitemap.sitemapName));
+  function maybeSort(urls2) {
+    return sortEntries ? sortSitemapUrls(urls2) : urls2;
+  }
+  function maybeSlice(urls2) {
+    if (isChunking && defaultSitemapsChunkSize) {
+      const chunk = Number(sitemap.sitemapName);
+      return urls2.slice(chunk * defaultSitemapsChunkSize, (chunk + 1) * defaultSitemapsChunkSize);
+    }
+    return urls2;
+  }
+  if (autoI18n?.differentDomains) {
+    const domain = autoI18n.locales.find((e) => [e.iso, e.code].includes(sitemap.sitemapName))?.domain;
+    if (domain) {
+      const _tester = resolvers.canonicalUrlResolver;
+      resolvers.canonicalUrlResolver = (path) => resolveSitePath(path, {
+        absolute: true,
+        withBase: false,
+        siteUrl: withHttps(domain),
+        trailingSlash: !_tester("/test/").endsWith("/"),
+        base: "/"
+      });
+    }
+  }
+  const sources = sitemap.includeAppSources ? await globalSitemapSources() : [];
+  sources.push(...await childSitemapSources(sitemap));
+  let resolvedSources = await resolveSitemapSources(sources, resolvers.event);
+  if (autoI18n)
+    resolvedSources = normaliseI18nSources(resolvedSources, { autoI18n, isI18nMapped, ...sitemap });
+  const normalisedUrls = normaliseSitemapUrls(resolvedSources.map((e) => e.urls).flat(), resolvers);
+  const routeRuleMatcher = createNitroRouteRuleMatcher();
+  let enhancedUrls = normalisedUrls.map((e) => defu$1(e, sitemap.defaults)).map((e) => {
+    const path = parseURL(e.loc).pathname;
+    let routeRules = routeRuleMatcher(path);
+    if (autoI18n?.locales && autoI18n?.strategy !== "no_prefix") {
+      const match = splitForLocales(path, autoI18n.locales.map((l) => l.code));
+      const pathWithoutPrefix = match[1];
+      if (pathWithoutPrefix && pathWithoutPrefix !== path)
+        routeRules = defu$1(routeRules, routeRuleMatcher(pathWithoutPrefix));
+    }
+    if (routeRules.sitemap === false)
+      return false;
+    if (typeof routeRules.index !== "undefined" && !routeRules.index)
+      return false;
+    const hasRobotsDisabled = Object.entries(routeRules.headers || {}).some(([name, value]) => name.toLowerCase() === "x-robots-tag" && value.toLowerCase() === "noindex");
+    if (routeRules.redirect || hasRobotsDisabled)
+      return false;
+    return routeRules.sitemap ? defu$1(e, routeRules.sitemap) : e;
+  }).filter(Boolean);
+  if (autoI18n?.locales)
+    enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, ...sitemap });
+  const filteredUrls = filterSitemapUrls(enhancedUrls, { event: resolvers.event, isMultiSitemap, ...sitemap });
+  const sortedUrls = maybeSort(filteredUrls);
+  const slicedUrls = maybeSlice(sortedUrls);
+  const nitro = useNitroApp();
+  const ctx = {
+    urls: slicedUrls,
+    sitemapName: sitemap.sitemapName
+  };
+  await nitro.hooks.callHook("sitemap:resolved", ctx);
+  const urls = maybeSort(normaliseSitemapUrls(ctx.urls, resolvers));
+  const urlset = urls.map((e) => {
+    const keys = Object.keys(e).filter((k) => !k.startsWith("_"));
+    return [
+      "    <url>",
+      keys.map((k) => handleEntry(k, e)).filter(Boolean).join("\n"),
+      "    </url>"
+    ].join("\n");
+  });
+  return wrapSitemapXml([
+    '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    urlset.join("\n"),
+    "</urlset>"
+  ], resolvers, { version, xsl, credits });
+}
+
+function useNitroUrlResolvers(e) {
+  const canonicalQuery = getQuery$1(e).canonical;
+  const isShowingCanonical = typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
+  const siteConfig = useSiteConfig(e);
+  return {
+    event: e,
+    fixSlashes: (path) => fixSlashes(siteConfig.trailingSlash, path),
+    // we need these as they depend on the nitro event
+    canonicalUrlResolver: createSitePathResolver(e, {
+      canonical: isShowingCanonical || false,
+      absolute: true,
+      withBase: true
+    }),
+    relativeBaseUrlResolver: createSitePathResolver(e, { absolute: false, withBase: true })
+  };
+}
+async function createSitemap(e, definition, runtimeConfig) {
+  const { sitemapName } = definition;
+  const nitro = useNitroApp();
+  let sitemap = await (definition.sitemapName === "index" ? buildSitemapIndex(useNitroUrlResolvers(e), runtimeConfig) : buildSitemap(definition, useNitroUrlResolvers(e), runtimeConfig));
+  const ctx = { sitemap, sitemapName };
+  await nitro.hooks.callHook("sitemap:output", ctx);
+  sitemap = ctx.sitemap;
+  setHeader(e, "Content-Type", "text/xml; charset=UTF-8");
+  if (runtimeConfig.cacheMaxAgeSeconds)
+    setHeader(e, "Cache-Control", `public, max-age=${runtimeConfig.cacheMaxAgeSeconds}, must-revalidate`);
+  else
+    setHeader(e, "Cache-Control", `no-cache, no-store`);
+  e.context._isSitemap = true;
+  return sitemap;
+}
+
+const _8vIXBH = defineEventHandler(async (e) => {
+  const path = parseURL(e.path).pathname;
+  if (!path.endsWith("-sitemap.xml"))
+    return;
+  const runtimeConfig = useSimpleSitemapRuntimeConfig();
+  const { sitemaps } = runtimeConfig;
+  const sitemapName = path.replace("-sitemap.xml", "").replace("/", "");
+  const isChunking = typeof sitemaps.chunks !== "undefined" && !Number.isNaN(Number(sitemapName));
+  if (!(sitemapName in sitemaps) && !isChunking) {
+    return createError({
+      statusCode: 404,
+      message: `Sitemap "${sitemapName}" not found.`
+    });
+  }
+  return createSitemap(e, isChunking ? {
+    ...sitemaps.chunks,
+    sitemapName
+  } : sitemaps[sitemapName], runtimeConfig);
+});
 
 const _MhEsNs = defineEventHandler(async (e) => {
   const _runtimeConfig = useSimpleSitemapRuntimeConfig();
@@ -1939,586 +2612,6 @@ const _xVOATj = defineEventHandler(async (e) => {
 `;
 });
 
-function resolve(s, resolvers) {
-  if (typeof s === "undefined")
-    return s;
-  s = typeof s === "string" ? s : s.toString();
-  if (hasProtocol(s, { acceptRelative: true, strict: false }))
-    return resolvers.fixSlashes(s);
-  return resolvers.canonicalUrlResolver(s);
-}
-function normaliseSitemapUrls(data, resolvers) {
-  const entries = data.map((e) => typeof e === "string" ? { loc: e } : e).map((e) => {
-    e = { ...e };
-    if (e.url) {
-      e.loc = e.url;
-      delete e.url;
-    }
-    e.loc = fixSlashes(false, e.loc);
-    return e;
-  }).filter(Boolean);
-  function normaliseEntry(e) {
-    if (e.lastmod) {
-      const date = normaliseDate(e.lastmod);
-      if (date)
-        e.lastmod = date;
-      else
-        delete e.lastmod;
-    }
-    if (!e.lastmod)
-      delete e.lastmod;
-    e.loc = resolve(e.loc, resolvers);
-    if (e.alternatives) {
-      e.alternatives = mergeOnKey(e.alternatives.map((e2) => {
-        const a = { ...e2 };
-        if (typeof a.href === "string")
-          a.href = resolve(a.href, resolvers);
-        else if (typeof a.href === "object" && a.href)
-          a.href = resolve(a.href.href, resolvers);
-        return a;
-      }), "hreflang");
-    }
-    if (e.images) {
-      e.images = mergeOnKey(e.images.map((i) => {
-        i = { ...i };
-        i.loc = resolve(i.loc, resolvers);
-        return i;
-      }), "loc");
-    }
-    if (e.videos) {
-      e.videos = e.videos.map((v) => {
-        v = { ...v };
-        if (v.content_loc)
-          v.content_loc = resolve(v.content_loc, resolvers);
-        return v;
-      });
-    }
-    return e;
-  }
-  return mergeOnKey(
-    entries.map(normaliseEntry).map((e) => ({ ...e, _key: `${e._sitemap || ""}${e.loc}` })),
-    "_key"
-  );
-}
-const IS_VALID_W3C_DATE = [
-  /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/,
-  /^\d{4}-[01]\d-[0-3]\d$/,
-  /^\d{4}-[01]\d$/,
-  /^\d{4}$/
-];
-function isValidW3CDate(d) {
-  return IS_VALID_W3C_DATE.some((r) => r.test(d));
-}
-function normaliseDate(d) {
-  if (typeof d === "string") {
-    if (d.includes("T")) {
-      const t = d.split("T")[1];
-      if (!t.includes("+") && !t.includes("-") && !t.includes("Z")) {
-        d += "Z";
-      }
-    }
-    if (!isValidW3CDate(d))
-      return false;
-    d = new Date(d);
-    d.setMilliseconds(0);
-    if (Number.isNaN(d.getTime()))
-      return false;
-  }
-  const z = (n) => `0${n}`.slice(-2);
-  const date = `${d.getUTCFullYear()}-${z(d.getUTCMonth() + 1)}-${z(d.getUTCDate())}`;
-  if (d.getUTCHours() > 0 || d.getUTCMinutes() > 0 || d.getUTCSeconds() > 0) {
-    return `${date}T${z(d.getUTCHours())}:${z(d.getUTCMinutes())}:${z(d.getUTCSeconds())}Z`;
-  }
-  return date;
-}
-
-function filterSitemapUrls(_urls, options) {
-  const urlFilter = createFilter({
-    include: options.include,
-    exclude: options.exclude
-  });
-  return _urls.filter((e) => {
-    let path = e.loc;
-    try {
-      path = parseURL(e.loc).pathname;
-    } catch {
-      return false;
-    }
-    if (!urlFilter(path))
-      return false;
-    if (options.isMultiSitemap && e._sitemap && options.sitemapName)
-      return e._sitemap === options.sitemapName;
-    return true;
-  });
-}
-
-function normaliseI18nSources(sources, { autoI18n, isI18nMapped, include, exclude }) {
-  const filterPath = createPathFilter({
-    include,
-    exclude
-  });
-  if (autoI18n && isI18nMapped) {
-    return sources.map((s) => {
-      const urls = (s.urls || []).map((_url) => {
-        const url = typeof _url === "string" ? { loc: _url } : _url;
-        url.loc = url.loc || url.url;
-        if (!hasProtocol(url.loc, { acceptRelative: true }))
-          url.loc = withLeadingSlash(url.loc);
-        return url;
-      });
-      s.urls = urls.map((url) => {
-        if (url._sitemap || url._i18nTransform)
-          return url;
-        if (url.loc && !hasProtocol(url.loc, { acceptRelative: true })) {
-          const match = splitForLocales(url.loc, autoI18n.locales.map((l) => l.code));
-          const localeCode = match[0] || autoI18n.defaultLocale;
-          const pathWithoutPrefix = match[1];
-          const locale = autoI18n.locales.find((e) => e.code === localeCode);
-          if (locale) {
-            if (!url.alternatives) {
-              const alternatives = urls.map((u) => {
-                if (u._sitemap || u._i18nTransform)
-                  return false;
-                if (u?.loc) {
-                  if (!filterPath(u.loc))
-                    return false;
-                  const [_localeCode, _pathWithoutPrefix] = splitForLocales(u.loc, autoI18n.locales.map((l) => l.code));
-                  if (pathWithoutPrefix === _pathWithoutPrefix) {
-                    const entries = [];
-                    if (_localeCode === autoI18n.defaultLocale) {
-                      entries.push({
-                        href: u.loc,
-                        hreflang: "x-default"
-                      });
-                    }
-                    entries.push({
-                      href: u.loc,
-                      hreflang: _localeCode || autoI18n.defaultLocale
-                    });
-                    return entries;
-                  }
-                }
-                return false;
-              }).flat().filter(Boolean);
-              if (alternatives.length)
-                url.alternatives = alternatives;
-            }
-            return {
-              _sitemap: locale.iso || locale.code,
-              ...url
-            };
-          }
-        }
-        return url;
-      });
-      return s;
-    });
-  }
-  return sources;
-}
-function applyI18nEnhancements(_urls, options) {
-  const { autoI18n, include, exclude } = options;
-  const filterPath = createPathFilter({
-    include,
-    exclude
-  });
-  return _urls.map((e) => {
-    if (!e._i18nTransform)
-      return e;
-    delete e._i18nTransform;
-    const parsedURL = parseURL(e.loc);
-    const path = withLeadingSlash(parsedURL.pathname + parsedURL.search + parsedURL.hash);
-    const match = splitForLocales(path, autoI18n.locales.map((l) => l.code));
-    let pathWithoutLocale = path;
-    let locale;
-    if (match[0]) {
-      pathWithoutLocale = match[1] || "/";
-      locale = match[0];
-    }
-    if (locale && true) {
-      console.warn("You're providing a locale in the url, but the url is marked as inheritI18n. This will cause issues with the sitemap. Please remove the locale from the url.");
-      return e;
-    }
-    if (autoI18n.differentDomains) {
-      return {
-        // will force it to pass filter
-        _sitemap: options.sitemapName,
-        ...e,
-        alternatives: [
-          {
-            // apply default locale domain
-            ...autoI18n.locales.find((l) => [l.code, l.iso].includes(autoI18n.defaultLocale)),
-            code: "x-default"
-          },
-          ...autoI18n.locales.filter((l) => !!l.domain)
-        ].map((locale2) => {
-          return {
-            hreflang: locale2.iso || locale2.code,
-            href: joinURL(withHttps(locale2.domain), pathWithoutLocale)
-          };
-        })
-      };
-    }
-    return autoI18n.locales.map((l) => {
-      let loc = joinURL(`/${l.code}`, pathWithoutLocale);
-      if (autoI18n.differentDomains || ["prefix_and_default", "prefix_except_default"].includes(autoI18n.strategy) && l.code === autoI18n.defaultLocale)
-        loc = pathWithoutLocale;
-      return {
-        _sitemap: options.isI18nMapped ? l.iso || l.code : void 0,
-        ...e,
-        loc,
-        alternatives: [{ code: "x-default" }, ...autoI18n.locales].map((locale2) => {
-          const code = locale2.code === "x-default" ? autoI18n.defaultLocale : locale2.code;
-          const isDefault = locale2.code === "x-default" || locale2.code === autoI18n.defaultLocale;
-          let href = "";
-          if (autoI18n.strategy === "prefix") {
-            href = joinURL("/", code, pathWithoutLocale);
-          } else if (["prefix_and_default", "prefix_except_default"].includes(autoI18n.strategy)) {
-            if (isDefault) {
-              href = pathWithoutLocale;
-            } else {
-              href = joinURL("/", code, pathWithoutLocale);
-            }
-          }
-          const hreflang = locale2.iso || locale2.code;
-          if (!filterPath(href))
-            return false;
-          return {
-            hreflang,
-            href
-          };
-        }).filter(Boolean)
-      };
-    });
-  }).flat();
-}
-
-function sortSitemapUrls(urls) {
-  return urls.sort(
-    (a, b) => {
-      const aLoc = typeof a === "string" ? a : a.loc;
-      const bLoc = typeof b === "string" ? b : b.loc;
-      return aLoc.localeCompare(bLoc, void 0, { numeric: true });
-    }
-  ).sort((a, b) => {
-    const aLoc = (typeof a === "string" ? a : a.loc) || "";
-    const bLoc = (typeof b === "string" ? b : b.loc) || "";
-    const aSegments = aLoc.split("/").length;
-    const bSegments = bLoc.split("/").length;
-    if (aSegments > bSegments)
-      return 1;
-    if (aSegments < bSegments)
-      return -1;
-    return 0;
-  });
-}
-
-function withoutQuery(path) {
-  return path.split("?")[0];
-}
-function createNitroRouteRuleMatcher() {
-  const { nitro, app } = useRuntimeConfig();
-  const _routeRulesMatcher = toRouteMatcher(
-    createRouter({
-      routes: Object.fromEntries(
-        Object.entries(nitro?.routeRules || {}).map(([path, rules]) => [withoutTrailingSlash(path), rules])
-      )
-    })
-  );
-  return (path) => {
-    return defu$1({}, ..._routeRulesMatcher.matchAll(
-      // radix3 does not support trailing slashes
-      withoutBase(withoutTrailingSlash(withoutQuery(path)), app.baseURL)
-    ).reverse());
-  };
-}
-
-function resolveKey(k) {
-  switch (k) {
-    case "images":
-      return "image";
-    case "videos":
-      return "video";
-    case "news":
-      return "news";
-    default:
-      return k;
-  }
-}
-function handleObject(key, obj) {
-  return [
-    `        <${key}:${key}>`,
-    ...Object.entries(obj).map(([sk, sv]) => {
-      if (key === "video" && Array.isArray(sv)) {
-        return sv.map((v) => {
-          if (typeof v === "string") {
-            return [
-              `            `,
-              `<${key}:${sk}>`,
-              escapeValueForXml(v),
-              `</${key}:${sk}>`
-            ].join("");
-          }
-          const attributes = Object.entries(v).filter(([ssk]) => ssk !== sk).map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`).join(" ");
-          return [
-            `            <${key}:${sk} ${attributes}>`,
-            // value is the same sk
-            v[sk],
-            `</${key}:${sk}>`
-          ].join("");
-        }).join("\n");
-      }
-      if (typeof sv === "object") {
-        if (key === "video") {
-          const attributes = Object.entries(sv).filter(([ssk]) => ssk !== sk).map(([ssk, ssv]) => `${ssk}="${escapeValueForXml(ssv)}"`).join(" ");
-          return [
-            `            <${key}:${sk} ${attributes}>`,
-            // value is the same sk
-            sv[sk],
-            `</${key}:${sk}>`
-          ].join("");
-        }
-        return [
-          `            <${key}:${sk}>`,
-          ...Object.entries(sv).map(([ssk, ssv]) => `                <${key}:${ssk}>${escapeValueForXml(ssv)}</${key}:${ssk}>`),
-          `            </${key}:${sk}>`
-        ].join("\n");
-      }
-      return `            <${key}:${sk}>${escapeValueForXml(sv)}</${key}:${sk}>`;
-    }),
-    `        </${key}:${key}>`
-  ].join("\n");
-}
-function handleArray(key, arr) {
-  if (arr.length === 0)
-    return false;
-  key = resolveKey(key);
-  if (key === "alternatives") {
-    return arr.map((obj) => [
-      `        <xhtml:link rel="alternate" ${Object.entries(obj).map(([sk, sv]) => `${sk}="${escapeValueForXml(sv)}"`).join(" ")} />`
-    ].join("\n")).join("\n");
-  }
-  return arr.map((obj) => handleObject(key, obj)).join("\n");
-}
-function handleEntry(k, e) {
-  return Array.isArray(e[k]) ? handleArray(k, e[k]) : typeof e[k] === "object" ? handleObject(k, e[k]) : `        <${k}>${escapeValueForXml(e[k])}</${k}>`;
-}
-function wrapSitemapXml(input, resolvers, options) {
-  const xsl = options.xsl ? resolvers.relativeBaseUrlResolver(options.xsl) : false;
-  const credits = options.credits;
-  input.unshift(`<?xml version="1.0" encoding="UTF-8"?>${xsl ? `<?xml-stylesheet type="text/xsl" href="${xsl}"?>` : ""}`);
-  if (credits)
-    input.push(`<!-- XML Sitemap generated by @nuxtjs/sitemap v${options.version} at ${(/* @__PURE__ */ new Date()).toISOString()} -->`);
-  return input.join("\n");
-}
-function escapeValueForXml(value) {
-  if (value === true || value === false)
-    return value ? "yes" : "no";
-  return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
-}
-
-async function buildSitemap(sitemap, resolvers, runtimeConfig) {
-  const {
-    sitemaps,
-    // enhancing
-    autoI18n,
-    isI18nMapped,
-    isMultiSitemap,
-    // sorting
-    sortEntries,
-    // chunking
-    defaultSitemapsChunkSize,
-    // xls
-    version,
-    xsl,
-    credits
-  } = runtimeConfig;
-  const isChunking = typeof sitemaps.chunks !== "undefined" && !Number.isNaN(Number(sitemap.sitemapName));
-  function maybeSort(urls2) {
-    return sortEntries ? sortSitemapUrls(urls2) : urls2;
-  }
-  function maybeSlice(urls2) {
-    if (isChunking && defaultSitemapsChunkSize) {
-      const chunk = Number(sitemap.sitemapName);
-      return urls2.slice(chunk * defaultSitemapsChunkSize, (chunk + 1) * defaultSitemapsChunkSize);
-    }
-    return urls2;
-  }
-  if (autoI18n?.differentDomains) {
-    const domain = autoI18n.locales.find((e) => [e.iso, e.code].includes(sitemap.sitemapName))?.domain;
-    if (domain) {
-      const _tester = resolvers.canonicalUrlResolver;
-      resolvers.canonicalUrlResolver = (path) => resolveSitePath(path, {
-        absolute: true,
-        withBase: false,
-        siteUrl: withHttps(domain),
-        trailingSlash: !_tester("/test/").endsWith("/"),
-        base: "/"
-      });
-    }
-  }
-  const sources = sitemap.includeAppSources ? await globalSitemapSources() : [];
-  sources.push(...await childSitemapSources(sitemap));
-  let resolvedSources = await resolveSitemapSources(sources, resolvers.event);
-  if (autoI18n)
-    resolvedSources = normaliseI18nSources(resolvedSources, { autoI18n, isI18nMapped, ...sitemap });
-  const normalisedUrls = normaliseSitemapUrls(resolvedSources.map((e) => e.urls).flat(), resolvers);
-  const routeRuleMatcher = createNitroRouteRuleMatcher();
-  let enhancedUrls = normalisedUrls.map((e) => defu$1(e, sitemap.defaults)).map((e) => {
-    const path = parseURL(e.loc).pathname;
-    let routeRules = routeRuleMatcher(path);
-    if (autoI18n?.locales && autoI18n?.strategy !== "no_prefix") {
-      const match = splitForLocales(path, autoI18n.locales.map((l) => l.code));
-      const pathWithoutPrefix = match[1];
-      if (pathWithoutPrefix && pathWithoutPrefix !== path)
-        routeRules = defu$1(routeRules, routeRuleMatcher(pathWithoutPrefix));
-    }
-    if (routeRules.sitemap === false)
-      return false;
-    if (typeof routeRules.index !== "undefined" && !routeRules.index)
-      return false;
-    const hasRobotsDisabled = Object.entries(routeRules.headers || {}).some(([name, value]) => name.toLowerCase() === "x-robots-tag" && value.toLowerCase() === "noindex");
-    if (routeRules.redirect || hasRobotsDisabled)
-      return false;
-    return routeRules.sitemap ? defu$1(e, routeRules.sitemap) : e;
-  }).filter(Boolean);
-  if (autoI18n?.locales)
-    enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, ...sitemap });
-  const filteredUrls = filterSitemapUrls(enhancedUrls, { event: resolvers.event, isMultiSitemap, ...sitemap });
-  const sortedUrls = maybeSort(filteredUrls);
-  const slicedUrls = maybeSlice(sortedUrls);
-  const nitro = useNitroApp();
-  const ctx = {
-    urls: slicedUrls,
-    sitemapName: sitemap.sitemapName
-  };
-  await nitro.hooks.callHook("sitemap:resolved", ctx);
-  const urls = maybeSort(normaliseSitemapUrls(ctx.urls, resolvers));
-  const urlset = urls.map((e) => {
-    const keys = Object.keys(e).filter((k) => !k.startsWith("_"));
-    return [
-      "    <url>",
-      keys.map((k) => handleEntry(k, e)).filter(Boolean).join("\n"),
-      "    </url>"
-    ].join("\n");
-  });
-  return wrapSitemapXml([
-    '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    urlset.join("\n"),
-    "</urlset>"
-  ], resolvers, { version, xsl, credits });
-}
-
-async function buildSitemapIndex(resolvers, runtimeConfig) {
-  const {
-    sitemaps,
-    // enhancing
-    autoLastmod,
-    // chunking
-    defaultSitemapsChunkSize,
-    autoI18n,
-    isI18nMapped,
-    sortEntries,
-    // xls
-    version,
-    xsl,
-    credits
-  } = runtimeConfig;
-  if (!sitemaps)
-    throw new Error("Attempting to build a sitemap index without required `sitemaps` configuration.");
-  function maybeSort(urls) {
-    return sortEntries ? sortSitemapUrls(urls) : urls;
-  }
-  const isChunking = typeof sitemaps.chunks !== "undefined";
-  const chunks = {};
-  if (isChunking) {
-    const sitemap = sitemaps.chunks;
-    const sources = await resolveSitemapSources(await globalSitemapSources());
-    const normalisedUrls = normaliseSitemapUrls(sources.map((e) => e.urls).flat(), resolvers);
-    let enhancedUrls = normalisedUrls.map((e) => defu$1(e, sitemap.defaults));
-    if (autoI18n?.locales)
-      enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, sitemapName: sitemap.sitemapName });
-    const filteredUrls = filterSitemapUrls(enhancedUrls, { ...sitemap, isMultiSitemap: true });
-    const sortedUrls = maybeSort(filteredUrls);
-    sortedUrls.forEach((url, i) => {
-      const chunkIndex = Math.floor(i / defaultSitemapsChunkSize);
-      chunks[chunkIndex] = chunks[chunkIndex] || { urls: [] };
-      chunks[chunkIndex].urls.push(url);
-    });
-  } else {
-    for (const sitemap in sitemaps) {
-      if (sitemap !== "index") {
-        chunks[sitemap] = chunks[sitemap] || { urls: [] };
-      }
-    }
-  }
-  const entries = [];
-  for (const name in chunks) {
-    const sitemap = chunks[name];
-    const entry = {
-      sitemap: resolvers.canonicalUrlResolver(`${name}-sitemap.xml`)
-    };
-    let lastmod = sitemap.urls.filter((a) => !!a?.lastmod).map((a) => typeof a.lastmod === "string" ? new Date(a.lastmod) : a.lastmod).sort((a, b) => (b?.getTime() || 0) - (a?.getTime() || 0))?.[0];
-    if (!lastmod && autoLastmod)
-      lastmod = /* @__PURE__ */ new Date();
-    if (lastmod)
-      entry.lastmod = normaliseDate(lastmod);
-    entries.push(entry);
-  }
-  if (sitemaps.index) {
-    entries.push(...sitemaps.index.sitemaps.map((entry) => {
-      return typeof entry === "string" ? { sitemap: entry } : entry;
-    }));
-  }
-  const ctx = { sitemaps: entries };
-  const nitro = useNitroApp();
-  await nitro.hooks.callHook("sitemap:index-resolved", ctx);
-  const sitemapXml = ctx.sitemaps.map((e) => [
-    "    <sitemap>",
-    `        <loc>${escapeValueForXml(e.sitemap)}</loc>`,
-    // lastmod is optional
-    e.lastmod ? `        <lastmod>${escapeValueForXml(e.lastmod)}</lastmod>` : false,
-    "    </sitemap>"
-  ].filter(Boolean).join("\n")).join("\n");
-  return wrapSitemapXml([
-    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    sitemapXml,
-    "</sitemapindex>"
-  ], resolvers, { version, xsl, credits });
-}
-
-function useNitroUrlResolvers(e) {
-  const canonicalQuery = getQuery$1(e).canonical;
-  const isShowingCanonical = typeof canonicalQuery !== "undefined" && canonicalQuery !== "false";
-  const siteConfig = useSiteConfig(e);
-  return {
-    event: e,
-    fixSlashes: (path) => fixSlashes(siteConfig.trailingSlash, path),
-    // we need these as they depend on the nitro event
-    canonicalUrlResolver: createSitePathResolver(e, {
-      canonical: isShowingCanonical || false,
-      absolute: true,
-      withBase: true
-    }),
-    relativeBaseUrlResolver: createSitePathResolver(e, { absolute: false, withBase: true })
-  };
-}
-async function createSitemap(e, definition, runtimeConfig) {
-  const { sitemapName } = definition;
-  const nitro = useNitroApp();
-  let sitemap = await (definition.sitemapName === "index" ? buildSitemapIndex(useNitroUrlResolvers(e), runtimeConfig) : buildSitemap(definition, useNitroUrlResolvers(e), runtimeConfig));
-  const ctx = { sitemap, sitemapName };
-  await nitro.hooks.callHook("sitemap:output", ctx);
-  sitemap = ctx.sitemap;
-  setHeader(e, "Content-Type", "text/xml; charset=UTF-8");
-  if (runtimeConfig.cacheMaxAgeSeconds)
-    setHeader(e, "Cache-Control", `public, max-age=${runtimeConfig.cacheMaxAgeSeconds}, must-revalidate`);
-  else
-    setHeader(e, "Cache-Control", `no-cache, no-store`);
-  e.context._isSitemap = true;
-  return sitemap;
-}
-
 const _OcKHPf = defineEventHandler(async (e) => {
   const runtimeConfig = useSimpleSitemapRuntimeConfig();
   const { sitemaps } = runtimeConfig;
@@ -2526,19 +2619,6 @@ const _OcKHPf = defineEventHandler(async (e) => {
     return sendRedirect(e, withBase("/sitemap_index.xml", useRuntimeConfig().app.baseURL), 302 );
   }
   return createSitemap(e, Object.values(sitemaps)[0], runtimeConfig);
-});
-
-const transport = nodemailer.createTransport(options.smtp);
-const _9T4M9W = defineEventHandler(async event => {
-  try {
-    await send$1(await readBody(event), options, transport);
-  } catch (error) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: error.message
-    });
-  }
-  return '';
 });
 
 const VueResolver = (_, value) => {
@@ -2865,16 +2945,22 @@ const _GtpjAy = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
+const _lazy_p5pCgl = () => Promise.resolve().then(function () { return beton_service_sitemap$1; });
+const _lazy_L4kqml = () => Promise.resolve().then(function () { return beton_service$1; });
 const _lazy_ifcENm = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/beton_service_sitemap', handler: _lazy_p5pCgl, lazy: true, middleware: false, method: undefined },
+  { route: '/api/beton_service', handler: _lazy_L4kqml, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_ifcENm, lazy: true, middleware: false, method: undefined },
   { route: '', handler: _Alcfwv, lazy: false, middleware: true, method: undefined },
   { route: '/__site-config__/debug.json', handler: _L8Gmw2, lazy: false, middleware: false, method: undefined },
+  { route: '/sitemap_index.xml', handler: _xh3zyM, lazy: false, middleware: false, method: undefined },
+  { route: '/pages-sitemap.xml', handler: _8vIXBH, lazy: false, middleware: false, method: undefined },
+  { route: '/betonozas-sitemap.xml', handler: _8vIXBH, lazy: false, middleware: false, method: undefined },
   { route: '/__sitemap__/debug.json', handler: _MhEsNs, lazy: false, middleware: false, method: undefined },
   { route: '/__sitemap__/style.xsl', handler: _xVOATj, lazy: false, middleware: false, method: undefined },
   { route: '/sitemap.xml', handler: _OcKHPf, lazy: false, middleware: false, method: undefined },
-  { route: '/mail/send', handler: _9T4M9W, lazy: false, middleware: false, method: "post" },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/_ipx/**', handler: _GtpjAy, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_ifcENm, lazy: true, middleware: false, method: undefined }
@@ -3150,6 +3236,9 @@ const sources$1 = [
             },
             {
                 "loc": "/adatvedelmi-tajekoztato"
+            },
+            {
+                "loc": "/sitemap.xml"
             }
         ],
         "sourceType": "app"
@@ -3161,7 +3250,15 @@ const globalSources = /*#__PURE__*/Object.freeze({
   sources: sources$1
 });
 
-const sources = {};
+const sources = {
+    "pages": [],
+    "betonozas": [
+        {
+            "sourceType": "user",
+            "fetch": "/api/beton_service_sitemap"
+        }
+    ]
+};
 
 const childSources = /*#__PURE__*/Object.freeze({
   __proto__: null,
@@ -3180,6 +3277,4261 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: styles
+});
+
+const variaciok = [
+	{
+		id: "budapest-1-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 1. kerület",
+		meta_description: "Betonozás budapest Budapest 1. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 1. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás árak – 1. kerület",
+		meta_description: "Betonozás árak Budapest 1. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 1. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. Budapest Beton Team csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás ár – 1. kerület",
+		meta_description: "Betonozás ár Budapest 1. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 1. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. Budapest Beton Team csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Járda betonozás – 1. kerület",
+		meta_description: "Járda betonozás Budapest 1. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 1. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Alap betonozás – 1. kerület",
+		meta_description: "Alap betonozás Budapest 1. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 1. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonProfi csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Aljzat betonozás – 1. kerület",
+		meta_description: "Aljzat betonozás Budapest 1. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 1. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. AlapMester csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Födém betonozás – 1. kerület",
+		meta_description: "Födém betonozás Budapest 1. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 1. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. CityBeton csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Terasz betonozás – 1. kerület",
+		meta_description: "Terasz betonozás Budapest 1. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 1. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Gárazsalap betonozás – 1. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 1. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 1. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Ipári padló betonozás – 1. kerület",
+		meta_description: "Ipári padló betonozás Budapest 1. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 1. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. BetonFix csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 1. kerület",
+		meta_description: "Betonozás házilag Budapest 1. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 1. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás menete – 1. kerület",
+		meta_description: "Betonozás menete Budapest 1. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 1. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. CityBeton csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-1-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "1. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás m2 ára – 1. kerület",
+		meta_description: "Betonozás m2 ára Budapest 1. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 1. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. AlapMester csapata 1. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 2. kerület",
+		meta_description: "Betonozás budapest Budapest 2. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 2. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás árak – 2. kerület",
+		meta_description: "Betonozás árak Budapest 2. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 2. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. AlapMester csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás ár – 2. kerület",
+		meta_description: "Betonozás ár Budapest 2. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 2. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. Budapest Beton Team csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Járda betonozás – 2. kerület",
+		meta_description: "Járda betonozás Budapest 2. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 2. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. CityBeton csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Alap betonozás – 2. kerület",
+		meta_description: "Alap betonozás Budapest 2. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 2. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonProfi csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Aljzat betonozás – 2. kerület",
+		meta_description: "Aljzat betonozás Budapest 2. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 2. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. CityBeton csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Födém betonozás – 2. kerület",
+		meta_description: "Födém betonozás Budapest 2. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 2. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonProfi csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Terasz betonozás – 2. kerület",
+		meta_description: "Terasz betonozás Budapest 2. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 2. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. CityBeton csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Gárazsalap betonozás – 2. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 2. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 2. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. CityBeton csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Ipári padló betonozás – 2. kerület",
+		meta_description: "Ipári padló betonozás Budapest 2. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 2. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. CityBeton csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 2. kerület",
+		meta_description: "Betonozás házilag Budapest 2. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 2. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás menete – 2. kerület",
+		meta_description: "Betonozás menete Budapest 2. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 2. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. AlapMester csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-2-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "2. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 2. kerület",
+		meta_description: "Betonozás m2 ára Budapest 2. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 2. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 2. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás budapest – 3. kerület",
+		meta_description: "Betonozás budapest Budapest 3. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 3. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. BetonFix csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 3. kerület",
+		meta_description: "Betonozás árak Budapest 3. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 3. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás ár – 3. kerület",
+		meta_description: "Betonozás ár Budapest 3. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 3. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. CityBeton csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Járda betonozás – 3. kerület",
+		meta_description: "Járda betonozás Budapest 3. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 3. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Alap betonozás – 3. kerület",
+		meta_description: "Alap betonozás Budapest 3. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 3. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "GyorsBeton",
+		title: "Aljzat betonozás – 3. kerület",
+		meta_description: "Aljzat betonozás Budapest 3. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 3. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Födém betonozás – 3. kerület",
+		meta_description: "Födém betonozás Budapest 3. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 3. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. AlapMester csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Terasz betonozás – 3. kerület",
+		meta_description: "Terasz betonozás Budapest 3. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 3. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Gárazsalap betonozás – 3. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 3. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 3. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 3. kerület",
+		meta_description: "Ipári padló betonozás Budapest 3. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 3. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 3. kerület",
+		meta_description: "Betonozás házilag Budapest 3. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 3. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 3. kerület",
+		meta_description: "Betonozás menete Budapest 3. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 3. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-3-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "3. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás m2 ára – 3. kerület",
+		meta_description: "Betonozás m2 ára Budapest 3. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 3. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonProfi csapata 3. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 4. kerület",
+		meta_description: "Betonozás budapest Budapest 4. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 4. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 4. kerület",
+		meta_description: "Betonozás árak Budapest 4. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 4. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás ár – 4. kerület",
+		meta_description: "Betonozás ár Budapest 4. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 4. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. BetonFix csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Járda betonozás – 4. kerület",
+		meta_description: "Járda betonozás Budapest 4. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 4. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. AlapMester csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Alap betonozás – 4. kerület",
+		meta_description: "Alap betonozás Budapest 4. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 4. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonFix csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Aljzat betonozás – 4. kerület",
+		meta_description: "Aljzat betonozás Budapest 4. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 4. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. AlapMester csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonFix",
+		title: "Födém betonozás – 4. kerület",
+		meta_description: "Födém betonozás Budapest 4. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 4. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonFix csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Terasz betonozás – 4. kerület",
+		meta_description: "Terasz betonozás Budapest 4. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 4. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Gárazsalap betonozás – 4. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 4. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 4. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. AlapMester csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 4. kerület",
+		meta_description: "Ipári padló betonozás Budapest 4. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 4. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás házilag – 4. kerület",
+		meta_description: "Betonozás házilag Budapest 4. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 4. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonProfi csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás menete – 4. kerület",
+		meta_description: "Betonozás menete Budapest 4. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 4. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonFix csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-4-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "4. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 4. kerület",
+		meta_description: "Betonozás m2 ára Budapest 4. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 4. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 4. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás budapest – 5. kerület",
+		meta_description: "Betonozás budapest Budapest 5. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 5. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. GyorsBeton csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás árak – 5. kerület",
+		meta_description: "Betonozás árak Budapest 5. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 5. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. GyorsBeton csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás ár – 5. kerület",
+		meta_description: "Betonozás ár Budapest 5. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 5. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. BetonFix csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Járda betonozás – 5. kerület",
+		meta_description: "Járda betonozás Budapest 5. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 5. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Alap betonozás – 5. kerület",
+		meta_description: "Alap betonozás Budapest 5. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 5. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Aljzat betonozás – 5. kerület",
+		meta_description: "Aljzat betonozás Budapest 5. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 5. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. BetonProfi csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Födém betonozás – 5. kerület",
+		meta_description: "Födém betonozás Budapest 5. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 5. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonFix csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Terasz betonozás – 5. kerület",
+		meta_description: "Terasz betonozás Budapest 5. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 5. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. AlapMester csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Gárazsalap betonozás – 5. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 5. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 5. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Ipári padló betonozás – 5. kerület",
+		meta_description: "Ipári padló betonozás Budapest 5. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 5. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás házilag – 5. kerület",
+		meta_description: "Betonozás házilag Budapest 5. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 5. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. GyorsBeton csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás menete – 5. kerület",
+		meta_description: "Betonozás menete Budapest 5. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 5. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonFix csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-5-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "5. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás m2 ára – 5. kerület",
+		meta_description: "Betonozás m2 ára Budapest 5. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 5. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. GyorsBeton csapata 5. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás budapest – 6. kerület",
+		meta_description: "Betonozás budapest Budapest 6. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 6. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. Budapest Beton Team csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás árak – 6. kerület",
+		meta_description: "Betonozás árak Budapest 6. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 6. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. Budapest Beton Team csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás ár – 6. kerület",
+		meta_description: "Betonozás ár Budapest 6. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 6. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. CityBeton csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Járda betonozás – 6. kerület",
+		meta_description: "Járda betonozás Budapest 6. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 6. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. CityBeton csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "GyorsBeton",
+		title: "Alap betonozás – 6. kerület",
+		meta_description: "Alap betonozás Budapest 6. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 6. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Aljzat betonozás – 6. kerület",
+		meta_description: "Aljzat betonozás Budapest 6. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 6. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Födém betonozás – 6. kerület",
+		meta_description: "Födém betonozás Budapest 6. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 6. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonFix csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Terasz betonozás – 6. kerület",
+		meta_description: "Terasz betonozás Budapest 6. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 6. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonProfi csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Gárazsalap betonozás – 6. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 6. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 6. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 6. kerület",
+		meta_description: "Ipári padló betonozás Budapest 6. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 6. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 6. kerület",
+		meta_description: "Betonozás házilag Budapest 6. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 6. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 6. kerület",
+		meta_description: "Betonozás menete Budapest 6. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 6. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-6-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "6. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás m2 ára – 6. kerület",
+		meta_description: "Betonozás m2 ára Budapest 6. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 6. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. Budapest Beton Team csapata 6. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 7. kerület",
+		meta_description: "Betonozás budapest Budapest 7. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 7. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás árak – 7. kerület",
+		meta_description: "Betonozás árak Budapest 7. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 7. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonFix csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás ár – 7. kerület",
+		meta_description: "Betonozás ár Budapest 7. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 7. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. BetonFix csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Járda betonozás – 7. kerület",
+		meta_description: "Járda betonozás Budapest 7. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 7. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. AlapMester csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Alap betonozás – 7. kerület",
+		meta_description: "Alap betonozás Budapest 7. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 7. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Aljzat betonozás – 7. kerület",
+		meta_description: "Aljzat betonozás Budapest 7. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 7. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Födém betonozás – 7. kerület",
+		meta_description: "Födém betonozás Budapest 7. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 7. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. CityBeton csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "GyorsBeton",
+		title: "Terasz betonozás – 7. kerület",
+		meta_description: "Terasz betonozás Budapest 7. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 7. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Gárazsalap betonozás – 7. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 7. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 7. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 7. kerület",
+		meta_description: "Ipári padló betonozás Budapest 7. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 7. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás házilag – 7. kerület",
+		meta_description: "Betonozás házilag Budapest 7. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 7. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. GyorsBeton csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás menete – 7. kerület",
+		meta_description: "Betonozás menete Budapest 7. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 7. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonFix csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-7-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "7. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás m2 ára – 7. kerület",
+		meta_description: "Betonozás m2 ára Budapest 7. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 7. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. AlapMester csapata 7. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 8. kerület",
+		meta_description: "Betonozás budapest Budapest 8. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 8. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás árak – 8. kerület",
+		meta_description: "Betonozás árak Budapest 8. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 8. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. AlapMester csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás ár – 8. kerület",
+		meta_description: "Betonozás ár Budapest 8. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 8. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. AlapMester csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Járda betonozás – 8. kerület",
+		meta_description: "Járda betonozás Budapest 8. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 8. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonFix csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Alap betonozás – 8. kerület",
+		meta_description: "Alap betonozás Budapest 8. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 8. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonFix csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Aljzat betonozás – 8. kerület",
+		meta_description: "Aljzat betonozás Budapest 8. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 8. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Födém betonozás – 8. kerület",
+		meta_description: "Födém betonozás Budapest 8. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 8. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. CityBeton csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Terasz betonozás – 8. kerület",
+		meta_description: "Terasz betonozás Budapest 8. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 8. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. CityBeton csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Gárazsalap betonozás – 8. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 8. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 8. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 8. kerület",
+		meta_description: "Ipári padló betonozás Budapest 8. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 8. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 8. kerület",
+		meta_description: "Betonozás házilag Budapest 8. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 8. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás menete – 8. kerület",
+		meta_description: "Betonozás menete Budapest 8. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 8. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonFix csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-8-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "8. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 8. kerület",
+		meta_description: "Betonozás m2 ára Budapest 8. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 8. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 8. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás budapest – 9. kerület",
+		meta_description: "Betonozás budapest Budapest 9. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 9. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. BetonFix csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás árak – 9. kerület",
+		meta_description: "Betonozás árak Budapest 9. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 9. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonFix csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás ár – 9. kerület",
+		meta_description: "Betonozás ár Budapest 9. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 9. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. CityBeton csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Járda betonozás – 9. kerület",
+		meta_description: "Járda betonozás Budapest 9. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 9. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonProfi csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Alap betonozás – 9. kerület",
+		meta_description: "Alap betonozás Budapest 9. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 9. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Aljzat betonozás – 9. kerület",
+		meta_description: "Aljzat betonozás Budapest 9. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 9. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. CityBeton csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Födém betonozás – 9. kerület",
+		meta_description: "Födém betonozás Budapest 9. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 9. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Terasz betonozás – 9. kerület",
+		meta_description: "Terasz betonozás Budapest 9. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 9. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonProfi",
+		title: "Gárazsalap betonozás – 9. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 9. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 9. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. BetonProfi csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 9. kerület",
+		meta_description: "Ipári padló betonozás Budapest 9. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 9. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 9. kerület",
+		meta_description: "Betonozás házilag Budapest 9. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 9. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás menete – 9. kerület",
+		meta_description: "Betonozás menete Budapest 9. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 9. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. GyorsBeton csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-9-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "9. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 9. kerület",
+		meta_description: "Betonozás m2 ára Budapest 9. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 9. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 9. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 10. kerület",
+		meta_description: "Betonozás budapest Budapest 10. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 10. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 10. kerület",
+		meta_description: "Betonozás árak Budapest 10. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 10. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás ár – 10. kerület",
+		meta_description: "Betonozás ár Budapest 10. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 10. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. GyorsBeton csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Járda betonozás – 10. kerület",
+		meta_description: "Járda betonozás Budapest 10. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 10. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Alap betonozás – 10. kerület",
+		meta_description: "Alap betonozás Budapest 10. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 10. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. CityBeton csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Aljzat betonozás – 10. kerület",
+		meta_description: "Aljzat betonozás Budapest 10. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 10. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. CityBeton csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Födém betonozás – 10. kerület",
+		meta_description: "Födém betonozás Budapest 10. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 10. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Terasz betonozás – 10. kerület",
+		meta_description: "Terasz betonozás Budapest 10. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 10. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. AlapMester csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Gárazsalap betonozás – 10. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 10. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 10. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. BetonFix csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 10. kerület",
+		meta_description: "Ipári padló betonozás Budapest 10. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 10. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 10. kerület",
+		meta_description: "Betonozás házilag Budapest 10. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 10. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás menete – 10. kerület",
+		meta_description: "Betonozás menete Budapest 10. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 10. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonFix csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-10-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "10. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás m2 ára – 10. kerület",
+		meta_description: "Betonozás m2 ára Budapest 10. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 10. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. GyorsBeton csapata 10. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás budapest – 11. kerület",
+		meta_description: "Betonozás budapest Budapest 11. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 11. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. BetonFix csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás árak – 11. kerület",
+		meta_description: "Betonozás árak Budapest 11. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 11. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. AlapMester csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás ár – 11. kerület",
+		meta_description: "Betonozás ár Budapest 11. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 11. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. BetonProfi csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Járda betonozás – 11. kerület",
+		meta_description: "Járda betonozás Budapest 11. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 11. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonProfi csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonProfi",
+		title: "Alap betonozás – 11. kerület",
+		meta_description: "Alap betonozás Budapest 11. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 11. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonProfi csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Aljzat betonozás – 11. kerület",
+		meta_description: "Aljzat betonozás Budapest 11. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 11. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. BetonFix csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Födém betonozás – 11. kerület",
+		meta_description: "Födém betonozás Budapest 11. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 11. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Terasz betonozás – 11. kerület",
+		meta_description: "Terasz betonozás Budapest 11. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 11. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonProfi csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Gárazsalap betonozás – 11. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 11. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 11. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. CityBeton csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 11. kerület",
+		meta_description: "Ipári padló betonozás Budapest 11. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 11. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 11. kerület",
+		meta_description: "Betonozás házilag Budapest 11. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 11. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 11. kerület",
+		meta_description: "Betonozás menete Budapest 11. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 11. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-11-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "11. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás m2 ára – 11. kerület",
+		meta_description: "Betonozás m2 ára Budapest 11. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 11. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonProfi csapata 11. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 12. kerület",
+		meta_description: "Betonozás budapest Budapest 12. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 12. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás árak – 12. kerület",
+		meta_description: "Betonozás árak Budapest 12. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 12. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. Budapest Beton Team csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás ár – 12. kerület",
+		meta_description: "Betonozás ár Budapest 12. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 12. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. AlapMester csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Járda betonozás – 12. kerület",
+		meta_description: "Járda betonozás Budapest 12. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 12. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonFix csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Alap betonozás – 12. kerület",
+		meta_description: "Alap betonozás Budapest 12. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 12. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. AlapMester csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Aljzat betonozás – 12. kerület",
+		meta_description: "Aljzat betonozás Budapest 12. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 12. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Födém betonozás – 12. kerület",
+		meta_description: "Födém betonozás Budapest 12. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 12. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. AlapMester csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonFix",
+		title: "Terasz betonozás – 12. kerület",
+		meta_description: "Terasz betonozás Budapest 12. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 12. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonFix csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Gárazsalap betonozás – 12. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 12. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 12. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. AlapMester csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Ipári padló betonozás – 12. kerület",
+		meta_description: "Ipári padló betonozás Budapest 12. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 12. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. CityBeton csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 12. kerület",
+		meta_description: "Betonozás házilag Budapest 12. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 12. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás menete – 12. kerület",
+		meta_description: "Betonozás menete Budapest 12. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 12. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonFix csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-12-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "12. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 12. kerület",
+		meta_description: "Betonozás m2 ára Budapest 12. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 12. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 12. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás budapest – 13. kerület",
+		meta_description: "Betonozás budapest Budapest 13. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 13. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. GyorsBeton csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 13. kerület",
+		meta_description: "Betonozás árak Budapest 13. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 13. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás ár – 13. kerület",
+		meta_description: "Betonozás ár Budapest 13. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 13. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. GyorsBeton csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonProfi",
+		title: "Járda betonozás – 13. kerület",
+		meta_description: "Járda betonozás Budapest 13. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 13. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonProfi csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Alap betonozás – 13. kerület",
+		meta_description: "Alap betonozás Budapest 13. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 13. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Aljzat betonozás – 13. kerület",
+		meta_description: "Aljzat betonozás Budapest 13. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 13. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. AlapMester csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "AlapMester",
+		title: "Födém betonozás – 13. kerület",
+		meta_description: "Födém betonozás Budapest 13. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 13. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. AlapMester csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonProfi",
+		title: "Terasz betonozás – 13. kerület",
+		meta_description: "Terasz betonozás Budapest 13. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 13. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonProfi csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Gárazsalap betonozás – 13. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 13. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 13. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 13. kerület",
+		meta_description: "Ipári padló betonozás Budapest 13. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 13. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás házilag – 13. kerület",
+		meta_description: "Betonozás házilag Budapest 13. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 13. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. Budapest Beton Team csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 13. kerület",
+		meta_description: "Betonozás menete Budapest 13. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 13. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-13-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "13. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás m2 ára – 13. kerület",
+		meta_description: "Betonozás m2 ára Budapest 13. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 13. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. GyorsBeton csapata 13. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 14. kerület",
+		meta_description: "Betonozás budapest Budapest 14. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 14. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 14. kerület",
+		meta_description: "Betonozás árak Budapest 14. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 14. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás ár – 14. kerület",
+		meta_description: "Betonozás ár Budapest 14. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 14. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. BetonFix csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Járda betonozás – 14. kerület",
+		meta_description: "Járda betonozás Budapest 14. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 14. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. AlapMester csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Alap betonozás – 14. kerület",
+		meta_description: "Alap betonozás Budapest 14. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 14. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonProfi csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Aljzat betonozás – 14. kerület",
+		meta_description: "Aljzat betonozás Budapest 14. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 14. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. CityBeton csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "GyorsBeton",
+		title: "Födém betonozás – 14. kerület",
+		meta_description: "Födém betonozás Budapest 14. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 14. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Terasz betonozás – 14. kerület",
+		meta_description: "Terasz betonozás Budapest 14. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 14. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. AlapMester csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Gárazsalap betonozás – 14. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 14. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 14. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. AlapMester csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 14. kerület",
+		meta_description: "Ipári padló betonozás Budapest 14. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 14. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás házilag – 14. kerület",
+		meta_description: "Betonozás házilag Budapest 14. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 14. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. Budapest Beton Team csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás menete – 14. kerület",
+		meta_description: "Betonozás menete Budapest 14. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 14. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. GyorsBeton csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-14-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "14. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás m2 ára – 14. kerület",
+		meta_description: "Betonozás m2 ára Budapest 14. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 14. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonProfi csapata 14. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 15. kerület",
+		meta_description: "Betonozás budapest Budapest 15. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 15. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás árak – 15. kerület",
+		meta_description: "Betonozás árak Budapest 15. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 15. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. CityBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás ár – 15. kerület",
+		meta_description: "Betonozás ár Budapest 15. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 15. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. GyorsBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Járda betonozás – 15. kerület",
+		meta_description: "Járda betonozás Budapest 15. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 15. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Alap betonozás – 15. kerület",
+		meta_description: "Alap betonozás Budapest 15. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 15. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. CityBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Aljzat betonozás – 15. kerület",
+		meta_description: "Aljzat betonozás Budapest 15. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 15. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. BetonProfi csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Födém betonozás – 15. kerület",
+		meta_description: "Födém betonozás Budapest 15. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 15. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonFix csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Terasz betonozás – 15. kerület",
+		meta_description: "Terasz betonozás Budapest 15. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 15. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonProfi csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Gárazsalap betonozás – 15. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 15. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 15. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. BetonFix csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 15. kerület",
+		meta_description: "Ipári padló betonozás Budapest 15. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 15. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 15. kerület",
+		meta_description: "Betonozás házilag Budapest 15. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 15. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás menete – 15. kerület",
+		meta_description: "Betonozás menete Budapest 15. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 15. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. CityBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-15-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "15. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás m2 ára – 15. kerület",
+		meta_description: "Betonozás m2 ára Budapest 15. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 15. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. CityBeton csapata 15. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás budapest – 16. kerület",
+		meta_description: "Betonozás budapest Budapest 16. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 16. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. BetonProfi csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás árak – 16. kerület",
+		meta_description: "Betonozás árak Budapest 16. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 16. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. GyorsBeton csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás ár – 16. kerület",
+		meta_description: "Betonozás ár Budapest 16. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 16. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. CityBeton csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Járda betonozás – 16. kerület",
+		meta_description: "Járda betonozás Budapest 16. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 16. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. CityBeton csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Alap betonozás – 16. kerület",
+		meta_description: "Alap betonozás Budapest 16. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 16. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. BetonProfi csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Aljzat betonozás – 16. kerület",
+		meta_description: "Aljzat betonozás Budapest 16. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 16. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. BetonProfi csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Födém betonozás – 16. kerület",
+		meta_description: "Födém betonozás Budapest 16. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 16. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonFix csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Terasz betonozás – 16. kerület",
+		meta_description: "Terasz betonozás Budapest 16. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 16. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonFix csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Gárazsalap betonozás – 16. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 16. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 16. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 16. kerület",
+		meta_description: "Ipári padló betonozás Budapest 16. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 16. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás házilag – 16. kerület",
+		meta_description: "Betonozás házilag Budapest 16. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 16. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. AlapMester csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás menete – 16. kerület",
+		meta_description: "Betonozás menete Budapest 16. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 16. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. Budapest Beton Team csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-16-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "16. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 16. kerület",
+		meta_description: "Betonozás m2 ára Budapest 16. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 16. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 16. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 17. kerület",
+		meta_description: "Betonozás budapest Budapest 17. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 17. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás árak – 17. kerület",
+		meta_description: "Betonozás árak Budapest 17. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 17. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonFix csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás ár – 17. kerület",
+		meta_description: "Betonozás ár Budapest 17. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 17. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. CityBeton csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Járda betonozás – 17. kerület",
+		meta_description: "Járda betonozás Budapest 17. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 17. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonFix csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Alap betonozás – 17. kerület",
+		meta_description: "Alap betonozás Budapest 17. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 17. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Aljzat betonozás – 17. kerület",
+		meta_description: "Aljzat betonozás Budapest 17. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 17. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. CityBeton csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "GyorsBeton",
+		title: "Födém betonozás – 17. kerület",
+		meta_description: "Födém betonozás Budapest 17. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 17. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "GyorsBeton",
+		title: "Terasz betonozás – 17. kerület",
+		meta_description: "Terasz betonozás Budapest 17. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 17. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Gárazsalap betonozás – 17. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 17. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 17. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. CityBeton csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Ipári padló betonozás – 17. kerület",
+		meta_description: "Ipári padló betonozás Budapest 17. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 17. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. AlapMester csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás házilag – 17. kerület",
+		meta_description: "Betonozás házilag Budapest 17. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 17. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. Budapest Beton Team csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 17. kerület",
+		meta_description: "Betonozás menete Budapest 17. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 17. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-17-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "17. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás m2 ára – 17. kerület",
+		meta_description: "Betonozás m2 ára Budapest 17. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 17. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. GyorsBeton csapata 17. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás budapest – 18. kerület",
+		meta_description: "Betonozás budapest Budapest 18. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 18. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. Budapest Beton Team csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás árak – 18. kerület",
+		meta_description: "Betonozás árak Budapest 18. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 18. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. AlapMester csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás ár – 18. kerület",
+		meta_description: "Betonozás ár Budapest 18. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 18. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. GyorsBeton csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Járda betonozás – 18. kerület",
+		meta_description: "Járda betonozás Budapest 18. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 18. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonProfi csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Alap betonozás – 18. kerület",
+		meta_description: "Alap betonozás Budapest 18. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 18. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. CityBeton csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Aljzat betonozás – 18. kerület",
+		meta_description: "Aljzat betonozás Budapest 18. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 18. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. AlapMester csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Födém betonozás – 18. kerület",
+		meta_description: "Födém betonozás Budapest 18. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 18. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. CityBeton csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Terasz betonozás – 18. kerület",
+		meta_description: "Terasz betonozás Budapest 18. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 18. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. AlapMester csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Gárazsalap betonozás – 18. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 18. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 18. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 18. kerület",
+		meta_description: "Ipári padló betonozás Budapest 18. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 18. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 18. kerület",
+		meta_description: "Betonozás házilag Budapest 18. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 18. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás menete – 18. kerület",
+		meta_description: "Betonozás menete Budapest 18. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 18. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. GyorsBeton csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-18-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "18. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás m2 ára – 18. kerület",
+		meta_description: "Betonozás m2 ára Budapest 18. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 18. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. Budapest Beton Team csapata 18. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 19. kerület",
+		meta_description: "Betonozás budapest Budapest 19. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 19. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás árak – 19. kerület",
+		meta_description: "Betonozás árak Budapest 19. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 19. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonFix csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás ár – 19. kerület",
+		meta_description: "Betonozás ár Budapest 19. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 19. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. BetonFix csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Járda betonozás – 19. kerület",
+		meta_description: "Járda betonozás Budapest 19. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 19. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. CityBeton csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "CityBeton",
+		title: "Alap betonozás – 19. kerület",
+		meta_description: "Alap betonozás Budapest 19. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 19. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. CityBeton csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Aljzat betonozás – 19. kerület",
+		meta_description: "Aljzat betonozás Budapest 19. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 19. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. BetonProfi csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Födém betonozás – 19. kerület",
+		meta_description: "Födém betonozás Budapest 19. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 19. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Terasz betonozás – 19. kerület",
+		meta_description: "Terasz betonozás Budapest 19. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 19. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. AlapMester csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Gárazsalap betonozás – 19. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 19. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 19. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Ipári padló betonozás – 19. kerület",
+		meta_description: "Ipári padló betonozás Budapest 19. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 19. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. BetonFix csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 19. kerület",
+		meta_description: "Betonozás házilag Budapest 19. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 19. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 19. kerület",
+		meta_description: "Betonozás menete Budapest 19. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 19. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-19-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "19. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás m2 ára – 19. kerület",
+		meta_description: "Betonozás m2 ára Budapest 19. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 19. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. Budapest Beton Team csapata 19. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 20. kerület",
+		meta_description: "Betonozás budapest Budapest 20. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 20. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 20. kerület",
+		meta_description: "Betonozás árak Budapest 20. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 20. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás ár – 20. kerület",
+		meta_description: "Betonozás ár Budapest 20. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 20. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. Budapest Beton Team csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Járda betonozás – 20. kerület",
+		meta_description: "Járda betonozás Budapest 20. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 20. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "CityBeton",
+		title: "Alap betonozás – 20. kerület",
+		meta_description: "Alap betonozás Budapest 20. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 20. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. CityBeton csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Aljzat betonozás – 20. kerület",
+		meta_description: "Aljzat betonozás Budapest 20. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 20. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Födém betonozás – 20. kerület",
+		meta_description: "Födém betonozás Budapest 20. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 20. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonProfi csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "CityBeton",
+		title: "Terasz betonozás – 20. kerület",
+		meta_description: "Terasz betonozás Budapest 20. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 20. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. CityBeton csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "AlapMester",
+		title: "Gárazsalap betonozás – 20. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 20. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 20. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. AlapMester csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 20. kerület",
+		meta_description: "Ipári padló betonozás Budapest 20. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 20. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás házilag – 20. kerület",
+		meta_description: "Betonozás házilag Budapest 20. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 20. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. AlapMester csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás menete – 20. kerület",
+		meta_description: "Betonozás menete Budapest 20. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 20. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. GyorsBeton csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-20-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "20. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás m2 ára – 20. kerület",
+		meta_description: "Betonozás m2 ára Budapest 20. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 20. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. BetonFix csapata 20. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás budapest – 21. kerület",
+		meta_description: "Betonozás budapest Budapest 21. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 21. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. AlapMester csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás árak – 21. kerület",
+		meta_description: "Betonozás árak Budapest 21. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 21. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. Budapest Beton Team csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás ár – 21. kerület",
+		meta_description: "Betonozás ár Budapest 21. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 21. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. AlapMester csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Járda betonozás – 21. kerület",
+		meta_description: "Járda betonozás Budapest 21. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 21. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonFix csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "GyorsBeton",
+		title: "Alap betonozás – 21. kerület",
+		meta_description: "Alap betonozás Budapest 21. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 21. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "CityBeton",
+		title: "Aljzat betonozás – 21. kerület",
+		meta_description: "Aljzat betonozás Budapest 21. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 21. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. CityBeton csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Födém betonozás – 21. kerület",
+		meta_description: "Födém betonozás Budapest 21. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 21. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. BetonFix csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Terasz betonozás – 21. kerület",
+		meta_description: "Terasz betonozás Budapest 21. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 21. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "AlapMester",
+		title: "Gárazsalap betonozás – 21. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 21. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 21. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. AlapMester csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonFix",
+		title: "Ipári padló betonozás – 21. kerület",
+		meta_description: "Ipári padló betonozás Budapest 21. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 21. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. BetonFix csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás házilag – 21. kerület",
+		meta_description: "Betonozás házilag Budapest 21. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 21. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. CityBeton csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás menete – 21. kerület",
+		meta_description: "Betonozás menete Budapest 21. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 21. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. CityBeton csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-21-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "21. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Betonozás m2 ára – 21. kerület",
+		meta_description: "Betonozás m2 ára Budapest 21. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 21. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. Budapest Beton Team csapata 21. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás budapest – 22. kerület",
+		meta_description: "Betonozás budapest Budapest 22. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 22. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. GyorsBeton csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 22. kerület",
+		meta_description: "Betonozás árak Budapest 22. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 22. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás ár – 22. kerület",
+		meta_description: "Betonozás ár Budapest 22. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 22. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. GyorsBeton csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "BetonProfi",
+		title: "Járda betonozás – 22. kerület",
+		meta_description: "Járda betonozás Budapest 22. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 22. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. BetonProfi csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Alap betonozás – 22. kerület",
+		meta_description: "Alap betonozás Budapest 22. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 22. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. CityBeton csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Aljzat betonozás – 22. kerület",
+		meta_description: "Aljzat betonozás Budapest 22. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 22. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "AlapMester",
+		title: "Födém betonozás – 22. kerület",
+		meta_description: "Födém betonozás Budapest 22. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 22. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. AlapMester csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Terasz betonozás – 22. kerület",
+		meta_description: "Terasz betonozás Budapest 22. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 22. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. BetonFix csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Gárazsalap betonozás – 22. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 22. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 22. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "Budapest Beton Team",
+		title: "Ipári padló betonozás – 22. kerület",
+		meta_description: "Ipári padló betonozás Budapest 22. kerület környékén. Budapest Beton Team szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 22. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. Budapest Beton Team csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonFix",
+		title: "Betonozás házilag – 22. kerület",
+		meta_description: "Betonozás házilag Budapest 22. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 22. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. BetonFix csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 22. kerület",
+		meta_description: "Betonozás menete Budapest 22. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 22. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-22-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "22. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás m2 ára – 22. kerület",
+		meta_description: "Betonozás m2 ára Budapest 22. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 22. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. GyorsBeton csapata 22. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Betonozás budapest – 23. kerület",
+		meta_description: "Betonozás budapest Budapest 23. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest 23. kerület",
+		body: "A(z) betonozás budapest stabil, időtálló megoldást ad. CityBeton csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-betonozas-arak",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "betonozás árak",
+		szerviz_tipus: "blog",
+		extra_igeny: "időgaranciás kivitelezés, modern géppark",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás árak – 23. kerület",
+		meta_description: "Betonozás árak Budapest 23. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás árak – Budapest 23. kerület",
+		body: "A(z) betonozás árak stabil, időtálló megoldást ad. BetonProfi csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Időgaranciás kivitelezés, modern géppark. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-betonozas-ar",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "betonozás ár",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás ár – 23. kerület",
+		meta_description: "Betonozás ár Budapest 23. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás ár – Budapest 23. kerület",
+		body: "A(z) betonozás ár stabil, időtálló megoldást ad. AlapMester csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-jarda-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "járda betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "AlapMester",
+		title: "Járda betonozás – 23. kerület",
+		meta_description: "Járda betonozás Budapest 23. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Járda betonozás – Budapest 23. kerület",
+		body: "A(z) járda betonozás stabil, időtálló megoldást ad. AlapMester csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-alap-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "alap betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "GyorsBeton",
+		title: "Alap betonozás – 23. kerület",
+		meta_description: "Alap betonozás Budapest 23. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Alap betonozás – Budapest 23. kerület",
+		body: "A(z) alap betonozás stabil, időtálló megoldást ad. GyorsBeton csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-aljzat-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "aljzat betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "BetonProfi",
+		title: "Aljzat betonozás – 23. kerület",
+		meta_description: "Aljzat betonozás Budapest 23. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Aljzat betonozás – Budapest 23. kerület",
+		body: "A(z) aljzat betonozás stabil, időtálló megoldást ad. BetonProfi csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-fodem-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "födém betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "garanciás munkavégzés, minőségi alapanyag",
+		szerviz_nev: "AlapMester",
+		title: "Födém betonozás – 23. kerület",
+		meta_description: "Födém betonozás Budapest 23. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Födém betonozás – Budapest 23. kerület",
+		body: "A(z) födém betonozás stabil, időtálló megoldást ad. AlapMester csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Garanciás munkavégzés, minőségi alapanyag. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-terasz-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "terasz betonozás",
+		szerviz_tipus: "szolgaltatasleiras",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "CityBeton",
+		title: "Terasz betonozás – 23. kerület",
+		meta_description: "Terasz betonozás Budapest 23. kerület környékén. CityBeton szakértelemmel és korrekt árakkal.",
+		h1: "Terasz betonozás – Budapest 23. kerület",
+		body: "A(z) terasz betonozás stabil, időtálló megoldást ad. CityBeton csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-garazsalap-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "gárazsalap betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors helyszíni betonozás, tanácsadás",
+		szerviz_nev: "BetonFix",
+		title: "Gárazsalap betonozás – 23. kerület",
+		meta_description: "Gárazsalap betonozás Budapest 23. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Gárazsalap betonozás – Budapest 23. kerület",
+		body: "A(z) gárazsalap betonozás stabil, időtálló megoldást ad. BetonFix csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors helyszíni betonozás, tanácsadás. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-ipari-padlo-betonozas",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "ipári padló betonozás",
+		szerviz_tipus: "blog",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonFix",
+		title: "Ipári padló betonozás – 23. kerület",
+		meta_description: "Ipári padló betonozás Budapest 23. kerület környékén. BetonFix szakértelemmel és korrekt árakkal.",
+		h1: "Ipári padló betonozás – Budapest 23. kerület",
+		body: "A(z) ipári padló betonozás stabil, időtálló megoldást ad. BetonFix csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-betonozas-hazilag",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "betonozás házilag",
+		szerviz_tipus: "blog",
+		extra_igeny: "precíz betonozás, profi csapat",
+		szerviz_nev: "AlapMester",
+		title: "Betonozás házilag – 23. kerület",
+		meta_description: "Betonozás házilag Budapest 23. kerület környékén. AlapMester szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás házilag – Budapest 23. kerület",
+		body: "A(z) betonozás házilag stabil, időtálló megoldást ad. AlapMester csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Precíz betonozás, profi csapat. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-betonozas-menete",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "betonozás menete",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás menete – 23. kerület",
+		meta_description: "Betonozás menete Budapest 23. kerület környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás menete – Budapest 23. kerület",
+		body: "A(z) betonozás menete stabil, időtálló megoldást ad. BetonProfi csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-23-kerulet-betonozas-m2-ara",
+		varos: "Budapest",
+		kerulet: "23. kerület",
+		marka: "N/A",
+		modell: "betonozás m2 ára",
+		szerviz_tipus: "blog",
+		extra_igeny: "ingyenes kiszállás, pontos árkalkuláció",
+		szerviz_nev: "GyorsBeton",
+		title: "Betonozás m2 ára – 23. kerület",
+		meta_description: "Betonozás m2 ára Budapest 23. kerület környékén. GyorsBeton szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás m2 ára – Budapest 23. kerület",
+		body: "A(z) betonozás m2 ára stabil, időtálló megoldást ad. GyorsBeton csapata 23. kerület térségében szakszerűen, pontos határidővel dolgozik. Ingyenes kiszállás, pontos árkalkuláció. Kérjen ajánlatot most!"
+	},
+	{
+		id: "budapest-kozpont-betonozas-budapest",
+		varos: "Budapest",
+		kerulet: "Központ",
+		marka: "N/A",
+		modell: "betonozás budapest",
+		szerviz_tipus: "fooldal",
+		extra_igeny: "gyors kivitelezés, díjmentes felmérés",
+		szerviz_nev: "BetonProfi",
+		title: "Betonozás budapest – Budapest Központ",
+		meta_description: "Betonozás budapest Budapest Központ környékén. BetonProfi szakértelemmel és korrekt árakkal.",
+		h1: "Betonozás budapest – Budapest Központ",
+		body: "A(z) betonozás budapest iránti igény egész Budapesten erős. BetonProfi csapata központi területen is gyorsan és precízen dolgozik. Gyors kivitelezés, díjmentes felmérés. Kérjen ajánlatot most!"
+	}
+];
+
+const fixedLastMod = (/* @__PURE__ */ new Date("2025-10-28")).toISOString();
+const beton_service_sitemap = defineSitemapEventHandler(async () => {
+  try {
+    const variations = variaciok;
+    const baseUrl = process.env.BASE_URL || "https://aszfaltozas24.hu";
+    return variations.map((variation) => {
+      const slugUrl = `/betonozas/${variation.id}`;
+      const imageUrl = `${baseUrl}img/default.jpg`;
+      return {
+        loc: slugUrl,
+        lastmod: fixedLastMod,
+        changefreq: "monthly",
+        priority: 0.9,
+        // A _images mező a nuxt-sitemap modulban használatos a képekhez
+        _images: [
+          {
+            url: imageUrl,
+            title: variation.title || `${variation.marka} ${variation.modell} ${variation.szerviz_tipus}`,
+            caption: variation.meta_description || `${variation.marka} ${variation.modell} ${variation.szerviz_tipus} ${variation.kerulet}`,
+            // Opcionális mezők
+            license: "https://aszfaltozas24.hu/license",
+            geoLocation: "Budapest, Hungary"
+          }
+        ],
+        // Alternatív módszer, ha a fenti nem működik
+        images: [
+          {
+            loc: imageUrl,
+            title: variation.title || `${variation.marka} ${variation.modell} ${variation.szerviz_tipus}`,
+            caption: variation.meta_description || `${variation.marka} ${variation.modell} ${variation.szerviz_tipus} ${variation.kerulet}`
+          }
+        ]
+      };
+    });
+  } catch (error) {
+    console.error("Error generating sitemap for mobile service variations:", error);
+    return [];
+  }
+});
+
+const beton_service_sitemap$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: beton_service_sitemap
+});
+
+const beton_service = defineEventHandler(() => variaciok);
+
+const beton_service$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: beton_service
 });
 
 function renderPayloadResponse(ssrContext) {

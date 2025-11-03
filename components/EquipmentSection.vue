@@ -48,8 +48,8 @@ const machines: Machine[] = [
     <!-- Gomb alul, középre igazítva -->
     <div class="equipment-section__footer">
       <!-- Ha NuxtLink-et használsz és van /machines oldalad, cseréld <a> helyett <NuxtLink>–re -->
-      <NuxtLink to="/" class="equipment-section__button">
-        ÖSSZES GÉPÜNK
+      <NuxtLink to="/kapcsolat" class="equipment-section__button">
+        ÉRDEKKELNEK A RÉSZLETEK
       </NuxtLink>
     </div>
   </section>

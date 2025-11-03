@@ -1,3 +1,73 @@
+<script setup lang="ts">
+import { ref, reactive } from 'vue'
+
+const form = reactive({
+  name: '',
+  phone: '',
+  email: '',
+  subject: '',
+  message: '',
+})
+
+const isSubmitting = ref(false)
+const submitMessage = ref('')
+
+const onSubmit = async (event: Event) => {
+  event.preventDefault()
+
+  if (isSubmitting.value) return
+
+  isSubmitting.value = true
+  submitMessage.value = ''
+
+  try {
+    const webhookUrl = 'https://services.leadconnectorhq.com/hooks/ZDodLMGxyiQdffeKeCBH/webhook-trigger/248fb6c1-354e-4af4-92ed-0299929ae6e1'
+
+    const payload = {
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      subject: form.subject,
+      message: form.message,
+      source: 'Kontakt űrlap (Oldal)',
+      form_type: 'general_contact',
+      submission_date: new Date().toISOString(),
+    }
+
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+
+    if (response.ok) {
+      submitMessage.value = '✅ Köszönjük a megkeresést! Hamarosan jelentkezünk.'
+
+      // Form resetelése
+      form.name = ''
+      form.phone = ''
+      form.email = ''
+      form.subject = ''
+      form.message = ''
+
+      // Üzenet eltüntetése 5 mp után
+      setTimeout(() => {
+        submitMessage.value = ''
+      }, 5000)
+    } else {
+      throw new Error('Hiba a küldéskor')
+    }
+  } catch (error) {
+    console.error('Form submission error:', error)
+    submitMessage.value = '❌ Hiba történt. Kérjük próbálja újra, vagy hívjon minket!'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+</script>
+
 <template>
   <section class="contact-section" aria-labelledby="contact-heading">
     <div class="contact-section__wrapper">
@@ -9,21 +79,17 @@
           e-mailt vagy hívjon telefonon – gyorsan és készséggel válaszolunk
           minden megkeresésre!
         </p>
-        <form
-          class="contact-section__form"
-          action="/api/contact"
-          method="post"
-          novalidate
-        >
+        <form class="contact-section__form" @submit="onSubmit">
           <div class="contact-section__fields">
             <div class="contact-section__field-group">
               <input
                 class="contact-section__input"
                 type="text"
                 id="name"
-                name="name"
+                v-model="form.name"
                 required
                 placeholder="Név*"
+                :disabled="isSubmitting"
               />
             </div>
             <div class="contact-section__field-group">
@@ -31,9 +97,10 @@
                 class="contact-section__input"
                 type="tel"
                 id="phone"
-                name="phone"
+                v-model="form.phone"
                 required
                 placeholder="Telefonszám*"
+                :disabled="isSubmitting"
               />
             </div>
             <div class="contact-section__field-group">
@@ -41,9 +108,10 @@
                 class="contact-section__input"
                 type="email"
                 id="email"
-                name="email"
+                v-model="form.email"
                 required
                 placeholder="E-mail cím*"
+                :disabled="isSubmitting"
               />
             </div>
             <div class="contact-section__field-group">
@@ -51,8 +119,9 @@
                 class="contact-section__input"
                 type="text"
                 id="subject"
-                name="subject"
+                v-model="form.subject"
                 placeholder="Tárgy"
+                :disabled="isSubmitting"
               />
             </div>
           </div>
@@ -60,21 +129,38 @@
             <textarea
               class="contact-section__textarea"
               id="message"
-              name="message"
+              v-model="form.message"
               rows="6"
               placeholder="Üzenet"
+              :disabled="isSubmitting"
             ></textarea>
           </div>
           <div class="contact-section__actions">
-            <button type="submit" class="contact-section__submit">
-              KÜLDÉS
+            <button type="submit" class="contact-section__submit" :disabled="isSubmitting">
+              {{ isSubmitting ? 'KÜLDÉS...' : 'KÜLDÉS' }}
             </button>
             <p class="contact-section__note">
               A küldés gombra kattintva automatikusan elfogadja az
-              <a href="/privacy-policy" class="contact-section__policy-link"
-                >Adatkezelési Nyilatkozatot</a
-              >.
+              <NuxtLink
+                to="/adatvedelmi-tajekoztato"
+                class="contact-section__policy-link"
+              >
+                Adatkezelési Nyilatkozatot
+              </NuxtLink>
+              .
             </p>
+          </div>
+
+          <!-- Success/Error Message -->
+          <div
+            v-if="submitMessage"
+            class="submit-message"
+            :class="{
+              success: submitMessage.includes('✅'),
+              error: submitMessage.includes('❌'),
+            }"
+          >
+            {{ submitMessage }}
           </div>
         </form>
       </div>
@@ -86,8 +172,8 @@
         </h2>
         <address class="contact-section__info-list">
           <div class="contact-section__info-item">
-            <span class="contact-section__info-icon" aria-hidden="true"
-              ><svg
+            <span class="contact-section__info-icon" aria-hidden="true">
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -188,19 +274,17 @@
   </section>
 </template>
 
-<script setup lang="ts">
-// Nincs külön logika jelenleg
-</script>
-
 <style lang="scss" scoped>
 .contact-section__input::-webkit-input-placeholder,
 .contact-section__textarea::-webkit-input-placeholder {
   color: #b4b4b5;
   font-weight: 400;
 }
+
 .contact-section {
   background: var(--Lighter-Gray, #fafafa);
   padding: 0;
+
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -263,6 +347,13 @@
     padding: 0.75rem;
     border: none;
     font-size: 1rem;
+    font-family: inherit;
+    transition: opacity 0.2s ease;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 
   &__textarea {
@@ -285,6 +376,16 @@
     cursor: pointer;
     font-weight: 600;
     margin-top: 1.5em;
+    transition: opacity 0.2s ease;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.8;
+    }
   }
 
   &__note {
@@ -336,123 +437,130 @@
     margin: 0;
   }
 
-  /*-----------------------*/
-  /* Mobil nézet (max-width: 767px) */
-  /*-----------------------*/
+  .submit-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: center;
+
+    &.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    &.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  }
+
   @media (max-width: 767px) {
-    /* A wrapperben egymás alá rendezzük a részeket */
     &__wrapper {
       flex-direction: column;
-      padding: 1.5rem; // kisebb belső margó mobilon
+      padding: 1.5rem;
       margin: 0;
     }
 
-    /* A form és info területek teljes szélességűre nyúlnak */
     &__form-area,
     &__info-area {
       flex: 1 1 100%;
-      clip-path: none; // ne legyen vágás mobilon
-      padding: 2rem 1.5rem; // kisebb padding mobilon
+      clip-path: none;
+      padding: 2rem 1.5rem;
     }
 
-    /* A form mezők legyenek egymás alattiak mobilon */
     &__fields {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
 
-    /* A submit gomb igazítása középre */
     &__actions {
       flex-direction: column;
       align-items: stretch;
     }
+
     &__submit {
       width: max-content;
       margin-top: 1rem;
     }
 
-    /* A note teljes szélességű, alá igazítva */
     &__note {
       width: 100%;
       text-align: left;
       margin-top: 1rem;
     }
 
-    /* Info területen belüli padding csökkentése */
     &__info-area {
       padding: 1.5rem 1rem;
     }
   }
 
   @media (min-width: 768px) and (max-width: 992px) {
-    .nextlayer__text-block{
-      max-width: 100%;
-    }
-    .contact-section__info-area {
+    &__info-area {
       padding: 4% 2em 2em 3em;
       clip-path: polygon(0% 0, 100% 0, 100% 100%, 0 100%);
     }
-    .contact-section__wrapper {
+
+    &__wrapper {
       margin: 0;
     }
   }
 
-  /*-----------------------*/
-  /* Tablet nézet (992px–1199px) */
-  /*-----------------------*/
   @media (min-width: 992px) and (max-width: 1199px) {
-    /* A wrapper maradjon flex sorban, de egy kicsit keskenyebbre szabjuk */
     &__wrapper {
       flex-direction: row;
       max-width: 100%;
       margin: 0 auto;
     }
 
-    /* Form-area és info-area arány módosítása tablet nézetre */
     &__form-area {
-      flex: 1 1 65%; // kicsit nagyobb arány a formnak
+      flex: 1 1 65%;
       padding: 2.5rem 3rem 2.5rem 2rem;
       clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);
     }
 
     &__info-area {
-      flex: 1 1 35%; // kicsit kisebb arány az infónak
+      flex: 1 1 35%;
       padding: 3% 1.5rem 1.5rem 5rem;
       clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    /* Kitöltőbetű és méretek kicsit kisebbek tabletre */
     &__heading {
       font-size: 1.75rem;
     }
+
     &__description {
       font-size: 0.95rem;
     }
+
     &__input,
     &__textarea {
       font-size: 0.95rem;
       padding: 0.65rem;
     }
+
     &__submit {
       font-size: 0.95rem;
       padding: 0.65rem 1.25rem;
     }
 
-    /* Mezők 2 oszlopos grid marad, de kicsit szűkebb margókkal */
     &__fields {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.85rem;
     }
 
-    /* Info-list elemeken belüli térköz kicsit csökkentve */
     &__info-list {
       gap: 0.6em;
     }
+
     &__info-item {
       margin-top: 0.85em;
     }
+
     &__info-text {
       line-height: 1.8em;
     }

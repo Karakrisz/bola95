@@ -1,19 +1,19 @@
 <script setup>
 useHead({
-  title: 'Kapcsolat',
+  title: 'Referenciák',
 })
 </script>
 
 <template>
   <section>
-    <div class="subpage-content subpage-footer-content">
-      <ContactContent />
+    <div class="subpage-content subpage-about-content">
+      <EquipmentSection />
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-.subpage-footer-content {
+.subpage-about-content {
   padding: 9em 0 0 0;
 }
 </style>

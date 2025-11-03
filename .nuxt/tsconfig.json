@@ -104,9 +104,6 @@
       "#sitemap": [
         "../node_modules/@nuxtjs/sitemap/dist/runtime/types"
       ],
-      "#mail": [
-        "file:///Applications/XAMPP/xamppfiles/htdocs/bola95/.nuxt/nuxt-mail"
-      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -167,8 +164,6 @@
     "../node_modules/nuxt-site-config/dist/dist/runtime",
     "../node_modules/@nuxtjs/sitemap/runtime",
     "../node_modules/@nuxtjs/sitemap/dist/runtime",
-    "../node_modules/nuxt-mail/runtime",
-    "../node_modules/nuxt-mail/dist/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/devtools/dist/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
@@ -183,7 +178,6 @@
     "../node_modules/@nuxt/image/node_modules",
     "../node_modules/nuxt-site-config/node_modules",
     "../node_modules/@nuxtjs/sitemap/node_modules",
-    "../node_modules/nuxt-mail/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxt/image/runtime/server",
@@ -192,8 +186,6 @@
     "../node_modules/nuxt-site-config/dist/dist/runtime/server",
     "../node_modules/@nuxtjs/sitemap/runtime/server",
     "../node_modules/@nuxtjs/sitemap/dist/runtime/server",
-    "../node_modules/nuxt-mail/runtime/server",
-    "../node_modules/nuxt-mail/dist/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",

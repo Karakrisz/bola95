@@ -20,26 +20,21 @@
             <NuxtLink class="site-footer__link" href="/">Főoldal</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/">Galéria</NuxtLink>
+            <NuxtLink class="site-footer__link" href="/galeria">Galéria</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/">Rólunk</NuxtLink>
+            <NuxtLink class="site-footer__link" href="/rolunk">Rólunk</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/">Referenciák</NuxtLink>
+            <NuxtLink class="site-footer__link" href="/referenciak">Referenciák</NuxtLink>
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/"
-              >Adatvédelmi Nyilatkozat</NuxtLink
+            <NuxtLink class="site-footer__link" href="/adatvedelmi-tajekoztato">
+              Adatvédelmi Nyilatkozat</NuxtLink
             >
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/"
-              >Gyakran Ismételt Kérdések</NuxtLink
-            >
-          </li>
-          <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/">Partnereink</NuxtLink>
+            <NuxtLink class="site-footer__link" href="/partnerek">Partnereink</NuxtLink>
           </li>
           <li class="site-footer__item">
             <NuxtLink class="site-footer__link" href="/">Kapcsolat</NuxtLink>
@@ -52,27 +47,27 @@
         <h3 class="site-footer__heading">Szolgáltatásaink</h3>
         <ul class="site-footer__list">
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/"
+            <NuxtLink class="site-footer__link" href="/kapcsolat"
               >Transzpont beton</NuxtLink
             >
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/"
+            <NuxtLink class="site-footer__link" href="/kapcsolat"
               >Hengerelt aszfaltozás</NuxtLink
             >
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/"
+            <NuxtLink class="site-footer__link" href="/kapcsolat"
               >Öntött aszfaltozás</NuxtLink
             >
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/"
+            <NuxtLink class="site-footer__link" href="/kapcsolat"
               >Mart aszfaltos útépítés</NuxtLink
             >
           </li>
           <li class="site-footer__item">
-            <NuxtLink class="site-footer__link" href="/">Térkövezés</NuxtLink>
+            <NuxtLink class="site-footer__link" href="/kapcsolat">Térkövezés</NuxtLink>
           </li>
         </ul>
       </div>

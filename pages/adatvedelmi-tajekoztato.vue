@@ -6,21 +6,21 @@ useHead({
 
 <template>
   <section>
-    <div class="aszf-content subpage-two-services-content">
+    <div class="subpage-content subpage-about-content">
       <h4
         class="aszf-content__h4 blog-box__text__h3 text-transform-uppercase text-color"
       >
         Adatkezelési Tájékoztató
       </h4>
 
-      <p class="aszf-content__p text-color">Elfogadás dátuma: 2024.05.28</p>
+      <p class="aszf-content__p text-color">Elfogadás dátuma: 2025.11.13</p>
 
       <h5
         class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
       >
         1. ADATKEZELŐ
       </h5>
-      <p class="aszf-content__p text-color">web@alkuszom.info</p>
+      <p class="aszf-content__p text-color">bola95kft@t-online.hu</p>
 
       <h5
         class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
@@ -119,7 +119,7 @@ useHead({
         feliratkozás megerősítése céljából az Adatkezelő megerősítő e-mailt küld
         az Ön által megadott e-mail címre, a hírlevélre történő feliratkozás a
         megerősítő e-mailben küldött linkre kattintással vagy az Ön rövid,
-        kifejezett megerősítő válaszával (pl. „megerősítem a feliratkozást”)
+        kifejezett megerősítő válaszával (pl. „megerősítem a feliratkozást")
         válik befejezetté.
       </p>
 
@@ -148,7 +148,7 @@ useHead({
         megerősítő e-mailt küld az Ön által megadott e-mail címre, a személyes
         adatok kezelésére vonatkozó hozzájárulás a megerősítő e-mailben küldött
         linkre kattintással vagy az Ön rövid, kifejezett megerősítő válaszával
-        (pl. „megerősítem az adatközlést”) válik hatályossá.
+        (pl. „megerősítem az adatközlést") válik hatályossá.
       </p>
       <h5
         class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
@@ -169,7 +169,7 @@ useHead({
       <p class="aszf-content__p text-color">
         A 2.2. és 2.3. pontok hatálya alá tartozó adatkezelések esetében az
         Adatkezelő által használt informatikai rendszer eltárolja a
-        hozzájárulással kapcsolatos informatikai adatokat a későbbi
+        hozzájárulással kapcsolatos informatikai adatokat a később
         bizonyíthatóság érdekében. Kezelt adatok: A hozzájárulás időpontja és az
         érintett IP címe. Az adatkezelés időtartama: A jogszabályi előírások
         miatt a hozzájárulást később igazolni kell tudni, ezért az adattárolás
@@ -199,7 +199,7 @@ useHead({
         panaszokat legkésőbb 30 napon belül válaszolja meg Adatkezelő, amely
         határidő indokolt esetben további két hónappal meghosszabbítható.
         Kérjük, hogy az Önt megillető jogok gyakorlása érdekében a
-        web@alkuszom.info e-mail címre küldött üzenettel keresse meg az
+        bola95kft@t-online.hu e-mail címre küldött üzenettel keresse meg az
         Adatkezelőt.
       </p>
 
@@ -371,7 +371,7 @@ useHead({
       </p>
 
       <h5
-        class="aszf-content__p blog-box__text__h3 text-transform-uppercase text-color"
+        class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
       >
         3.6. Adathordozhatósághoz való jog
       </h5>
@@ -403,7 +403,7 @@ useHead({
       </p>
 
       <h5
-        class="szf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
+        class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
       >
         3.7. További információk
       </h5>
@@ -477,3 +477,327 @@ useHead({
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+// ============================================
+// RESPONSIVE ADATKEZELÉSI TÁJÉKOZTATÓ STÍLUSOK
+// ============================================
+
+// Responsive Container
+.subpage-content {
+  padding: 1rem;
+  
+  @media (min-width: 576px) {
+    padding: 1.25rem;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 2.5rem 4rem;
+  }
+}
+
+.subpage-about-content {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  
+  @media (min-width: 480px) {
+    padding: 1.25rem;
+  }
+  
+  @media (min-width: 576px) {
+    padding: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 2rem;
+    max-width: 95%;
+  }
+  
+  @media (min-width: 992px) {
+    padding: 2rem 2.5rem;
+    max-width: 90%;
+  }
+  
+  @media (min-width: 1200px) {
+    max-width: 1100px;
+    padding: 10em 2em 2em 2em;
+  }
+  
+  @media (min-width: 1400px) {
+    max-width: 1200px;
+  }
+}
+
+// ============================================
+// HEADINGS - RESPONSIVE
+// ============================================
+
+.aszf-content__h4 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 1.25rem 0 0.75rem 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-weight: 700;
+  
+  @media (min-width: 480px) {
+    font-size: 1.4rem;
+  }
+  
+  @media (min-width: 576px) {
+    font-size: 1.65rem;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.9rem;
+    margin: 1.75rem 0 1rem 0;
+  }
+  
+  @media (min-width: 992px) {
+    font-size: 2.1rem;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 2.3rem;
+    margin: 2rem 0 1.25rem 0;
+  }
+}
+
+.aszf-content__h5 {
+  font-size: 1rem;
+  line-height: 1.3;
+  margin: 1.25rem 0 0.5rem 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-weight: 700;
+  
+  @media (min-width: 480px) {
+    font-size: 1.05rem;
+  }
+  
+  @media (min-width: 576px) {
+    font-size: 1.15rem;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+  
+  @media (min-width: 992px) {
+    font-size: 1.4rem;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 1.5rem;
+    margin: 1.75rem 0 0.9rem 0;
+  }
+}
+
+// ============================================
+// PARAGRAPHS - RESPONSIVE
+// ============================================
+
+.aszf-content__p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.6rem 0 0.8rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  
+  @media (min-width: 480px) {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0.75rem 0 1rem 0;
+  }
+  
+  @media (min-width: 576px) {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0.9rem 0 1.1rem 0;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 1rem 0 1.3rem 0;
+  }
+  
+  @media (min-width: 992px) {
+    font-size: 1.07rem;
+    line-height: 1.7;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    margin: 1.2rem 0 1.5rem 0;
+  }
+  
+  strong {
+    font-weight: 700;
+    color: inherit;
+  }
+}
+
+// ============================================
+// TYPOGRAPHY UTILITIES
+// ============================================
+
+.blog-box__text__h3 {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  
+  @media (min-width: 768px) {
+    letter-spacing: 0.5px;
+  }
+}
+
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+.text-color {
+  color: inherit;
+}
+
+// ============================================
+// LINK STYLING
+// ============================================
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+  word-break: break-word;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #0052a3;
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  &:active {
+    color: #003d7a;
+  }
+}
+
+// ============================================
+// ACCESSIBILITY
+// ============================================
+
+// Reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .subpage-about-content {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  .aszf-content__p,
+  .aszf-content__h4,
+  .aszf-content__h5 {
+    color: #e0e0e0;
+  }
+  
+  a {
+    color: #66b3ff;
+    
+    &:hover {
+      color: #99ccff;
+    }
+    
+    &:active {
+      color: #4d94ff;
+    }
+  }
+}
+
+// ============================================
+// PRINT STYLES
+// ============================================
+
+@media print {
+  .subpage-about-content {
+    max-width: 100%;
+    padding: 0;
+    background: white;
+  }
+  
+  .subpage-content {
+    padding: 0;
+  }
+  
+  .aszf-content__h4,
+  .aszf-content__h5 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    color: #000;
+  }
+  
+  .aszf-content__p {
+    orphans: 3;
+    widows: 3;
+    page-break-inside: avoid;
+    color: #000;
+  }
+  
+  a {
+    color: #0066cc;
+    text-decoration: underline;
+  }
+}
+
+// ============================================
+// EXTRA SMALL DEVICES (320px - 480px)
+// ============================================
+
+@media (max-width: 479px) {
+  .subpage-about-content {
+    padding: 10em 2em 2em 2em;
+  }
+  
+  .aszf-content__h4,
+  .aszf-content__h5 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .aszf-content__p {
+    margin: 0.5rem 0;
+  }
+}
+
+// ============================================
+// LANDSCAPE ORIENTATION FIX
+// ============================================
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .aszf-content__h4,
+  .aszf-content__h5 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+}
+</style>

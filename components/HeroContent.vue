@@ -8,7 +8,7 @@ const slides = ref([
     description:
       'Több mint 30 év szakmai tapasztalattal végzünk útépítést, aszfaltozást, kátyúzást, térkövezést, valamint különféle betonozási és alapozási munkálatokat cégek és magánszemélyek megbízásából egyaránt. Szolgáltatásaink a teljes körű útépítéstől egészen a kisebb kapubeállók, kocsifelhajtók, belső udvarok vagy járdák precíz kivitelezéséig terjednek, legyen szó mart aszfaltról, hengerelt burkolatról vagy térköves megoldásról, szükség esetén szegélyezéssel és vízelvezetéssel kiegészítve.',
     ctaButtonText: 'ÁRAJÁNLATKÉRÉS',
-    ctaLink: '#booking',
+    ctaLink: '/kapcsolat',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft',
     ctaText: '',
@@ -19,7 +19,7 @@ const slides = ref([
     description:
       'Számítógéppel vezérelt, soradagolós betonkeverő üzemünkkel garantáljuk a megfelelő minőséget és tartós, betonbiztos alapot. Megoldást nyújtunk a földnedves CKT-tól a mixerrel szállított extra erős szilárdságú betonig, melyet igény szerint – az anyagtól függően – billenccsel és/vagy mixerrel a helyszínre is szállítjuk. Saját modern technológiával felszerelt, automata betonkeverő üzemünknek köszönhetően az általunk előállított beton esetén a megfelelő minőséget, és tartósságot, a pontos alapanyag adagolásnak köszönhetően minden keverésnél garantálni tudjuk, elkerülve például azt, hogy a födém leszakadjon NÁLUNK NEM CSÚSZIK EL A KEVERÉSI ARÁNY! Betontechnológus által alkotott receptúrával dolgozunk, cégünket a CEMKUT Kft. tanusítja, hogy mindig a legjobb minőséget tudjuk előállítani.',
     ctaButtonText: 'LEGJOBBAT A LEGJOBBTÓL!',
-    ctaLink: '#concrete-services',
+    ctaLink: '/kapcsolat',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Professzionális betonozás',
     ctaText: '',
@@ -30,7 +30,7 @@ const slides = ref([
     description:
       'A térburkolat esztétikus és tartós megoldás lehet akár magánházaknál, akár közterületeken, például sétáló utcák, illetve parkolók esetében. A tartósság eléréséhez kiemelten fontos a jó alapozás, az alaprétegek pontos, a felületnek és a terepviszonyoknak megfelelő rétegrend kiépítése.  Az erre ráépített térburkolat tartós, nem süllyed, a felülete nem lesz hullámos idővel. Partnereinken keresztül versenyképes árakat tudunk biztosítani. Cégünk az alap készítésétől egészen a besöprésig minden részfeladatot elkészít.',
     ctaButtonText: 'Térburkolati ajánlat',
-    ctaLink: '#paving-solutions',
+    ctaLink: '/kapcsolat',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Térburkolat rendszerek',
     ctaText: '',
@@ -41,7 +41,7 @@ const slides = ref([
     description:
       'Jelenlegi gépállományunk, gépparkunk lehetővé teszi a tartós, szép aszfaltos felületek kivitelezését. Melegentartóval (thermokonténer) felszerelt tehergépjárműveink segítségével az aszfalt nem hül le ameddig a munkaterületre érünk vele és így elérhetjük, hogy az anyag a munka befejezéséig a megfelelő hőmérsékleten maradjon, a minősége olyan legyen, mint ha éppen abban a pillanatban jött volna ki az aszfaltkeverőből. Járdák, kocsibeállók esetén, öntött aszfalt újrahasznosító berendezésünk és tehergépkocsira felszerelt főző-szállító gépeink (reiser) segítségével jó minőségű anyagból tudunk szép, tartós felületet kialakítani. Az aszfalt újrahasznosító berendezéseink lehetővé teszik azt is, hogy a téli időszakban is tudjuk teljesíteni megrendelőink igényeit, még akkor is, ha az aszfaltkeverő üzemek zárva vannak.',
     ctaButtonText: 'Útépítési ajánlat',
-    ctaLink: '#road-construction',
+    ctaLink: '/kapcsolat',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Útépítési technológia',
     ctaText: '',
@@ -52,7 +52,7 @@ const slides = ref([
     description:
       'Hosszú távú megoldások a vizes problémákra. A folyó szöveg túl tudományos, egyszerűbben és az erősségeink hangsúlyozásával a következő legyen: A víz nem csak zavaró, de pusztító is lehet, károkat okozva, ha nem megfelelően van elvezetve. A burkolat megfelelő vízelvezetése – lejtetés – mellett fontos, hogy az onnan lefolyó víz is megfelelő mederben, koordináltan legyen elvezetve. Az ilyen igényekre is tudunk profi megoldásokat útszéli árkokkal, csatornákkal, szikkasztó építéssel.',
     ctaButtonText: 'Vízelvezetési rendszerek',
-    ctaLink: '#drainage-systems',
+    ctaLink: '/kapcsolat',
     imageUrl: '/img/hero.webp',
     imageAlt: 'Bola 95 Kft - Vízelvezető rendszerek',
     ctaText: '',

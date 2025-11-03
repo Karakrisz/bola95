@@ -40,7 +40,7 @@ const blocks = [
               <p class="nextlayer__block-text">{{ item.text }}</p>
             </div>
             <div>
-              <NuxtLink to="/" class="nextlayer__blocks__link"
+              <NuxtLink to="/kapcsolat" class="nextlayer__blocks__link"
                 >KAPCSOLAT</NuxtLink
               >
             </div>
