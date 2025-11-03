@@ -651,21 +651,21 @@ const _inlineRuntimeConfig = {
         "headers": {
           "Content-Type": "text/xml; charset=UTF-8",
           "Cache-Control": "public, max-age=600, must-revalidate",
-          "X-Sitemap-Prerendered": "2025-11-03T12:47:38.054Z"
+          "X-Sitemap-Prerendered": "2025-11-03T13:30:18.432Z"
         }
       },
       "/pages-sitemap.xml": {
         "headers": {
           "Content-Type": "text/xml; charset=UTF-8",
           "Cache-Control": "public, max-age=600, must-revalidate",
-          "X-Sitemap-Prerendered": "2025-11-03T12:47:38.054Z"
+          "X-Sitemap-Prerendered": "2025-11-03T13:30:18.432Z"
         }
       },
       "/betonozas-sitemap.xml": {
         "headers": {
           "Content-Type": "text/xml; charset=UTF-8",
           "Cache-Control": "public, max-age=600, must-revalidate",
-          "X-Sitemap-Prerendered": "2025-11-03T12:47:38.054Z"
+          "X-Sitemap-Prerendered": "2025-11-03T13:30:18.432Z"
         }
       },
       "/_nuxt/builds/meta/**": {
@@ -3223,10 +3223,19 @@ const sources$1 = [
                 "loc": "/"
             },
             {
+                "loc": "/rolunk"
+            },
+            {
+                "loc": "/galeria"
+            },
+            {
                 "loc": "/kapcsolat"
             },
             {
                 "loc": "/partnerek"
+            },
+            {
+                "loc": "/referenciak"
             },
             {
                 "loc": "/ajanlatkeres"
