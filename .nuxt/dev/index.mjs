@@ -651,21 +651,21 @@ const _inlineRuntimeConfig = {
         "headers": {
           "Content-Type": "text/xml; charset=UTF-8",
           "Cache-Control": "public, max-age=600, must-revalidate",
-          "X-Sitemap-Prerendered": "2025-11-03T13:30:18.432Z"
+          "X-Sitemap-Prerendered": "2025-11-03T13:31:26.103Z"
         }
       },
       "/pages-sitemap.xml": {
         "headers": {
           "Content-Type": "text/xml; charset=UTF-8",
           "Cache-Control": "public, max-age=600, must-revalidate",
-          "X-Sitemap-Prerendered": "2025-11-03T13:30:18.432Z"
+          "X-Sitemap-Prerendered": "2025-11-03T13:31:26.103Z"
         }
       },
       "/betonozas-sitemap.xml": {
         "headers": {
           "Content-Type": "text/xml; charset=UTF-8",
           "Cache-Control": "public, max-age=600, must-revalidate",
-          "X-Sitemap-Prerendered": "2025-11-03T13:30:18.432Z"
+          "X-Sitemap-Prerendered": "2025-11-03T13:31:26.103Z"
         }
       },
       "/_nuxt/builds/meta/**": {

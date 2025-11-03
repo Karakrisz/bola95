@@ -49,7 +49,7 @@ const machines: Machine[] = [
     <div class="equipment-section__footer">
       <!-- Ha NuxtLink-et használsz és van /machines oldalad, cseréld <a> helyett <NuxtLink>–re -->
       <NuxtLink to="/kapcsolat" class="equipment-section__button">
-        ÉRDEKKELNEK A RÉSZLETEK
+       ENGEM IS ÉRDEKKELNEK A RÉSZLETEK
       </NuxtLink>
     </div>
   </section>
