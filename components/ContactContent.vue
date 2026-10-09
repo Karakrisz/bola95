@@ -266,6 +266,11 @@ const onSubmit = async (event: Event) => {
                   >+36-30-222-9645</a
                 >
               </li>
+              <li>
+                <a class="contact-section__info-text" href="tel:+36202406636"
+                  >+36-20-240-6636</a
+                >
+              </li>
             </ul>
           </div>
         </address>
