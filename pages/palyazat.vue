@@ -3,15 +3,14 @@ useHead({
   title: 'Pályázat',
 })
 
-// TODO: a hiányzó adatokat az ügyféltől kapott értékekkel kitölteni
 const project = {
   beneficiary: 'Bola 95 Kft.',
-  title: '',
-  id: '',
-  amount: '',
-  rate: '',
-  endDate: '',
-  description: [],
+  title: 'Termelésbővítés a BOLA 95 Kft-nél',
+  id: 'VEKOP-1.2.1-16-2016-00136',
+  amount: '23 882 037 Ft',
+  rate: '34,646333%',
+  endDate: '2018.06.30.',
+  description: ['SYMEM Mobymix 1500 típusú betonkeverő létesítése.'],
 }
 
 const pending = 'Feltöltés alatt'
